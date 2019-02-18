@@ -5,7 +5,7 @@ addons:
   sonarqube:
     organization: "omar97perez-github"
     token:
-        secure: 506a037d978b7a018a9f4d719bda2a9bc083c7da
+        secure: 31fdac66d1953eb7683fc66b93f64f2b6f2ad586
 sudo: false
 script:
 - cd client
