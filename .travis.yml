@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- '10'
+sudo: false
+script:
+- cd client
+- npm install
+- npm e2e
+- npm test
+cache:
+  directories:
+  - node_modules
