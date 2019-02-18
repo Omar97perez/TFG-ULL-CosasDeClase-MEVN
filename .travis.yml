@@ -1,12 +1,18 @@
 language: node_js
 node_js:
 - '10'
+addons:
+  sonarqube:
+    organization: "omar97perez-github"
+    token:
+        secure: eb5dcf85a9e8247d724584436ac834955eb4b741
 sudo: false
 script:
 - cd client
 - npm install
 # - npm e2e
 # - npm test
+- sonar-scanner
 cache:
   directories:
   - node_modules
