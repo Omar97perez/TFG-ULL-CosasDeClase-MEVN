@@ -1,6 +1,6 @@
 <template>
   <div class="posts">
-    <h1>Posts</h1>
+    <h1>Post</h1>
     <div v-if="posts.length > 0" class="table-wrap">
       <div>
         <router-link v-bind:to="{ name: 'addpost' }" class="">Add Post</router-link>
