@@ -4,7 +4,7 @@
   "description": "APágina web para ayuda al estudiante",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app/src/index.js --ignore 'app/src/public'",
+    "start": "node app/src/index.js",
     "dev": "nodemon src/index.js --ignore 'src/public'",
     "webpack": "webpack --watch --mode development",
     "build": "webpack --mode production",
