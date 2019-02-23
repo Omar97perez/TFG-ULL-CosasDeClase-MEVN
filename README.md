@@ -1,5 +1,5 @@
 # TFG DE LA UNIVERNIDAD DE LA LAGUNA
-
+[Ver mejor la explicación](https://omar97perez.github.io/CosasDeClase-MEVN/) 
 ## CosasDeClase
 Este repositorio consiste en el desarrollo de una aplicación web basada en la idea de ayudar a los alumnos de cualquier curso académico en donde se podrán encontrar:
 - Noticias: existencia de noticias importantes sobre la actualidad de la educación ( becas
