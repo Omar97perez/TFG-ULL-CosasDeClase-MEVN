@@ -23,8 +23,6 @@
     return false;
   });
 
-	var nav = $('nav');
-
 	/*--/ ScrollReveal /Easy scroll animations for web and mobile browsers /--*/
 	window.sr = ScrollReveal();
 	sr.reveal('.foo', { duration: 1000, delay: 15 });
