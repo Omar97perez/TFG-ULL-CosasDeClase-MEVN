@@ -63,7 +63,7 @@
           <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <router-link :to="{ name: 'index' }" class="nav-link"><a class="nav-link "">Inicio</a></router-link>
+                <router-link :to="{ name: 'index' }" class="nav-link"><a class="nav-link">Inicio</a></router-link>
               </li>
               <li class="nav-item">
                 <router-link :to="{ name: 'clases' }" class="nav-link"><a class="nav-link">Clases Particulares</a></router-link>
