@@ -18,7 +18,8 @@ Desarrollado mediante el stack de desarrollo MEVN.
 
 ## Despliegue Página Web
 Despliegue hecho con Heroku ayudado de Mongodb Atlas.
-<img src="http://estebanromero.com/wp-content/uploads/2018/02/heroku1.png" height="50" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://d7umqicpi7263.cloudfront.net/img/product/a0bf257e-8a18-426a-a996-208ecfbdf8c8/092ea7fa-4552-4eb9-838a-b37bf5dd96e3.png" height="50" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<img src="http://estebanromero.com/wp-content/uploads/2018/02/heroku1.png" height="50" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://www.edc4it.com/images/blog/mongodb.png" height="50" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 [Aplicación](https://travis-ci.org/Omar97perez/CosasDeClase-MEVN.svg?branch=master)
 
