@@ -532,10 +532,6 @@ a:hover {
   font-size: 1.5rem;
 }
 
-.navbar-default.navbar-reduce {
-  box-shadow: 1px 2px 15px rgba(100, 100, 100, 0.3);
-}
-
 .navbar-default.navbar-trans,
 .navbar-default.navbar-reduce {
   -webkit-backface-visibility: hidden;
@@ -622,6 +618,7 @@ a:hover {
 }
 
 .navbar-default.navbar-reduce {
+  box-shadow: 1px 2px 15px rgba(100, 100, 100, 0.3);
   transition: all .5s ease-in-out;
   padding-top: 19px;
   padding-bottom: 19px;
@@ -955,9 +952,6 @@ a:hover {
 
 .intro-single .title-single-box {
   padding: 1rem 0 1rem 2rem;
-}
-
-.intro-single .title-single-box {
   border-left: 3px solid #2eca6a;
 }
 
@@ -1675,10 +1669,6 @@ footer .credits {
 
   .sinse-box p {
     font-size: .8rem;
-  }
-
-  .sinse-box p {
-    font-size: 1rem;
   }
 }
 

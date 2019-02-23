@@ -1,6 +1,6 @@
 (function ($) {
   "use strict";
-  
+
   // Preloader
   $(window).on('load', function () {
     if ($('#preloader').length) {
@@ -22,9 +22,8 @@
     $('html, body').animate({scrollTop : 0},1500, 'easeInOutExpo');
     return false;
   });
-  
+
 	var nav = $('nav');
-	var navHeight = nav.outerHeight();
 
 	/*--/ ScrollReveal /Easy scroll animations for web and mobile browsers /--*/
 	window.sr = ScrollReveal();
@@ -103,7 +102,7 @@
 	/*--/ Property owl owl /--*/
 	$('#property-single-carousel').owlCarousel({
 		loop: true,
-		margin: 0,  
+		margin: 0,
 		nav: true,
 		navText: ['<i class="ion-ios-arrow-back" aria-hidden="true"></i>', '<i class="ion-ios-arrow-forward" aria-hidden="true"></i>'],
 		responsive: {
@@ -118,7 +117,7 @@
 		loop: true,
 		margin: 30,
 		responsive: {
-			0: {  
+			0: {
 				items: 1,
 			},
 			769: {
