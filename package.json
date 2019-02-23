@@ -4,6 +4,7 @@
   "description": "APágina web para ayuda al estudiante",
   "main": "index.js",
   "scripts": {
+    "purifycss": "purifycss app/src/public/css/style.css app/src/app/components/*.vue --min --out app/src/public/css/final.css --info",
     "start": "node app/src/index.js",
     "dev": "nodemon app/src/index.js --ignore 'src/public'",
     "webpack": "webpack --watch --mode development",
@@ -53,7 +54,10 @@
     "webpack-cli": "^3.1.2"
   },
   "devDependencies": {
-    "nodemon": "^1.17.4"
+    "extract-text-webpack-plugin": "^3.0.2",
+    "nodemon": "^1.17.4",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0"
   },
   "jest": {
     "automock": false,
