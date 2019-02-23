@@ -1,6 +1,6 @@
-# todojuegos
+# cosasdeclase
 
-> Tienda virtual de Videojuegos
+> Una aplicación web basada en la idea de ayudar a los alumnos de cualquier curso académico
 
 ## Build Setup
 
