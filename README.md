@@ -23,3 +23,9 @@ Despliegue hecho con Heroku ayudado de Mongodb Atlas.
 
 ## Travis
 [![Build Status](https://travis-ci.org/SyTW12018/E04.svg?branch=master)](https://travis-ci.org/SyTW12018/E04)
+
+## Build Setup
+- Intalar dependencias: npm install.
+- Correr webpack: npm run webpack.
+- Correr el servidor desarrollo (puerto 3000): npm run dev.
+- Correr servidor despliegue: npm start.
