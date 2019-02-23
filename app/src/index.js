@@ -10,11 +10,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
 
-
-// //Conexión con la base de datos, cuando se despliegue en servidor  se tendrá que cambiar la dirección
-// mongoose.connect('mongodb://localhost/CosasDeClase')
-//   .then(db => console.log('DB conectada')) //Imprimir DB conectada en caso de que todo vaya bien
-//   .catch(err => console.error(err)); //Imprime error si no se puedo conectar
+//Conexión con la base de datos, cuando se despliegue en servidor  se tendrá que cambiar la dirección
+mongoose.connect('mongodb+srv://omar:@cluster0-svm5b.mongodb.net/admin')
+  .then(db => console.log('DB conectada')) //Imprimir DB conectada en caso de que todo vaya bien
+  .catch(err => console.error(err)); //Imprime error si no se puedo conectar
 
 //Ajustes
   //Si el servidor tiene puerto lo coge sino pone el puerto 3000
