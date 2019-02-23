@@ -8,7 +8,7 @@ addons:
         secure: 31fdac66d1953eb7683fc66b93f64f2b6f2ad586
 sudo: false
 script:
-- cd client
+- cd app
 - npm install
 # - npm e2e
 # - npm test
