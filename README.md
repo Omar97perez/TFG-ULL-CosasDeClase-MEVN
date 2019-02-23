@@ -17,8 +17,7 @@ Desarrollado mediante el stack de desarrollo MEVN y su posterior despliegue en H
 
 
 ## Despliegue Página Web
-[Aplicación](https://cosasdeclase.herokuapp.com/#/)
+[Aplicación](https://travis-ci.org/Omar97perez/CosasDeClase-MEVN.svg?branch=master)
 
 ## Travis
-[![Build Status](https://travis-ci.org/Omar97perez/CosasDeClase-MEVN)]
 [![Build Status](https://travis-ci.org/SyTW12018/E04.svg?branch=master)](https://travis-ci.org/SyTW12018/E04)
