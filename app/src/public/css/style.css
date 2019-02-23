@@ -1205,11 +1205,10 @@ a:hover {
 
 .post-content .post-intro {
   font-size: 1.7rem;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 4rem;
   line-height: 1.6;
   color: #000000;
-  font-weight: 400;
 }
 
 .post-content p {
@@ -1399,11 +1398,10 @@ a:hover {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
   top: 50px;
-  text-align: left;
+  text-align: right;
   font-size: 1.8rem;
   width: 300px;
   font-weight: 700;
-  text-align: right;
 }
 
 .about-img-box {
