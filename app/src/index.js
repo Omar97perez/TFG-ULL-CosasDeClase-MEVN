@@ -19,6 +19,16 @@ mongoose.connect('mongodb+srv://omar:antonio1997@cluster0-svm5b.mongodb.net/admi
   //Si el servidor tiene puerto lo coge sino pone el puerto 3000
   app.set('port', process.env.PORT || 3000  );
 
+  //Middlewares
+  //Sirve para imprimir las peticiones Get de la consola
+  app.use(morgan('dev'));
+  //Body-parser viene integrado con express (sirve para trabajar con los json)
+  app.use(express.json());
+
+//Routes
+  //Ruta donde se encuentran las funciones de la base de datos TODAS (insertar/eliminar/modificar)
+  app.use('/api/CoasDeClase/Producto',require('./routes/Producto'));
+
 //Ficheros estáticos, coge el index.html dentro de public
 app.use(express.static(__dirname + '/public'));
 
