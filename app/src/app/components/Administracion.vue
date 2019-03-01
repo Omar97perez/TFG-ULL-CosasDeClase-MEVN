@@ -1,4 +1,4 @@
-<template>
+<template class="pt-5">
     <div class="container-fluid pt-5">
      <h1 class="text-center pt-5"> Modificar Página </h1>
       <div class="row pt-5">
@@ -14,11 +14,6 @@
                         <label for="price">Precio</label>
                         <input v-model="Producto.precio" type="text" class="form-control">
                     </div>
-
-                    <div class="col">
-                        <label for="price">Oferta</label>
-                        <input v-model="Producto.oferta" type="text" class="form-control">
-                    </div>
                 </div>
 
                 <div class="form-group">
@@ -30,91 +25,9 @@
                     <label for="sel1">Tipo de producto:</label>
                     <select class="form-control" id="product" name="product" v-model="Producto.tipo" style="height: 40px;">
                         <option value="0"></option>
-                        <option value="videojuego">Juego</option>
-                        <option value="consola">Consola</option>
-                        <option value="accesorio">Accesorios</option>
-                        <option value="mercha">Merchadising</option>
-                        <option value="electronica">Electronica</option>
-                    </select>
-                </div>
-
-                <div v-if="Producto.tipo === 'videojuego'" class="form-group" id="game">
-                    <label for="">Categoria</label>
-                    <select v-model="Producto.categoria" class="form-control" name="" id="" style="height: 40px;">
-                        <option value=""></option>
-                        <option value="Aventura">Aventura</option>
-                        <option value="Deportes">Deportes</option>
-                        <option value="Acción">Acción</option>
-                        <option value="Conducción">Conducción</option>
-                        <option value="Estrategia">Estrategia</option>
-                        <option value="RPG">RPG</option>
-                    </select>
-
-                    <label for="">Plataforma</label>
-                    <select v-model="Producto.plataforma" class="form-control" name="" id="" style="height: 40px;">
-                        <option value=""></option>
-                        <option value="Ps4">PS4</option>
-                        <option value="Pc">PC</option>
-                        <option value="XBoxOne">XBOX ONE</option>
-                        <option value="Switch">SWITCH</option>
-                        <option value="Multi">Multiplataforma</option>
-                    </select>
-                </div>
-
-                <div v-if="Producto.tipo === 'consola'" class="form-group" id="game">
-                  <label for="sel1">Tipo de consola:</label>
-                  <select v-model="Producto.plataforma" class="form-control" name="" id="" style="height: 40px;">
-                      <option value=""></option>
-                      <option value="Ps4">PS4</option>
-                      <option value="Pc">PC</option>
-                      <option value="XBoxOne">XBOX ONE</option>
-                      <option value="Switch">SWITCH</option>
-                      <option value="Multi">Multiplataforma</option>
-                  </select>
-                </div>
-
-                <div v-if="Producto.tipo === 'accesorio'" class="form-group" id="acc">
-                    <label for="">Tipo de accesorio</label>
-                    <select v-model="Producto.categoria" class="form-control" name="" id="" style="height: 40px;">
-                        <option value=""></option>
-                        <option value="mando">Mandos</option>
-                        <option value="cascos">Cascos</option>
-                        <option value="grips">Grips</option>
-                        <option value="cargador">Cargadores</option>
-                        <option value="volantes">volantes</option>
-                        <option value="cover">cover</option>
-                    </select>
-
-                    <label for="">Plataforma</label>
-                    <select v-model="Producto.plataforma" class="form-control" name="" id="" style="height: 40px;">
-                      <option value=""></option>
-                      <option value="Ps4">PS4</option>
-                      <option value="Pc">PC</option>
-                      <option value="XBoxOne">XBOX ONE</option>
-                      <option value="Switch">SWITCH</option>
-                      <option value="Multi">Multiplataforma</option>
-                    </select>
-                </div>
-
-                <div v-if="Producto.tipo === 'mercha'" class="form-group" id="mercha">
-                    <label for="">Tipo de mercha</label>
-                    <select v-model="Producto.categoria" class="form-control" name="" id="" style="height: 40px;">
-                        <option value=""></option>
-                        <option value="figuras">Figuras</option>
-                        <option value="figuraspop">Figuras Pop</option>
-                        <option value="ropa">Ropa</option>
-                        <option value="peluches">Peluches</option>
-                    </select>
-                </div>
-
-                <div v-if="Producto.tipo === 'electronica'" class="form-group" id="game">
-                    <label for="">Categoria</label>
-                    <select v-model="Producto.plataforma" class="form-control" name="" id="" style="height: 40px;">
-                        <option value=""></option>
-                        <option value="smartphone">Smartphone</option>
-                        <option value="accsmartphone">Accesorio Smartphone</option>
-                        <option value="tablets">Tablets</option>
-                        <option value="acctablets">Accesorio Tablets</option>
+                        <option value="clases">Clases Particulares</option>
+                        <option value="apuntes">Apuntes</option>
+                        <option value="noticias">Noticias</option>
                     </select>
                 </div>
 
