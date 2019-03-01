@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 //Conexión con la base de datos, cuando se despliegue en servidor  se tendrá que cambiar la dirección
-mongoose.connect('mongodb+srv://omar:antonio1997@cluster0-svm5b.mongodb.net/admin')
+mongoose.connect('mongodb://omar:antonio1997@cluster0-shard-00-00-svm5b.mongodb.net:27017,cluster0-shard-00-01-svm5b.mongodb.net:27017,cluster0-shard-00-02-svm5b.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true')
   .then(db => console.log('DB conectada')) //Imprimir DB conectada en caso de que todo vaya bien
   .catch(err => console.error(err)); //Imprime error si no se puedo conectar
 
@@ -27,7 +27,7 @@ mongoose.connect('mongodb+srv://omar:antonio1997@cluster0-svm5b.mongodb.net/admi
 
 //Routes
   //Ruta donde se encuentran las funciones de la base de datos TODAS (insertar/eliminar/modificar)
-  app.use('/api/CoasDeClase/Producto',require('./routes/Producto'));
+  app.use('/api/CosasDeClase/Producto',require('./routes/Producto'));
 
 //Ficheros estáticos, coge el index.html dentro de public
 app.use(express.static(__dirname + '/public'));

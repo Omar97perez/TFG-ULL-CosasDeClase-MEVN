@@ -16,6 +16,7 @@ import Apuntes from './components/apuntes.vue'
 import Noticias from './components/noticias.vue'
 import Contacto from './components/contacto.vue'
 import Perfil from './components/perfil.vue'
+import Administracion from './components/Administracion.vue'
 
 const routes = [
   {
@@ -47,6 +48,11 @@ const routes = [
   path: '/Perfil',
   name: 'perfil',
   component: Perfil
+},
+{
+  path: '/Admninistracion',
+  name: 'administracion',
+  component: Administracion
 }
 ];
 
