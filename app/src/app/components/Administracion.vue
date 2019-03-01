@@ -7,10 +7,7 @@
           <div class="row">
             <div class="col-md-12 col-lg-8">
               <div class="title-single-box">
-                <h1 class="title-single">Nuevo
-
-
-                  Anuncio</h1>
+                <h1 class="title-single">Nuevo Anuncio</h1>
               </div>
             </div>
           </div>
@@ -22,6 +19,11 @@
               <div class="col-md-12">
                     <form @submit.prevent="sendProducto">
                       <div class="form-group row">
+                          <div class="col">
+                              <label for="tittle">Anunciante</label>
+                              <input v-model="Producto.anunciante" type="text" class="form-control">
+                          </div>
+
                           <div class="col">
                               <label for="tittle">Titulo del producto</label>
                               <input v-model="Producto.titulo" type="text" class="form-control">
@@ -63,6 +65,7 @@
                   <thead style="background-color:#434343;color:#ffffff">
                     <tr>
                       <th >ID</th>
+                      <th >Anunciante</th>
                       <th >Título</th>
                       <th>Foto</th>
                       <th>Decripcion</th>
@@ -74,6 +77,7 @@
                   <tbody >
                     <tr v-for="Producto of Productos">
                       <td>{{Producto._id}}</td>
+                      <td>{{Producto.anunciante}}</td>
                       <td>{{Producto.titulo}}</td>
                       <td>
                         <div class="img-box">
@@ -101,7 +105,8 @@
 
 <script>
 class Producto {
-  constructor(titulo = '', foto = '',  descripcion = '', tipo = '', precio = '',) {
+  constructor(anunciante = '',titulo = '', foto = '',  descripcion = '', tipo = '', precio = '',) {
+    this.anunciante = anunciante;
     this.titulo = titulo;
     this.foto = foto;
     this.descripcion = descripcion;
