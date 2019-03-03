@@ -25,13 +25,9 @@
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="blog-single.html" class="category-b">Travel</a>
-                  </div>
                   <div class="card-title-b">
                     <h2 class="title-2">
-                      <a href="blog-single.html">Travel is comming
-                        <br> new</a>
+                      <router-link :to="{ name: 'anuncio_noticia' }"><a >Travel is comming new</a></router-link>
                     </h2>
                   </div>
                   <div class="card-date">
@@ -48,13 +44,9 @@
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="blog-single.html" class="category-b">Travel</a>
-                  </div>
                   <div class="card-title-b">
                     <h2 class="title-2">
-                      <a href="blog-single.html">Travel is comming
-                        <br> new</a>
+                    <router-link :to="{ name: 'anuncio_noticia' }"><a >Travel is comming new</a></router-link>
                     </h2>
                   </div>
                   <div class="card-date">
@@ -71,13 +63,9 @@
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Travel</a>
-                  </div>
                   <div class="card-title-b">
                     <h2 class="title-2">
-                      <a href="blog-single.html">Travel is comming
-                        <br> new</a>
+                      <router-link :to="{ name: 'anuncio_noticia' }"><a >Travel is comming new</a></router-link>
                     </h2>
                   </div>
                   <div class="card-date">
@@ -94,13 +82,9 @@
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Travel</a>
-                  </div>
                   <div class="card-title-b">
                     <h2 class="title-2">
-                      <a href="blog-single.html">Travel is comming
-                        <br> new</a>
+                      <router-link :to="{ name: 'anuncio_noticia' }"><a >Travel is comming new</a></router-link>
                     </h2>
                   </div>
                   <div class="card-date">
@@ -117,13 +101,9 @@
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Travel</a>
-                  </div>
                   <div class="card-title-b">
                     <h2 class="title-2">
-                      <a href="blog-single.html">Travel is comming
-                        <br> new</a>
+                      <router-link :to="{ name: 'anuncio_noticia' }"><a >Travel is comming new</a></router-link>
                     </h2>
                   </div>
                   <div class="card-date">
@@ -140,13 +120,9 @@
               </div>
               <div class="card-overlay">
                 <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Travel</a>
-                  </div>
                   <div class="card-title-b">
                     <h2 class="title-2">
-                      <a href="blog-single.html">Travel is comming
-                        <br> new</a>
+                      <router-link :to="{ name: 'anuncio_noticia' }"><a >Travel is comming new</a></router-link>
                     </h2>
                   </div>
                   <div class="card-date">
