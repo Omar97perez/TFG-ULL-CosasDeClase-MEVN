@@ -94,9 +94,7 @@
                     <div class="price-box d-flex">
                       <span class="price-a">rent | $ 12.000</span>
                     </div>
-                    <a href="property-single.html" class="link-a">Click here to view
-                      <span class="ion-ios-arrow-forward"></span>
-                    </a>
+                  <router-link :to="{ name: 'anuncio' }" class="link-a"><a >Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
                   </div>
                   <div class="card-footer-a">
                     <ul class="card-info d-flex justify-content-around">
