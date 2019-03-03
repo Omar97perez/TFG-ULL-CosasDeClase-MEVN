@@ -16,7 +16,7 @@ import Apuntes from './components/apuntes.vue'
 import Noticias from './components/noticias.vue'
 import Contacto from './components/contacto.vue'
 import Perfil from './components/perfil.vue'
-import Administracion from './components/Administracion.vue'
+import Administracion from './components/administracion.vue'
 
 const routes = [
   {
