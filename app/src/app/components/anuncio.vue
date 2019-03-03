@@ -1,57 +1,5 @@
 <template>
   <div>
-    <!--/ Nav Star /-->
-    <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
-      <div class="container">
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
-          aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <a class="navbar-brand text-brand" href="index.html">Estate<span class="color-b">Agency</span></a>
-        <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
-          data-target="#navbarTogglerDemo01" aria-expanded="false">
-          <span class="fa fa-search" aria-hidden="true"></span>
-        </button>
-        <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="property-grid.html">Property</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog-grid.html">Blog</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                Pages
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item active" href="property-single.html">Property Single</a>
-                <a class="dropdown-item" href="blog-single.html">Blog Single</a>
-                <a class="dropdown-item" href="agents-grid.html">Agents Grid</a>
-                <a class="dropdown-item" href="agent-single.html">Agent Single</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
-        <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
-          data-target="#navbarTogglerDemo01" aria-expanded="false">
-          <span class="fa fa-search" aria-hidden="true"></span>
-        </button>
-      </div>
-    </nav>
-    <!--/ Nav End /-->
 
     <!--/ Intro Single star /-->
     <section class="intro-single">
@@ -59,24 +7,9 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">304 Blaster Up</h1>
+              <h1 class="title-single">Título</h1>
               <span class="color-text-a">Chicago, IL 606543</span>
             </div>
-          </div>
-          <div class="col-md-12 col-lg-4">
-            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                  <a href="index.html">Home</a>
-                </li>
-                <li class="breadcrumb-item">
-                  <a href="property-grid.html">Properties</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  304 Blaster Up
-                </li>
-              </ol>
-            </nav>
           </div>
         </div>
       </div>
@@ -115,7 +48,7 @@
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="title-box-d section-t4">
-                        <h3 class="title-d">Quick Summary</h3>
+                        <h3 class="title-d">Resumen</h3>
                       </div>
                     </div>
                   </div>
@@ -163,7 +96,7 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="title-box-d">
-                      <h3 class="title-d">Property Description</h3>
+                      <h3 class="title-d">Descripción</h3>
                     </div>
                   </div>
                 </div>
@@ -184,7 +117,7 @@
                 <div class="row section-t3">
                   <div class="col-sm-12">
                     <div class="title-box-d">
-                      <h3 class="title-d">Amenities</h3>
+                      <h3 class="title-d">Niveles</h3>
                     </div>
                   </div>
                 </div>
@@ -204,35 +137,6 @@
               </div>
             </div>
           </div>
-          <div class="col-md-10 offset-md-1">
-            <ul class="nav nav-pills-a nav-pills mb-3 section-t3" id="pills-tab" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="pills-video-tab" data-toggle="pill" href="#pills-video" role="tab"
-                  aria-controls="pills-video" aria-selected="true">Video</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="pills-plans-tab" data-toggle="pill" href="#pills-plans" role="tab" aria-controls="pills-plans"
-                  aria-selected="false">Floor Plans</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="pills-map-tab" data-toggle="pill" href="#pills-map" role="tab" aria-controls="pills-map"
-                  aria-selected="false">Ubication</a>
-              </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-              <div class="tab-pane fade show active" id="pills-video" role="tabpanel" aria-labelledby="pills-video-tab">
-                <iframe src="https://player.vimeo.com/video/73221098" width="100%" height="460" frameborder="0"
-                  webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-              </div>
-              <div class="tab-pane fade" id="pills-plans" role="tabpanel" aria-labelledby="pills-plans-tab">
-                <img src="img/plan2.jpg" alt="" class="img-fluid">
-              </div>
-              <div class="tab-pane fade" id="pills-map" role="tabpanel" aria-labelledby="pills-map-tab">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.98731968482413!3d40.75889497932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes+Square!5e0!3m2!1ses-419!2sve!4v1510329142834"
-                  width="100%" height="460" frameborder="0" style="border:0" allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
           <div class="col-md-12">
             <div class="row section-t3">
               <div class="col-sm-12">
@@ -245,7 +149,7 @@
               <div class="col-md-6 col-lg-4">
                 <img src="img/agent-4.jpg" alt="" class="img-fluid">
               </div>
-              <div class="col-md-6 col-lg-4">
+              <div class="col-md-6 col-lg-7">
                 <div class="property-agent">
                   <h4 class="title-agent">Anabella Geller</h4>
                   <p class="color-text-a">
@@ -300,35 +204,6 @@
                       </li>
                     </ul>
                   </div>
-                </div>
-              </div>
-              <div class="col-md-12 col-lg-4">
-                <div class="property-contact">
-                  <form class="form-a">
-                    <div class="row">
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
-                          <input type="text" class="form-control form-control-lg form-control-a" id="inputName"
-                            placeholder="Name *" required>
-                        </div>
-                      </div>
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
-                          <input type="email" class="form-control form-control-lg form-control-a" id="inputEmail1"
-                            placeholder="Email *" required>
-                        </div>
-                      </div>
-                      <div class="col-md-12 mb-1">
-                        <div class="form-group">
-                          <textarea id="textMessage" class="form-control" placeholder="Comment *" name="message" cols="45"
-                            rows="8" required></textarea>
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <button type="submit" class="btn btn-a">Send Message</button>
-                      </div>
-                    </div>
-                  </form>
                 </div>
               </div>
             </div>
