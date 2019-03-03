@@ -161,9 +161,7 @@
             <h2 class="title-a">Últimas noticias</h2>
           </div>
           <div class="title-link">
-            <a href="blog-grid.html">Todas las noticias
-              <span class="ion-ios-arrow-forward"></span>
-            </a>
+            <router-link :to="{ name: 'noticias' }" ><a >Todas las noticias<span class="ion-ios-arrow-forward"></span></a></router-link>
           </div>
         </div>
       </div>
@@ -276,9 +274,7 @@
             <h2 class="title-a">Mejores profesores</h2>
           </div>
           <div class="title-link">
-            <a href="agents-grid.html">Todos los Profesores
-              <span class="ion-ios-arrow-forward"></span>
-            </a>
+            <router-link :to="{ name: 'clases' }" ><a >Todos los profesores<span class="ion-ios-arrow-forward"></span></a></router-link>
           </div>
         </div>
       </div>
@@ -476,9 +472,7 @@
             <h2 class="title-a">Mejores apuntes</h2>
           </div>
           <div class="title-link">
-            <a href="property-grid.html">Todos los apuntes
-              <span class="ion-ios-arrow-forward"></span>
-            </a>
+              <router-link :to="{ name: 'apuntes' }" ><a >Todos los apuntes<span class="ion-ios-arrow-forward"></span></a></router-link>
           </div>
         </div>
       </div>
