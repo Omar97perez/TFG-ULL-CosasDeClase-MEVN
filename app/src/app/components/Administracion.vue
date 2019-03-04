@@ -62,7 +62,7 @@
                           </select>
                       </div>
 
-                      <div v-if="Producto.tipo === 'clases'" class="form-group" id="game">
+                      <div v-if="Producto.tipo === 'clases' || Producto.tipo === 'apuntes'" class="form-group" id="game">
                         <label for="sel1">Nivel de las clases:</label>
                         <select v-model="Producto.nivel" class="form-control" name="" id="" style="height: 40px;">
                             <option value="todos">Todos</option>
