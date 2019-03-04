@@ -6,6 +6,7 @@ var Schema = mongoose.Schema;
 const Productos = new Schema({
   id: Number,
   anunciante: String,
+  fecha: String,
   titulo: String ,
   foto: String ,
   descripcion: String,

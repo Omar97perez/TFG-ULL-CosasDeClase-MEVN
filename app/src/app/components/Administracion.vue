@@ -28,6 +28,11 @@
                               <label for="tittle">Titulo del producto</label>
                               <input v-model="Producto.titulo" type="text" class="form-control">
                           </div>
+
+                          <div class="col">
+                              <label for="tittle">Fecha</label>
+                              <input v-model="Producto.fecha" type="date" class="form-control" />
+                          </div>
                       </div>
 
                       <div class="form-group">
@@ -90,6 +95,7 @@
                     <tr>
                       <th >Anunciante</th>
                       <th >Título</th>
+                      <th >Fecha</th>
                       <th>Foto</th>
                       <th>Decripcion</th>
                       <th>Tipo</th>
@@ -102,6 +108,7 @@
                     <tr v-for="Producto of Productos">
                       <td>{{Producto.anunciante}}</td>
                       <td>{{Producto.titulo}}</td>
+                      <td>{{Producto.fecha}}</td>
                       <td>
                         <div class="img-box">
                           <img v-bind:src="Producto.foto"  width="150" height="150"></img>
