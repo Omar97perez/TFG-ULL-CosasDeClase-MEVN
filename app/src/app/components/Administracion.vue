@@ -28,28 +28,6 @@
                               <label for="tittle">Titulo del producto</label>
                               <input v-model="Producto.titulo" type="text" class="form-control">
                           </div>
-
-                          <div class="col">
-                              <label for="price">Precio</label>
-                              <input v-model="Producto.precio" type="text" class="form-control">
-                          </div>
-                      </div>
-
-                      <div class="form-group row">
-                          <div class="col">
-                              <label for="tittle">Localidad</label>
-                              <input v-model="Producto.localidad" type="text" class="form-control">
-                          </div>
-
-                          <div class="col">
-                              <label for="tittle">Provincia</label>
-                              <input v-model="Producto.provincia" type="text" class="form-control">
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                          <label for="desc">Descripción del articulo</label>
-                          <textarea v-model="Producto.descripcion" name="desc" id="desc" cols="30" rows="5" class="form-control"></textarea>
                       </div>
 
                       <div class="form-group">
@@ -60,6 +38,29 @@
                               <option value="apuntes">Apuntes</option>
                               <option value="noticias">Noticias</option>
                           </select>
+                      </div>
+                      <div v-if="Producto.tipo === 'clases' || Producto.tipo === 'apuntes'" class="form-group" id="game">
+                        <div class="form-group row">
+                            <div class="col">
+                                <label for="tittle">Localidad</label>
+                                <input v-model="Producto.localidad" type="text" class="form-control">
+                            </div>
+
+                            <div class="col">
+                                <label for="tittle">Provincia</label>
+                                <input v-model="Producto.provincia" type="text" class="form-control">
+                            </div>
+
+                            <div class="col">
+                                <label for="price">Precio</label>
+                                <input v-model="Producto.precio" type="text" class="form-control">
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="desc">Descripción del articulo</label>
+                          <textarea v-model="Producto.descripcion" name="desc" id="desc" cols="30" rows="5" class="form-control"></textarea>
                       </div>
 
                       <div v-if="Producto.tipo === 'clases' || Producto.tipo === 'apuntes'" class="form-group" id="game">
