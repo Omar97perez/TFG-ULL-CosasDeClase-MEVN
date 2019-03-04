@@ -88,11 +88,8 @@
                 <table class="table table-striped">
                   <thead style="background-color:#434343;color:#ffffff">
                     <tr>
-                      <th >ID</th>
                       <th >Anunciante</th>
                       <th >Título</th>
-                      <th >Localidad</th>
-                      <th >Provincia</th>
                       <th>Foto</th>
                       <th>Decripcion</th>
                       <th>Tipo</th>
@@ -103,11 +100,8 @@
                   </thead>
                   <tbody >
                     <tr v-for="Producto of Productos">
-                      <td>{{Producto._id}}</td>
                       <td>{{Producto.anunciante}}</td>
                       <td>{{Producto.titulo}}</td>
-                      <td>{{Producto.localidad}}</td>
-                      <td>{{Producto.provincia}}</td>
                       <td>
                         <div class="img-box">
                           <img v-bind:src="Producto.foto"  width="150" height="150"></img>
