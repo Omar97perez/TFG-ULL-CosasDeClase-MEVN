@@ -35,6 +35,18 @@
                           </div>
                       </div>
 
+                      <div class="form-group row">
+                          <div class="col">
+                              <label for="tittle">Localidad</label>
+                              <input v-model="Producto.localidad" type="text" class="form-control">
+                          </div>
+
+                          <div class="col">
+                              <label for="tittle">Provincia</label>
+                              <input v-model="Producto.provincia" type="text" class="form-control">
+                          </div>
+                      </div>
+
                       <div class="form-group">
                           <label for="desc">Descripción del articulo</label>
                           <textarea v-model="Producto.descripcion" name="desc" id="desc" cols="30" rows="5" class="form-control"></textarea>
@@ -48,6 +60,17 @@
                               <option value="apuntes">Apuntes</option>
                               <option value="noticias">Noticias</option>
                           </select>
+                      </div>
+
+                      <div v-if="Producto.tipo === 'clases'" class="form-group" id="game">
+                        <label for="sel1">Nivel de las clases:</label>
+                        <select v-model="Producto.nivel" class="form-control" name="" id="" style="height: 40px;">
+                            <option value="todos">Todos</option>
+                            <option value="primaria">Primaria</option>
+                            <option value="secundaria">Secundaria</option>
+                            <option value="bachillerato">Bachillerato</option>
+                            <option value="universidad">Universidad</option>
+                        </select>
                       </div>
 
                       <div class="form-group">
@@ -67,9 +90,12 @@
                       <th >ID</th>
                       <th >Anunciante</th>
                       <th >Título</th>
+                      <th >Localidad</th>
+                      <th >Provincia</th>
                       <th>Foto</th>
                       <th>Decripcion</th>
                       <th>Tipo</th>
+                      <th>Nivel</th>
                       <th>Precio</th>
                       <th>Acciones</th>
                     </tr>
@@ -79,6 +105,8 @@
                       <td>{{Producto._id}}</td>
                       <td>{{Producto.anunciante}}</td>
                       <td>{{Producto.titulo}}</td>
+                      <td>{{Producto.localidad}}</td>
+                      <td>{{Producto.provincia}}</td>
                       <td>
                         <div class="img-box">
                           <img v-bind:src="Producto.foto"  width="150" height="150"></img>
@@ -86,6 +114,7 @@
                       </td>
                       <td>{{Producto.descripcion}}</td>
                       <td>{{Producto.tipo}}</td>
+                      <td>{{Producto.nivel}}</td>
                       <td>{{Producto.precio}}</td>
                       <td>
                         <button @click="deleteProducto(Producto._id)" class="btn btn-danger mb-4" >Delete</button>
