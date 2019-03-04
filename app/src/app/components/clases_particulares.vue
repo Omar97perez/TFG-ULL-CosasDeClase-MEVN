@@ -85,10 +85,10 @@
       }
     },
     created() {
-      this.getProductos_Pc();
+      this.getProductos();
     },
     methods: {
-      getProductos_Pc() {
+      getProductos() {
         fetch('/api/CosasDeClase/Producto/')
           .then(res => res.json())
           .then(data => {
