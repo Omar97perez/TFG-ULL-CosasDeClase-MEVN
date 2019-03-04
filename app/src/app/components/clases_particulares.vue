@@ -30,9 +30,8 @@
               </form>
             </div>
           </div>
-          <div class="col-md-4">
+          <div  v-for="Producto of Productos" class="col-md-4">
             <div class="card-box-a card-shadow">
-              <tr v-for="Producto of Productos">
                 <div class="img-box-a">
                   <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
                 </div>
@@ -68,7 +67,6 @@
                     </div>
                   </div>
                 </div>
-              </tr>
             </div>
           </div>
         </div>
