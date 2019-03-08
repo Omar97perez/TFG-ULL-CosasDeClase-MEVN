@@ -19,6 +19,7 @@ import Perfil from './components/perfil.vue'
 import Administracion from './components/administracion.vue'
 import Anuncio from './components/anuncio.vue'
 import Anuncio_noticia from './components/anuncio_noticia.vue'
+import store from './components/store';
 
 const routes = [
   {
