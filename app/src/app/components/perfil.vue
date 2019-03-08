@@ -34,15 +34,11 @@
                     </div>
                   </div>
                   <div class="agent-content mb-3">
-                    <p class="content-d color-text-a">
-                      Sed porttitor lectus nibh. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
-                      Vivamus suscipit tortor
-                      eget felis porttitor volutpat. Vivamus suscipit tortor eget felis porttitor volutpat.
-                    </p>
+                    <p class="content-d color-text-a">{{getParagraph}}</p>
                     <div class="info-agents color-a">
                       <p>
                         <strong>Teléfono: </strong>
-                        <span class="color-text-a"> +54 356 945234 </span>
+                        <span class="color-text-a">{{getTelephone}}</span>
                       </p>
                       <p>
                         <strong>Email: </strong>
@@ -51,10 +47,6 @@
                       <p>
                         <strong>Fecha de Nacimiento: </strong>
                         <span class="color-text-a">{{getBirthdate}}</span>
-                      </p>
-                      <p>
-                        <strong>skype: </strong>
-                        <span class="color-text-a"> Margaret.Es</span>
                       </p>
                     </div>
                   </div>
@@ -93,7 +85,7 @@
           </div>
           <div class="col-md-12 section-t8">
             <div class="title-box-d">
-              <h3 class="title-d">Mis anuncios (6)</h3>
+              <h3 class="title-d">Mis anuncios</h3>
             </div>
           </div>
           <div class="row property-grid grid">
@@ -399,7 +391,6 @@
   </div>
 </template>
 
-
 <script>
 export default {
   name: 'ModUsuario',
@@ -428,6 +419,12 @@ export default {
     getParagraph() {
       return this.$store.getters.paragraph
     },
+    getImage() {
+      return this.$store.getters.image
+    },
+    getTelephone() {
+      return this.$store.getters.telephone
+    },
     getGenre() {
       return this.$store.getters.genre
     },
@@ -435,58 +432,5 @@ export default {
       return this.$store.getters.email
     }
   },
-  methods: {
-    deleteUser () {
-      //this.$router.push({ name: 'DeleteUser'})
-      this.$store.dispatch('deleteUser')
-      .then(response => {
-        console.log("afsdfasdfasdfasdfasdfasdfasdfasdfasd")
-        this.$store.dispatch('destroyToken')
-        this.$router.push({ name: 'Inicio'})
-        // this.$router.push({ name: 'Inicio'})
-      })
-      .catch(err => {
-        console.log("afsdfasdfasdfasdfasdfasdfasdfasdfasd")
-        $('#m_error_m').empty()
-        $('#m_error_m').append(`
-            <br>
-            <div class="alert alert-danger" role="alert">
-              No se ha podido eliminar el usuario.
-            </div>
-          `)
-      })
-    },
-    update () {
-      this.$store.dispatch('update', {
-        name: this.name,
-        surname: this.surname,
-        paragraph: this.paragraph,
-        email: this.email,
-        password: this.password,
-        birthdate: this.birthdate,
-        genre: this.genre
-      })
-      .then(response => {
-        // console.log(`Respuesta : ${Object.keys(response.data)}`)
-        $('#m_error_m').empty()
-        $('#m_error_m').append(`
-            <br>
-            <div class="alert alert-success" role="alert">
-              Usuario modificado correctamente
-            </div>
-          `)
-        //this.$router.push({ name: 'ModUsuario' })
-      })
-      .catch(error => {
-        $('#m_error_m').empty()
-        $('#m_error_m').append(`
-            <br>
-            <div class="alert alert-danger" role="alert">
-              Email en uso
-            </div>
-          `)
-      })
-    }
-  }
 }
 </script>
