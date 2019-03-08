@@ -25,13 +25,16 @@ export default new Vuex.Store({
     birthdate: state => state.userData.birthdate,
     genre: state => state.userData.genre,
     email: state => state.userData.email,
+    paragraph: state => state.userData.paragraph,
+    image: state => state.userData.image,
+    telephone: state => state.userData.telephone,
     _id: state => state.userData._id,
     isAdmin(state){
       return state.userData.email == "root@root.com"
     }
   },
   setters: {
-    
+
   },
   mutations: {
     ADD_TO_CART(state, invId) { state.inCart.push(invId); },
@@ -75,6 +78,9 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         axios.post('/users/register', {
           name: data.name,
+          paragraph: data.paragraph,
+          image: data.image,
+          telephone: data.telephone,
           surname: data.surname,
           email: data.email,
           birthdate: data.birthdate,
@@ -82,7 +88,7 @@ export default new Vuex.Store({
           password: data.password
         })
         .then(response => {
-          
+
           // console.log(response)
           resolve(response)
         })
@@ -95,7 +101,7 @@ export default new Vuex.Store({
       if (context.getters.loggedIn) {
         localStorage.removeItem('token')
         context.commit('destroyToken')
-        context.commit('cleanData')  
+        context.commit('cleanData')
       }
     },
     /* destroyToken(context) {
@@ -117,7 +123,7 @@ export default new Vuex.Store({
             reject(error)
           })
         })
-        
+
       }
     }, */
     get_user_data(context) {
@@ -142,6 +148,9 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         axios.put(`/users/${context.getters._id}`, {
           name: data.name,
+          paragraph: data.paragraph,
+          image: data.image,
+          telephone: data.telephone,
           surname: data.surname,
           email: data.email,
           birthdate: data.birthdate,
@@ -165,11 +174,11 @@ export default new Vuex.Store({
         })
         .catch(error => reject(error))
       })
-      
+
 /*         localStorage.removeItem('token')
         context.commit('destroyToken')
         context.commit('cleanData') */
-        
+
        /*  axios.post('/Logout')
           .then(response => {
             localStorage.removeItem('token')
@@ -187,7 +196,7 @@ export default new Vuex.Store({
         //localStorage.removeItem('token')
         //context.dispatch('destroyToken')
         //context.commit('cleanData')
-      
+
     }
 
   },

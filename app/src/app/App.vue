@@ -75,9 +75,6 @@
                   <router-link :to="{ name: 'contacto' }" class="nav-link"><a class="nav-link">Contacto</a></router-link>
               </li>
               <li class="nav-item">
-                  <router-link :to="{ name: 'perfil' }" class="nav-link"><a class="nav-link">Perfil</a></router-link>
-              </li>
-              <li class="nav-item">
                   <router-link :to="{ name: 'administracion' }" class="nav-link"><a class="nav-link">Administracion</a></router-link>
               </li>
 
@@ -94,6 +91,7 @@
               <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-user" aria-hidden="true"></span></a>
               <div class="dropdown-menu" aria-labelledby="login">
                 <a class="dropdown-item" ><router-link :to="{ name: 'ModUsuario' }" class="na-link"> <i class="fa fa-user" ></i> Modificar Usuario</router-link></a>
+                <a class="dropdown-item" ><router-link :to="{ name: 'perfil' }" class="nav-link"><a class="nav-link"><i class="fa fa-user" ></i> Perfil</a></router-link></a>
                 <a class="dropdown-item" ><router-link :to="{ name: 'Logout' }" class="na-link"> <i class="fa fa-sign-out"></i> Logout</router-link></a>
               </div>
             </div>

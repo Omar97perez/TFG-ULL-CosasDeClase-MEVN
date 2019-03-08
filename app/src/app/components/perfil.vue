@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Margaret Stone</h1>
+              <h1 class="title-single">{{getName}}</h1>
             </div>
           </div>
         </div>
@@ -29,8 +29,8 @@
                 <div class="agent-info-box">
                   <div class="agent-title">
                     <div class="title-box-d">
-                      <h3 class="title-d">Margaret Stone
-                        <br> Escala</h3>
+                      <h3 class="title-d">{{getName}}
+                        <br> {{getSurname}}</h3>
                     </div>
                   </div>
                   <div class="agent-content mb-3">
@@ -46,7 +46,11 @@
                       </p>
                       <p>
                         <strong>Email: </strong>
-                        <span class="color-text-a"> profesor@gmail.com</span>
+                        <span class="color-text-a">{{getEmail}}</span>
+                      </p>
+                      <p>
+                        <strong>Fecha de Nacimiento: </strong>
+                        <span class="color-text-a">{{getBirthdate}}</span>
                       </p>
                       <p>
                         <strong>skype: </strong>
@@ -394,3 +398,95 @@
     <!--/ Agent Single End /-->
   </div>
 </template>
+
+
+<script>
+export default {
+  name: 'ModUsuario',
+  data() {
+    return {
+      name: '',
+      surname: '',
+      email: '',
+      password: '',
+      birthdate: '',
+      genre: ''
+    }
+  },
+  created(){
+  },
+  computed: {
+    getName() {
+      return this.$store.getters.name
+    },
+    getSurname() {
+      return this.$store.getters.surname
+    },
+    getBirthdate() {
+      return this.$store.getters.birthdate
+    },
+    getParagraph() {
+      return this.$store.getters.paragraph
+    },
+    getGenre() {
+      return this.$store.getters.genre
+    },
+    getEmail() {
+      return this.$store.getters.email
+    }
+  },
+  methods: {
+    deleteUser () {
+      //this.$router.push({ name: 'DeleteUser'})
+      this.$store.dispatch('deleteUser')
+      .then(response => {
+        console.log("afsdfasdfasdfasdfasdfasdfasdfasdfasd")
+        this.$store.dispatch('destroyToken')
+        this.$router.push({ name: 'Inicio'})
+        // this.$router.push({ name: 'Inicio'})
+      })
+      .catch(err => {
+        console.log("afsdfasdfasdfasdfasdfasdfasdfasdfasd")
+        $('#m_error_m').empty()
+        $('#m_error_m').append(`
+            <br>
+            <div class="alert alert-danger" role="alert">
+              No se ha podido eliminar el usuario.
+            </div>
+          `)
+      })
+    },
+    update () {
+      this.$store.dispatch('update', {
+        name: this.name,
+        surname: this.surname,
+        paragraph: this.paragraph,
+        email: this.email,
+        password: this.password,
+        birthdate: this.birthdate,
+        genre: this.genre
+      })
+      .then(response => {
+        // console.log(`Respuesta : ${Object.keys(response.data)}`)
+        $('#m_error_m').empty()
+        $('#m_error_m').append(`
+            <br>
+            <div class="alert alert-success" role="alert">
+              Usuario modificado correctamente
+            </div>
+          `)
+        //this.$router.push({ name: 'ModUsuario' })
+      })
+      .catch(error => {
+        $('#m_error_m').empty()
+        $('#m_error_m').append(`
+            <br>
+            <div class="alert alert-danger" role="alert">
+              Email en uso
+            </div>
+          `)
+      })
+    }
+  }
+}
+</script>

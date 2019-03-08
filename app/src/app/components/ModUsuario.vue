@@ -24,6 +24,10 @@
         <input type="text" class="form-control" id="surname" v-model="surname" :placeholder="getSurname">
       </div>
       <div class="form-group">
+        <label for="paragraph">Descripción</label>
+        <input type="text" class="form-control" id="paragraph" v-model="paragraph" :placeholder="getParagraph">
+      </div>
+      <div class="form-group">
         <label for="birthdate">
           Fecha de nacimiento
         </label>
@@ -95,6 +99,9 @@ export default {
     getBirthdate() {
       return this.$store.getters.birthdate
     },
+    getParagraph() {
+      return this.$store.getters.paragraph
+    },
     getGenre() {
       return this.$store.getters.genre
     },
@@ -127,6 +134,7 @@ export default {
       this.$store.dispatch('update', {
         name: this.name,
         surname: this.surname,
+        paragraph: this.paragraph,
         email: this.email,
         password: this.password,
         birthdate: this.birthdate,

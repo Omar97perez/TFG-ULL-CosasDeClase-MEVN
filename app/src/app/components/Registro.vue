@@ -24,10 +24,20 @@
         <input type="text" class="form-control" id="surname" placeholder="Apellidos" v-model="surname" required>
       </div>
       <div class="form-group">
+        <label for="surname">Imagen</label>
+        <input type="text" class="form-control" id="surname" placeholder="Imagen" v-model="image" required>
+      </div>
+      <div class="form-group">
         <label for="birthdate">
           Fecha de nacimiento
         </label>
         <input type="date" class="form-control" id="birthdate" placeholder="Fecha de nacimiento" v-model="birthdate" required>
+      </div>
+      <div class="form-group">
+        <label for="telephone">
+          Teléfono
+        </label>
+        <input type="telephone" class="form-control" id="telephone" aria-describedby="telephoneHelp" placeholder="Número de Teléfono" v-model="telephone" required>
       </div>
       <div class="form-group">
         <label for="email">
@@ -38,6 +48,10 @@
       <div class="form-group">
         <label for="password">Contraseña</label>
         <input type="password" class="form-control" id="password" placeholder="Contraseña" v-model="password">
+      </div>
+      <div class="form-group">
+          <label for="paragraph">Descripción personal</label>
+          <textarea type="paragraph" class="form-control" id="paragraph" placeholder="Descripción" v-model="paragraph" cols="30" rows="5" ></textarea>
       </div>
       <div class="form-group">
         <label class="col-form-label col-sm-2">Género</label>
@@ -74,6 +88,9 @@ export default {
     return {
       name: '',
       surname: '',
+      paragraph: '',
+      image: '',
+      telephone: '',
       email: '',
       password: '',
       birthdate: '',
@@ -85,6 +102,9 @@ export default {
       this.$store.dispatch('register', {
         name: this.name,
         surname: this.surname,
+        paragraph: this.paragraph,
+        image: this.image,
+        telephone: this.telephone,
         email: this.email,
         password: this.password,
         birthdate: this.birthdate,
