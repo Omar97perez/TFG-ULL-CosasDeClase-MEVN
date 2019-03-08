@@ -83,6 +83,7 @@
               <li class="nav-item dropdown mb-sm-4 mr-md-4"  v-if="loggedIn">
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" style="font-size:24px"></i></a>
                 <div class="dropdown-menu" aria-labelledby="login">
+                  <a class="dropdown-item" ><router-link :to="{ name: 'ModUsuario' }" class="na-link"> <i class="fa fa-user" style="font-size:24px"></i>Modificar Usuario</router-link></a>
                   <a class="dropdown-item" ><router-link :to="{ name: 'Logout' }" class="na-link"> <i class="fa fa-sign-out"style="font-size:24px"></i>Logout</router-link></a>
                 </div>
               </li>
