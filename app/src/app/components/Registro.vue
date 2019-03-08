@@ -25,7 +25,7 @@
       </div>
       <div class="form-group">
         <label for="surname">Imagen</label>
-        <input type="text" class="form-control" id="surname" placeholder="Imagen" v-model="image" required>
+        <input type="text" class="form-control" id="image" placeholder="Imagen" v-model="image" required>
       </div>
       <div class="form-group">
         <label for="birthdate">

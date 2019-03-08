@@ -24,14 +24,20 @@
         <input type="text" class="form-control" id="surname" v-model="surname" :placeholder="getSurname">
       </div>
       <div class="form-group">
-        <label for="paragraph">Descripción</label>
-        <input type="text" class="form-control" id="paragraph" v-model="paragraph" :placeholder="getParagraph">
+        <label for="surname">Imagen</label>
+        <input type="text" class="form-control" id="image"  v-model="image" :placeholder="getImage">
       </div>
       <div class="form-group">
         <label for="birthdate">
           Fecha de nacimiento
         </label>
         <input type="date" class="form-control" id="birthdate" :placeholder="getBirthdate">
+      </div>
+      <div class="form-group">
+        <label for="telephone">
+          Teléfono
+        </label>
+        <input type="telephone" class="form-control" id="telephone" v-model="telephone" :placeholder="getTelephone"" required>
       </div>
       <div class="form-group">
         <label for="email">
@@ -42,6 +48,10 @@
       <div class="form-group">
         <label for="password">Contraseña</label>
         <input type="password" class="form-control" v-model="password" id="password" placeholder="Contraseña">
+      </div>
+      <div class="form-group">
+          <label for="paragraph">Descripción personal</label>
+          <textarea type="paragraph" class="form-control" id="paragraph" :placeholder="getParagraph" v-model="paragraph" cols="30" rows="5" ></textarea>
       </div>
       <div class="form-group">
         <label class="col-form-label col-sm-2">Género</label>
@@ -102,6 +112,12 @@ export default {
     getParagraph() {
       return this.$store.getters.paragraph
     },
+    getImage() {
+      return this.$store.getters.image
+    },
+    getTelephone() {
+      return this.$store.getters.telephone
+    },
     getGenre() {
       return this.$store.getters.genre
     },
@@ -135,6 +151,8 @@ export default {
         name: this.name,
         surname: this.surname,
         paragraph: this.paragraph,
+        image: this.image,
+        telephone: this.telephone,
         email: this.email,
         password: this.password,
         birthdate: this.birthdate,
