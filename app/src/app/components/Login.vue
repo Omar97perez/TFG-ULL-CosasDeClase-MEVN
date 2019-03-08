@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Contáctanos</h1>
+              <h1 class="title-single">Inicio de sesión</h1>
             </div>
           </div>
         </div>
