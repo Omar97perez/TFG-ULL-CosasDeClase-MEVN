@@ -4,11 +4,16 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const jwt = require('./authentication/backend/_services/jwt')
+const errorHandler = require('./authentication/backend/_services/error-handler')
+
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
+app.use('/users', require('./authentication/backend/users/users-controller'))
+app.use(errorHandler)
 
 //Conexión con la base de datos, cuando se despliegue en servidor  se tendrá que cambiar la dirección
 mongoose.connect('mongodb://omar:antonio1997@cluster0-shard-00-00-svm5b.mongodb.net:27017,cluster0-shard-00-01-svm5b.mongodb.net:27017,cluster0-shard-00-02-svm5b.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true')
