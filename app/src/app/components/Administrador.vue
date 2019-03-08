@@ -21,7 +21,7 @@
                       <div class="form-group row">
                           <div class="col">
                               <label for="tittle">Anunciante</label>
-                              <input v-model="Producto.anunciante" type="text" class="form-control" :placeholder="getEmail">
+                              <input v-model="Producto.anunciante" type="text" class="form-control">
                           </div>
 
                           <div class="col">
@@ -156,11 +156,6 @@ export default {
   },
   created() {
     this.getProductos();
-  },
-  computed: {
-    getEmail() {
-      return this.$store.getters.email
-    },
   },
   methods: {
     sendProducto() {
