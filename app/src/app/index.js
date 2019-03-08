@@ -88,4 +88,27 @@ const routes = [
 ];
 
 const router = new VueRouter({ routes});
-new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+
+router.beforeEach((to, from, next) => {
+  if (!to.matched.some(record => record.meta.isPublic) && localStorage.getItem("token") == null) {
+      next();
+      next('/Login');
+  } else {
+    // console.log(store.getters.name )
+    if(to.matched.some(record => record.meta.justPublic) && localStorage.getItem("token")) {
+      next('/');
+    }
+    else {
+      if(to.matched.some(record => record.meta.isAdmin) && (store.getters.email != "root@root.com")) {
+        console.log(store.getters.name )
+        next('/');
+      }
+      else {
+     // console.log("adsfadsf")
+        next();
+      }
+    }
+
+  }
+})
+new Vue(Vue.util.extend({ router, store }, App)).$mount('#app');

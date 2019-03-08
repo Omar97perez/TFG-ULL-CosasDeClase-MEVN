@@ -80,6 +80,9 @@
               <li class="nav-item">
                   <router-link :to="{ name: 'administracion' }" class="nav-link"><a class="nav-link">Administracion</a></router-link>
               </li>
+              <li class="nav-item">
+                    <router-link :to="{ name: 'Login' }" class="nav-link"><a class="nav-link">Login</a></router-link>
+              </li>
             </ul>
           </div>
           <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"

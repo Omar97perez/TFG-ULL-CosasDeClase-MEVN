@@ -1,12 +1,12 @@
 <template>
-  <div class="container-fluid">
+  <div class="container">
     <!--/ Intro Single star /-->
     <section class="intro-single">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Inicio de sesión</h1>
+              <h1 class="title-single">Contáctanos</h1>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@ export default {
       })
       .then(response => {
         this.$store.dispatch('get_user_data')
-        this.$router.push({ name: 'Inicio' })
+        this.$router.push({ name: 'index' })
       })
       .catch(error => {
         $('#m_error_l').empty()
