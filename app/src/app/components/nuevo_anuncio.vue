@@ -20,11 +20,6 @@
                     <form @submit.prevent="sendProducto">
                       <div class="form-group row">
                           <div class="col">
-                              <label for="tittle">Anunciante</label>
-                              <input v-model="Producto.anunciante" type="text" class="form-control" :placeholder="getEmail">
-                          </div>
-
-                          <div class="col">
                               <label for="tittle">Titulo del producto</label>
                               <input v-model="Producto.titulo" type="text" class="form-control">
                           </div>
@@ -136,7 +131,7 @@
 
 <script>
 class Producto {
-  constructor(anunciante = '',titulo = '', foto = '',  descripcion = '', tipo = '', precio = '',) {
+  constructor(anunciante = '', titulo = '', foto = '',  descripcion = '', tipo = '', precio = '',) {
     this.anunciante = anunciante;
     this.titulo = titulo;
     this.foto = foto;
@@ -155,7 +150,7 @@ export default {
     }
   },
   created() {
-    this.getProductos();
+    this.getProductos(this.$store.getters.email);
   },
   computed: {
     getEmail() {
@@ -164,6 +159,7 @@ export default {
   },
   methods: {
     sendProducto() {
+      this.Producto.anunciante = this.$store.getters.email;
       if(this.edit === false) {
         fetch('/api/CosasDeClase/Producto/', {
           method: 'POST',
@@ -198,11 +194,11 @@ export default {
           });
       }
     },
-    getProductos() {
+    getProductos(email) {
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {
-          this.Productos = data;
+          this.Productos = data.filter(data =>  data.anunciante == email);
         });
     },
     deleteProducto(ProductoId) {
