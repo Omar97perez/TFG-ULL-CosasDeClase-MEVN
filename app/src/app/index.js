@@ -30,51 +30,82 @@ const routes = [
     name: 'index',
     path: '/',
     component: Index,
+    meta: {
+      isPublic: true
+    }
   },
   {
   path: '/ClasesParticulares',
   name: 'clases',
-  component: Clases
+  component: Clases,
+  meta: {
+    isPublic: true
+  }
 },
 {
   path: '/Apuntes',
   name: 'apuntes',
-  component: Apuntes
+  component: Apuntes,
+  meta: {
+    isPublic: true
+  }
 },
 {
   path: '/Noticias',
   name: 'noticias',
-  component: Noticias
+  component: Noticias,
+  meta: {
+    isPublic: true
+  }
 },
 {
   path: '/Contacto',
   name: 'contacto',
-  component: Contacto
+  component: Contacto,
+  meta: {
+    isPublic: true
+  }
 },
 {
   path: '/Perfil',
   name: 'perfil',
-  component: Perfil
+  component: Perfil,
+  meta: {
+    isPublic: true
+  }
 },
 {
   path: '/Admninistracion',
   name: 'administracion',
-  component: Administracion
+  component: Administracion,
+  meta: {
+    isPublic: true
+  }
 },
 {
   path: '/Anuncio',
   name: 'anuncio',
-  component: Anuncio
+  component: Anuncio,
+  meta: {
+    isPublic: true
+  }
 },
 {
   path: '/AnuncioNoticia',
   name: 'anuncio_noticia',
-  component: Anuncio_noticia
+  component: Anuncio_noticia,
+  meta: {
+    isPublic: true
+  }
 },
 {
   name: 'Login',
   path: '/Login',
   component: Login,
+  meta: {
+    isPublic: true,
+    justPublic: true
+  }
 },
 {
   name: 'Logout',
@@ -85,6 +116,10 @@ const routes = [
   name: 'Registro',
   path: '/Registro',
   component: Registro,
+  meta: {
+    isPublic: true,
+    justPublic: true
+  }
 },
 {
   name: 'ModUsuario',
