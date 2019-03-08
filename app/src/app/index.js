@@ -16,7 +16,8 @@ import Apuntes from './components/apuntes.vue'
 import Noticias from './components/noticias.vue'
 import Contacto from './components/contacto.vue'
 import Perfil from './components/perfil.vue'
-import Administracion from './components/administracion.vue'
+import Administrador from './components/administrador.vue';
+import Nuevo_Anuncio from './components/nuevo_anuncio.vue'
 import Anuncio from './components/anuncio.vue'
 import Anuncio_noticia from './components/anuncio_noticia.vue'
 import store from './components/store';
@@ -75,9 +76,17 @@ const routes = [
   }
 },
 {
-  path: '/Admninistracion',
-  name: 'administracion',
-  component: Administracion,
+  path: '/Administrador',
+  name: 'administrador',
+  component: Administrador,
+  meta: {
+    isPublic: true
+  }
+},
+{
+  path: '/NuevoAnuncio',
+  name: 'nuevoanuncio',
+  component: Nuevo_Anuncio,
   meta: {
     isPublic: true
   }
