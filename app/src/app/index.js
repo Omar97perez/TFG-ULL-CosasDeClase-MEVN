@@ -20,6 +20,9 @@ import Administracion from './components/administracion.vue'
 import Anuncio from './components/anuncio.vue'
 import Anuncio_noticia from './components/anuncio_noticia.vue'
 import store from './components/store';
+import Login from './components/Login.vue';
+import Logout from './components/Logout.vue';
+import Registro from './components/Registro.vue';
 
 const routes = [
   {
@@ -66,7 +69,22 @@ const routes = [
   path: '/AnuncioNoticia',
   name: 'anuncio_noticia',
   component: Anuncio_noticia
-}
+},
+{
+  name: 'Login',
+  path: '/Login',
+  component: Login,
+},
+{
+  name: 'Logout',
+  path: '/Logout',
+  component: Logout,
+},
+{
+  name: 'Registro',
+  path: '/Registro',
+  component: Registro,
+},
 ];
 
 const router = new VueRouter({ routes});
