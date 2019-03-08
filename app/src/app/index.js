@@ -23,6 +23,7 @@ import store from './components/store';
 import Login from './components/Login.vue';
 import Logout from './components/Logout.vue';
 import Registro from './components/Registro.vue';
+import ModUsuario from './components/ModUsuario.vue';
 
 const routes = [
   {
@@ -84,6 +85,11 @@ const routes = [
   name: 'Registro',
   path: '/Registro',
   component: Registro,
+},
+{
+  name: 'ModUsuario',
+  path: '/Usuario/ModUsuario',
+  component: ModUsuario,
 },
 ];
 
