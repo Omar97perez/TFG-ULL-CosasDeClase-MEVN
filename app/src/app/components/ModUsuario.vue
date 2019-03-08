@@ -37,7 +37,7 @@
         <label for="telephone">
           Teléfono
         </label>
-        <input type="telephone" class="form-control" id="telephone" v-model="telephone" :placeholder="getTelephone"" required>
+        <input type="telephone" class="form-control" id="telephone" v-model="telephone" :placeholder="getTelephone">
       </div>
       <div class="form-group">
         <label for="email">
@@ -91,6 +91,9 @@ export default {
     return {
       name: '',
       surname: '',
+      paragraph: '',
+      image: '',
+      telephone: '',
       email: '',
       password: '',
       birthdate: '',
