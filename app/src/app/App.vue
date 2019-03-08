@@ -80,20 +80,26 @@
               <li class="nav-item">
                   <router-link :to="{ name: 'administracion' }" class="nav-link"><a class="nav-link">Administracion</a></router-link>
               </li>
-              <li class="nav-item dropdown mb-sm-4 mr-md-4"  v-if="loggedIn">
-                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" style="font-size:24px"></i></a>
-                <div class="dropdown-menu" aria-labelledby="login">
-                  <a class="dropdown-item" ><router-link :to="{ name: 'ModUsuario' }" class="na-link"> <i class="fa fa-user" style="font-size:24px"></i>Modificar Usuario</router-link></a>
-                  <a class="dropdown-item" ><router-link :to="{ name: 'Logout' }" class="na-link"> <i class="fa fa-sign-out"style="font-size:24px"></i>Logout</router-link></a>
-                </div>
-              </li>
-              <router-link v-else :to="{ name: 'Login' }"><i class="fa fa-user mb-sm-4 mr-md-4" style="font-size:24px"></i></router-link>
+
             </ul>
           </div>
           <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
             data-target="#navbarTogglerDemo01" aria-expanded="false">
             <span class="fa fa-search" aria-hidden="true"></span>
           </button>
+
+          <button type="button" class="btn btn-b-n" data-toggle="collapse"
+            data-target="#navbarTogglerDemo01" aria-expanded="false">
+            <div class="dropdown"  v-if="loggedIn">
+              <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-user" aria-hidden="true"></span></a>
+              <div class="dropdown-menu" aria-labelledby="login">
+                <a class="dropdown-item" ><router-link :to="{ name: 'ModUsuario' }" class="na-link"> <i class="fa fa-user" ></i> Modificar Usuario</router-link></a>
+                <a class="dropdown-item" ><router-link :to="{ name: 'Logout' }" class="na-link"> <i class="fa fa-sign-out"></i> Logout</router-link></a>
+              </div>
+            </div>
+            <router-link v-else :to="{ name: 'Login' }"><span class="fa fa-user" aria-hidden="true"></span></router-link>
+          </button>
+
         </div>
       </nav>
       <!--/ Nav End /-->
