@@ -80,9 +80,13 @@
               <li class="nav-item">
                   <router-link :to="{ name: 'administracion' }" class="nav-link"><a class="nav-link">Administracion</a></router-link>
               </li>
-              <li class="nav-item">
-                    <router-link :to="{ name: 'Login' }" class="nav-link"><a class="nav-link">Login</a></router-link>
+              <li class="nav-item dropdown mb-sm-4 mr-md-4"  v-if="loggedIn">
+                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" style="font-size:24px"></i></a>
+                <div class="dropdown-menu" aria-labelledby="login">
+                  <a class="dropdown-item" ><router-link :to="{ name: 'Logout' }" class="na-link"> <i class="fa fa-sign-out"style="font-size:24px"></i>Logout</router-link></a>
+                </div>
               </li>
+              <router-link v-else :to="{ name: 'Login' }"><i class="fa fa-user mb-sm-4 mr-md-4" style="font-size:24px"></i></router-link>
             </ul>
           </div>
           <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
@@ -235,3 +239,55 @@
     </body>
   </div>
 </template>
+
+<script>
+import { dollars } from './components/filters';
+
+export default {
+  name: 'App',
+  data(){
+    return{
+      Productos: [],
+    }
+  },
+  mounted() {
+     this.$store.dispatch('get_user_data')
+   },
+  computed: {
+    inCart() { return this.$store.getters.inCart; },
+    numInCart() { return this.inCart.length; },
+    cart() {
+      return this.$store.getters.inCart.map((cartItem) => {
+        return this.Productos.find((forSaleItem) => {
+          return cartItem === forSaleItem._id;
+        });
+      });
+    },
+    total() {
+      return this.cart.reduce((acc, cur) => acc + cur.price, 0);
+    },
+    loggedIn() {
+      return this.$store.getters.loggedIn
+    },
+    isAdmin() {
+      return this.$store.getters.isAdmin
+    }
+  },
+  filters: {
+    dollars,
+  },
+  created() {
+    this.getProductos();
+  },
+  methods: {
+    removeFromCart(index) { this.$store.dispatch('removeFromCart', index); },
+    getProductos() {
+      fetch('/api/CosasDeClase/Producto/')
+        .then(res => res.json())
+        .then(data => {
+          this.Productos = data;
+        });
+    },
+  },
+};
+</script>
