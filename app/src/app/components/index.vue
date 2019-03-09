@@ -596,6 +596,10 @@ Productos_clases<template>
             this.Productos_noticias = data.filter(data =>  data.tipo == 'noticias');
           });
       },
+      addToPrev(invId) {
+        console.log(invId)
+        this.$store.dispatch('addToPrev', invId);
+      },
     }
   };
 </script>
