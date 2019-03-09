@@ -107,3 +107,38 @@
     <!--/ News Single End /-->
   </div>
 </template>
+
+<script>
+
+export default {
+  name: 'anuncio',
+  data(){
+      return{
+          preview: '',
+          Producto: [],
+          Productos: [],
+      }
+  },
+  created() {
+      this.getProductos();
+  },
+  props: ['invId', 'name', 'image', 'price', 'offer'],
+  methods: {
+    getProductos() {
+      fetch('/api/CosasDeClase/Producto/')
+        .then(res => res.json())
+        .then(data => {
+          this.Productos = data;
+        });
+    },
+  },
+  computed: {
+    previewId() { return this.$store.getters.preview; },
+    prev(){
+        return this.Productos.find((PrevItem) =>{
+            return PrevItem._id === this.$store.getters.preview;
+        });
+    },
+  },
+};
+</script>
