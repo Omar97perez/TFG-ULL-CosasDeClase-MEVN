@@ -54,7 +54,7 @@
             <div class="row section-t3">
               <div class="col-sm-12">
                 <div class="title-box-d">
-                  <h3 class="title-d">Contacta con el anunciante</h3>
+                  <h3 class="title-d">Anunciante</h3>
                 </div>
               </div>
             </div>
