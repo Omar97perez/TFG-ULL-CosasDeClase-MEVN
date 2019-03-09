@@ -161,99 +161,99 @@ Productos_clases<template>
               </div>
             </div>
             <div id="carouselnoticias" class="carousel slide" data-ride="carousel">
-            <!-- Indicador del carousel -->
-            <ol class="carousel-indicators">
-              <li data-target="#carouselnoticias" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselnoticias" data-slide-to="1"></li>
-              <li data-target="#carouselnoticias" data-slide-to="2"></li>
-            </ol>
-            <!-- Objetos del carousel -->
-            <div class="carousel-inner">
-              <div class="item carousel-item active">
-                <div class="row">
-                  <div v-for="Producto of Productos_noticias.slice(0,3)" class="col-md-4">
-                    <div class="card-box-b card-shadow news-box">
-                      <div class="img-box-b">
-                        <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
-                      </div>
-                      <div class="card-overlay">
-                        <div class="card-header-b">
-                          <div class="card-title-b">
-                            <h2 class="title-2">
-                              <a>{{Producto.titulo}}</a>
-                            </h2>
+              <!-- Indicador del carousel -->
+              <ol class="carousel-indicators">
+                <li data-target="#carouselnoticias" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselnoticias" data-slide-to="1"></li>
+                <li data-target="#carouselnoticias" data-slide-to="2"></li>
+              </ol>
+              <!-- Objetos del carousel -->
+              <div class="carousel-inner">
+                <div class="item carousel-item active">
+                  <div class="row">
+                    <div v-for="Producto of Productos_noticias.slice(0,3)" class="col-md-4">
+                      <div class="card-box-b card-shadow news-box">
+                        <div class="img-box-b">
+                          <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
+                        </div>
+                        <div class="card-overlay">
+                          <div class="card-header-b">
+                            <div class="card-title-b">
+                              <h2 class="title-2">
+                                <a>{{Producto.titulo}}</a>
+                              </h2>
+                            </div>
+                            <div class="card-date">
+                              <span class="date-b">{{Producto.fecha}}</span>
+                            </div>
+                              <router-link :to="{ name: 'anuncio_noticia' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver noticia<span class="ion-ios-arrow-forward"></span></a></router-link>
                           </div>
-                          <div class="card-date">
-                            <span class="date-b">{{Producto.fecha}}</span>
-                          </div>
-                            <router-link :to="{ name: 'anuncio_noticia' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver noticia<span class="ion-ios-arrow-forward"></span></a></router-link>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="item carousel-item">
-                <div class="row">
-                  <div v-for="Producto of Productos_noticias.slice(3,6)" class="col-md-4">
-                    <div class="card-box-b card-shadow news-box">
-                      <div class="img-box-b">
-                        <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
-                      </div>
-                      <div class="card-overlay">
-                        <div class="card-header-b">
-                          <div class="card-title-b">
-                            <h2 class="title-2">
-                              <a>{{Producto.titulo}}</a>
-                            </h2>
+                <div class="item carousel-item">
+                  <div class="row">
+                    <div v-for="Producto of Productos_noticias.slice(3,6)" class="col-md-4">
+                      <div class="card-box-b card-shadow news-box">
+                        <div class="img-box-b">
+                          <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
+                        </div>
+                        <div class="card-overlay">
+                          <div class="card-header-b">
+                            <div class="card-title-b">
+                              <h2 class="title-2">
+                                <a>{{Producto.titulo}}</a>
+                              </h2>
+                            </div>
+                            <div class="card-date">
+                              <span class="date-b">{{Producto.fecha}}</span>
+                            </div>
+                              <router-link :to="{ name: 'anuncio_noticia' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver noticia<span class="ion-ios-arrow-forward"></span></a></router-link>
                           </div>
-                          <div class="card-date">
-                            <span class="date-b">{{Producto.fecha}}</span>
-                          </div>
-                            <router-link :to="{ name: 'anuncio_noticia' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver noticia<span class="ion-ios-arrow-forward"></span></a></router-link>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div class="item carousel-item">
-                <div class="row">
-                  <div v-for="Producto of Productos_noticias.slice(6,9)" class="col-md-4">
-                    <div class="card-box-b card-shadow news-box">
-                      <div class="img-box-b">
-                        <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
-                      </div>
-                      <div class="card-overlay">
-                        <div class="card-header-b">
-                          <div class="card-title-b">
-                            <h2 class="title-2">
-                              <a>{{Producto.titulo}}</a>
-                            </h2>
+                <div class="item carousel-item">
+                  <div class="row">
+                    <div v-for="Producto of Productos_noticias.slice(6,9)" class="col-md-4">
+                      <div class="card-box-b card-shadow news-box">
+                        <div class="img-box-b">
+                          <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
+                        </div>
+                        <div class="card-overlay">
+                          <div class="card-header-b">
+                            <div class="card-title-b">
+                              <h2 class="title-2">
+                                <a>{{Producto.titulo}}</a>
+                              </h2>
+                            </div>
+                            <div class="card-date">
+                              <span class="date-b">{{Producto.fecha}}</span>
+                            </div>
+                              <router-link :to="{ name: 'anuncio_noticia' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver noticia<span class="ion-ios-arrow-forward"></span></a></router-link>
                           </div>
-                          <div class="card-date">
-                            <span class="date-b">{{Producto.fecha}}</span>
-                          </div>
-                            <router-link :to="{ name: 'anuncio_noticia' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver noticia<span class="ion-ios-arrow-forward"></span></a></router-link>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-            </div>
-            <!-- Control del carousel -->
-            <a class="carousel-control-prev carousel-control left " href="#carouselnoticias" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next carousel-control right" href="#carouselnoticias" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
+              </div>
+              <!-- Control del carousel -->
+              <a class="carousel-control-prev carousel-control left " href="#carouselnoticias" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next carousel-control right" href="#carouselnoticias" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
             </div>
           </div>
         </section>
