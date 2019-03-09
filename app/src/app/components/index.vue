@@ -1,6 +1,6 @@
-<template>
+Productos_clases<template>
   <div>
-        <!--/ Carousel Star /-->
+
         <div class="intro intro-carousel">
           <div id="carousel" class="owl-carousel owl-theme">
             <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/slide-1.jpg)">
@@ -74,9 +74,7 @@
             </div>
           </div>
         </div>
-        <!--/ Carousel end /-->
 
-        <!--/ Services Star /-->
         <section class="section-services section-t8">
           <div class="container">
             <div class="row">
@@ -147,503 +145,474 @@
             </div>
           </div>
         </section>
-        <!--/ Services End /-->
 
-        <!--/ News Star /-->
         <section class="section-news section-t8">
           <div class="container">
             <div class="row">
               <div class="col-md-12">
                 <div class="title-wrap d-flex justify-content-between">
                   <div class="title-box">
-                    <h2 class="title-a">Últimas noticias</h2>
+                    <h2 class="title-a">Noticias</h2>
                   </div>
                   <div class="title-link">
-                    <router-link :to="{ name: 'noticias' }" ><a >Todas las noticias<span class="ion-ios-arrow-forward"></span></a></router-link>
+                    <router-link :to="{ name: 'noticias' }" ><a >Resto de noticias<span class="ion-ios-arrow-forward"></span></a></router-link>
                   </div>
                 </div>
               </div>
             </div>
-            <div id="new-carousel" class="owl-carousel owl-theme">
-              <div class="carousel-item-c">
-                <div class="card-box-b card-shadow news-box">
-                  <div class="img-box-b">
-                    <img src="img/post-2.jpg" alt="" class="img-b img-fluid">
-                  </div>
-                  <div class="card-overlay">
-                    <div class="card-header-b">
-                      <div class="card-category-b">
-                        <a href="#" class="category-b">EBAU</a>
+            <div id="carouselnoticias" class="carousel slide" data-ride="carousel">
+            <!-- Indicador del carousel -->
+            <ol class="carousel-indicators">
+              <li data-target="#carouselnoticias" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselnoticias" data-slide-to="1"></li>
+              <li data-target="#carouselnoticias" data-slide-to="2"></li>
+            </ol>
+            <!-- Objetos del carousel -->
+            <div class="carousel-inner">
+              <div class="item carousel-item active">
+                <div class="row">
+                  <div v-for="Producto of Productos_noticias.slice(0,3)" class="col-md-4">
+                    <div class="card-box-b card-shadow news-box">
+                      <div class="img-box-b">
+                        <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
                       </div>
-                      <div class="card-title-b">
-                        <h2 class="title-2">
-                          <a href="blog-single.html">Proceso de admisión
-                            <br>Abierto</a>
-                        </h2>
-                      </div>
-                      <div class="card-date">
-                        <span class="date-b">19 Febrero 2019</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item-c">
-                <div class="card-box-b card-shadow news-box">
-                  <div class="img-box-b">
-                    <img src="img/post-5.jpg" alt="" class="img-b img-fluid">
-                  </div>
-                  <div class="card-overlay">
-                    <div class="card-header-b">
-                      <div class="card-category-b">
-                        <a href="#" class="category-b">Día importante</a>
-                      </div>
-                      <div class="card-title-b">
-                        <h2 class="title-2">
-                          <a href="blog-single.html">Día del niño
-                            <br>Abierto</a>
-                        </h2>
-                      </div>
-                      <div class="card-date">
-                        <span class="date-b">18 Feb 2019</span>
+                      <div class="card-overlay">
+                        <div class="card-header-b">
+                          <div class="card-title-b">
+                            <h2 class="title-2">
+                              <a>{{Producto.titulo}}</a>
+                            </h2>
+                          </div>
+                          <div class="card-date">
+                            <span class="date-b">{{Producto.fecha}}</span>
+                          </div>
+                            <router-link :to="{ name: 'anuncio_noticia' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver noticia<span class="ion-ios-arrow-forward"></span></a></router-link>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item-c">
-                <div class="card-box-b card-shadow news-box">
-                  <div class="img-box-b">
-                    <img src="img/post-7.jpg" alt="" class="img-b img-fluid">
-                  </div>
-                  <div class="card-overlay">
-                    <div class="card-header-b">
-                      <div class="card-category-b">
-                        <a href="#" class="category-b">Día importante</a>
+
+              <div class="item carousel-item">
+                <div class="row">
+                  <div v-for="Producto of Productos_noticias.slice(3,6)" class="col-md-4">
+                    <div class="card-box-b card-shadow news-box">
+                      <div class="img-box-b">
+                        <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
                       </div>
-                      <div class="card-title-b">
-                        <h2 class="title-2">
-                          <a href="blog-single.html">Uso de tablets en niños
-                            <br>Abierto</a>
-                        </h2>
-                      </div>
-                      <div class="card-date">
-                        <span class="date-b">17 Feb 2019</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item-c">
-                <div class="card-box-b card-shadow news-box">
-                  <div class="img-box-b">
-                    <img src="img/post-3.jpg" alt="" class="img-b img-fluid">
-                  </div>
-                  <div class="card-overlay">
-                    <div class="card-header-b">
-                      <div class="card-category-b">
-                        <a href="#" class="category-b">Día importante</a>
-                      </div>
-                      <div class="card-title-b">
-                        <h2 class="title-2">
-                          <a href="#">Día para aprender
-                              <br>Abierto</a>
-                        </h2>
-                      </div>
-                      <div class="card-date">
-                        <span class="date-b">15 Feb 2019</span>
+                      <div class="card-overlay">
+                        <div class="card-header-b">
+                          <div class="card-title-b">
+                            <h2 class="title-2">
+                              <a>{{Producto.titulo}}</a>
+                            </h2>
+                          </div>
+                          <div class="card-date">
+                            <span class="date-b">{{Producto.fecha}}</span>
+                          </div>
+                            <router-link :to="{ name: 'anuncio_noticia' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver noticia<span class="ion-ios-arrow-forward"></span></a></router-link>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <div class="item carousel-item">
+                <div class="row">
+                  <div v-for="Producto of Productos_noticias.slice(6,9)" class="col-md-4">
+                    <div class="card-box-b card-shadow news-box">
+                      <div class="img-box-b">
+                        <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
+                      </div>
+                      <div class="card-overlay">
+                        <div class="card-header-b">
+                          <div class="card-title-b">
+                            <h2 class="title-2">
+                              <a>{{Producto.titulo}}</a>
+                            </h2>
+                          </div>
+                          <div class="card-date">
+                            <span class="date-b">{{Producto.fecha}}</span>
+                          </div>
+                            <router-link :to="{ name: 'anuncio_noticia' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver noticia<span class="ion-ios-arrow-forward"></span></a></router-link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- Control del carousel -->
+            <a class="carousel-control-prev carousel-control left " href="#carouselnoticias" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next carousel-control right" href="#carouselnoticias" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
             </div>
           </div>
         </section>
-        <!--/ News End /-->
 
-        <!--/ Agents Star /-->
-        <section class="section-agents section-t8">
+        <section class="section-news section-t8">
           <div class="container">
             <div class="row">
               <div class="col-md-12">
                 <div class="title-wrap d-flex justify-content-between">
                   <div class="title-box">
-                    <h2 class="title-a">Mejores profesores</h2>
+                    <h2 class="title-a">Clases Particulares</h2>
                   </div>
                   <div class="title-link">
-                    <router-link :to="{ name: 'clases' }" ><a >Todos los profesores<span class="ion-ios-arrow-forward"></span></a></router-link>
+                    <router-link :to="{ name: 'clases' }" ><a >Resto de anuncios <span class="ion-ios-arrow-forward"></span></a></router-link>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="card-box-d">
-                  <div class="card-img-d">
-                    <img src="img/agent-4.jpg" alt="" class="img-d img-fluid">
-                  </div>
-                  <div class="card-overlay card-overlay-hover">
-                    <div class="card-header-d">
-                      <div class="card-title-d align-self-center">
-                        <h3 class="title-d">
-                          <a href="agent-single.html" class="link-two">Margaret Sotillo
-                            <br> Escala</a>
-                        </h3>
-                      </div>
-                    </div>
-                    <div class="card-body-d">
-                      <p class="content-d color-text-a">
-                        Doy cualquier nivel de inglés en Santa Cruz (Tenerife).
-                      </p>
-                      <div class="info-agents color-a">
-                        <p>
-                          <strong>Teléfono: </strong> +54 356 945234</p>
-                        <p>
-                          <strong>Email: </strong> profesor@gmail.com</p>
-                      </div>
-                    </div>
-                    <div class="card-footer-d">
-                      <div class="socials-footer d-flex justify-content-center">
-                        <ul class="list-inline">
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-facebook" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-dribbble" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
+            <div id="carouselclases" class="carousel slide" data-ride="carousel">
+            <!-- Indicador del carousel -->
+            <ol class="carousel-indicators">
+              <li data-target="#carouselclases" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselclases" data-slide-to="1"></li>
+              <li data-target="#carouselclases" data-slide-to="2"></li>
+            </ol>
+            <!-- Objetos del carousel -->
+            <div class="carousel-inner">
+              <div class="item carousel-item active">
+                <div class="row">
+                  <div v-for="Producto of Productos_clases.slice(0,3)" class="col-md-4">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                          <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
+                        </div>
+                        <div class="card-overlay">
+                          <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                              <h2 class="card-title-a">
+                                <a>{{Producto.titulo}}</a>
+                              </h2>
+                            </div>
+                            <div class="card-body-a">
+                              <div class="price-box d-flex">
+                                <span class="price-a">{{Producto.precio}} €/hora</span>
+                              </div>
+                              <router-link :to="{ name: 'anuncio' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
+                            </div>
+                            <div class="card-footer-a">
+                              <ul class="card-info d-flex justify-content-around">
+                                <li>
+                                  <h4 class="card-info-title">Nivel</h4>
+                                  <span>{{Producto.nivel}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Localidad</h4>
+                                  <span>{{Producto.localidad}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Provincia</h4>
+                                  <span>{{Producto.provincia}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Fecha</h4>
+                                  <span>{{Producto.fecha}}</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="card-box-d">
-                  <div class="card-img-d">
-                    <img src="img/agent-1.jpg" alt="" class="img-d img-fluid">
-                  </div>
-                  <div class="card-overlay card-overlay-hover">
-                    <div class="card-header-d">
-                      <div class="card-title-d align-self-center">
-                        <h3 class="title-d">
-                          <a href="agent-single.html" class="link-two">Stiven Spilver
-                            <br> Darw</a>
-                        </h3>
-                      </div>
-                    </div>
-                    <div class="card-body-d">
-                      <p class="content-d color-text-a">
-                        Doy Matemáticas y Física hasta Bachillerato Las Palmas (Gran Canaria)
-                      </p>
-                      <div class="info-agents color-a">
-                        <p>
-                          <strong>Teléfono: </strong> +54 356 945234</p>
-                        <p>
-                          <strong>Email: </strong> profesor@gmail.com</p>
-                      </div>
-                    </div>
-                    <div class="card-footer-d">
-                      <div class="socials-footer d-flex justify-content-center">
-                        <ul class="list-inline">
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-facebook" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-dribbble" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
+
+              <div class="item carousel-item">
+                <div class="row">
+                  <div v-for="Producto of Productos_clases.slice(3,6)" class="col-md-4">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                          <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
+                        </div>
+                        <div class="card-overlay">
+                          <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                              <h2 class="card-title-a">
+                                <a>{{Producto.titulo}}</a>
+                              </h2>
+                            </div>
+                            <div class="card-body-a">
+                              <div class="price-box d-flex">
+                                <span class="price-a">{{Producto.precio}} €/hora</span>
+                              </div>
+                              <router-link :to="{ name: 'anuncio' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
+                            </div>
+                            <div class="card-footer-a">
+                              <ul class="card-info d-flex justify-content-around">
+                                <li>
+                                  <h4 class="card-info-title">Nivel</h4>
+                                  <span>{{Producto.nivel}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Localidad</h4>
+                                  <span>{{Producto.localidad}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Provincia</h4>
+                                  <span>{{Producto.provincia}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Fecha</h4>
+                                  <span>{{Producto.fecha}}</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="card-box-d">
-                  <div class="card-img-d">
-                    <img src="img/agent-5.jpg" alt="" class="img-d img-fluid">
-                  </div>
-                  <div class="card-overlay card-overlay-hover">
-                    <div class="card-header-d">
-                      <div class="card-title-d align-self-center">
-                        <h3 class="title-d">
-                          <a href="agent-single.html" class="link-two">Emma Toledo
-                            <br> Cascada</a>
-                        </h3>
-                      </div>
-                    </div>
-                    <div class="card-body-d">
-                      <p class="content-d color-text-a">
-                        Doy clases de arte y latín Tacoronte (Tenerife).
-                      </p>
-                      <div class="info-agents color-a">
-                        <p>
-                          <strong>Teléfono: </strong> +54 356 945234</p>
-                        <p>
-                          <strong>Email: </strong> profesor@gmail.com</p>
-                      </div>
-                    </div>
-                    <div class="card-footer-d">
-                      <div class="socials-footer d-flex justify-content-center">
-                        <ul class="list-inline">
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-facebook" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-twitter" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="fa fa-dribbble" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
+
+              <div class="item carousel-item">
+                <div class="row">
+                  <div v-for="Producto of Productos_clases.slice(6,9)" class="col-md-4">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                          <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
+                        </div>
+                        <div class="card-overlay">
+                          <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                              <h2 class="card-title-a">
+                                <a>{{Producto.titulo}}</a>
+                              </h2>
+                            </div>
+                            <div class="card-body-a">
+                              <div class="price-box d-flex">
+                                <span class="price-a">{{Producto.precio}} €/hora</span>
+                              </div>
+                              <router-link :to="{ name: 'anuncio' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
+                            </div>
+                            <div class="card-footer-a">
+                              <ul class="card-info d-flex justify-content-around">
+                                <li>
+                                  <h4 class="card-info-title">Nivel</h4>
+                                  <span>{{Producto.nivel}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Localidad</h4>
+                                  <span>{{Producto.localidad}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Provincia</h4>
+                                  <span>{{Producto.provincia}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Fecha</h4>
+                                  <span>{{Producto.fecha}}</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+            </div>
+            <!-- Control del carousel -->
+            <a class="carousel-control-prev carousel-control left " href="#carouselclases" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next carousel-control right" href="#carouselclases" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
             </div>
           </div>
         </section>
-        <!--/ Agents End /-->
 
-        <!--/ Property Star /-->
-        <section class="section-property section-t8">
+        <section class="section-news section-t8">
           <div class="container">
             <div class="row">
               <div class="col-md-12">
                 <div class="title-wrap d-flex justify-content-between">
                   <div class="title-box">
-                    <h2 class="title-a">Mejores apuntes</h2>
+                    <h2 class="title-a">Apuntes</h2>
                   </div>
                   <div class="title-link">
-                      <router-link :to="{ name: 'apuntes' }" ><a >Todos los apuntes<span class="ion-ios-arrow-forward"></span></a></router-link>
+                    <router-link :to="{ name: 'apuntes' }" ><a >Resto de apuntes <span class="ion-ios-arrow-forward"></span></a></router-link>
                   </div>
                 </div>
               </div>
             </div>
-            <div id="property-carousel" class="owl-carousel owl-theme">
-              <div class="carousel-item-b">
-                <div class="card-box-a card-shadow">
-                  <div class="img-box-a">
-                    <img src="img/Apuntes-1.jpg" alt="" class="img-a img-fluid">
-                  </div>
-                  <div class="card-overlay">
-                    <div class="card-overlay-a-content">
-                      <div class="card-header-a">
-                        <h2 class="card-title-a">
-                          <a href="property-single.html">Libro de
-                            <br />Matemáticas</a>
-                        </h2>
-                      </div>
-                      <div class="card-body-a">
-                        <div class="price-box d-flex">
-                          <span class="price-a">35 eu</span>
+            <div id="carouselapuntes" class="carousel slide" data-ride="carousel">
+            <!-- Indicador del carousel -->
+            <ol class="carousel-indicators">
+              <li data-target="#carouselapuntes" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselapuntes" data-slide-to="1"></li>
+              <li data-target="#carouselapuntes" data-slide-to="2"></li>
+            </ol>
+            <!-- Objetos del carousel -->
+            <div class="carousel-inner">
+              <div class="item carousel-item active">
+                <div class="row">
+                  <div v-for="Producto of Productos_apuntes.slice(0,3)" class="col-md-4">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                          <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
                         </div>
-                        <a href="#" class="link-a"> Más información
-                          <span class="ion-ios-arrow-forward"></span>
-                        </a>
-                      </div>
-                      <div class="card-footer-a">
-                        <ul class="card-info d-flex justify-content-around">
-                          <li>
-                            <h4 class="card-info-title">Precio</h4>
-                            <span>30</span>
-                          </li>
-                          <li>
-                            <h4 class="card-info-title">Lugar</h4>
-                            <span>Santa Cruz </span>
-                          </li>
-                          <li>
-                            <h4 class="card-info-title">Provincia</h4>
-                            <span>Tenerife</span>
-                          </li>
-                        </ul>
-                      </div>
+                        <div class="card-overlay">
+                          <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                              <h2 class="card-title-a">
+                                <a>{{Producto.titulo}}</a>
+                              </h2>
+                            </div>
+                            <div class="card-body-a">
+                              <div class="price-box d-flex">
+                                <span class="price-a">{{Producto.precio}} €/hora</span>
+                              </div>
+                              <router-link :to="{ name: 'anuncio' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
+                            </div>
+                            <div class="card-footer-a">
+                              <ul class="card-info d-flex justify-content-around">
+                                <li>
+                                  <h4 class="card-info-title">Nivel</h4>
+                                  <span>{{Producto.nivel}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Localidad</h4>
+                                  <span>{{Producto.localidad}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Provincia</h4>
+                                  <span>{{Producto.provincia}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Fecha</h4>
+                                  <span>{{Producto.fecha}}</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item-b">
-                <div class="card-box-a card-shadow">
-                  <div class="img-box-a">
-                    <img src="img/Apuntes-2.jpg" alt="" class="img-a img-fluid">
-                  </div>
-                  <div class="card-overlay">
-                    <div class="card-overlay-a-content">
-                      <div class="card-header-a">
-                        <h2 class="card-title-a">
-                          <a href="property-single.html">Libro de
-                            <br />Lengua</a>
-                        </h2>
-                      </div>
-                      <div class="card-body-a">
-                        <div class="price-box d-flex">
-                          <span class="price-a">35 eu</span>
+
+              <div class="item carousel-item">
+                <div class="row">
+                  <div v-for="Producto of Productos_apuntes.slice(3,6)" class="col-md-4">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                          <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
                         </div>
-                        <a href="#" class="link-a"> Más información
-                          <span class="ion-ios-arrow-forward"></span>
-                        </a>
-                      </div>
-                      <div class="card-footer-a">
-                        <ul class="card-info d-flex justify-content-around">
-                          <li>
-                            <h4 class="card-info-title">Precio</h4>
-                            <span>30</span>
-                          </li>
-                          <li>
-                            <h4 class="card-info-title">Lugar</h4>
-                            <span>Santa Cruz </span>
-                          </li>
-                          <li>
-                            <h4 class="card-info-title">Provincia</h4>
-                            <span>Tenerife</span>
-                          </li>
-                        </ul>
-                      </div>
+                        <div class="card-overlay">
+                          <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                              <h2 class="card-title-a">
+                                <a>{{Producto.titulo}}</a>
+                              </h2>
+                            </div>
+                            <div class="card-body-a">
+                              <div class="price-box d-flex">
+                                <span class="price-a">{{Producto.precio}} €/hora</span>
+                              </div>
+                              <router-link :to="{ name: 'anuncio' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
+                            </div>
+                            <div class="card-footer-a">
+                              <ul class="card-info d-flex justify-content-around">
+                                <li>
+                                  <h4 class="card-info-title">Nivel</h4>
+                                  <span>{{Producto.nivel}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Localidad</h4>
+                                  <span>{{Producto.localidad}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Provincia</h4>
+                                  <span>{{Producto.provincia}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Fecha</h4>
+                                  <span>{{Producto.fecha}}</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item-b">
-                <div class="card-box-a card-shadow">
-                  <div class="img-box-a">
-                    <img src="img/Apuntes-3.jpg" alt="" class="img-a img-fluid">
-                  </div>
-                  <div class="card-overlay">
-                    <div class="card-overlay-a-content">
-                      <div class="card-header-a">
-                        <h2 class="card-title-a">
-                          <a href="property-single.html">Apuntes
-                            <br />Lengua 2 bachillerato</a>
-                        </h2>
-                      </div>
-                      <div class="card-body-a">
-                        <div class="price-box d-flex">
-                          <span class="price-a">35 eu</span>
+
+              <div class="item carousel-item">
+                <div class="row">
+                  <div v-for="Producto of Productos_apuntes.slice(6,9)" class="col-md-4">
+                    <div class="card-box-a card-shadow">
+                        <div class="img-box-a">
+                          <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
                         </div>
-                        <a href="#" class="link-a"> Más información
-                          <span class="ion-ios-arrow-forward"></span>
-                        </a>
-                      </div>
-                      <div class="card-footer-a">
-                        <ul class="card-info d-flex justify-content-around">
-                          <li>
-                            <h4 class="card-info-title">Precio</h4>
-                            <span>30</span>
-                          </li>
-                          <li>
-                            <h4 class="card-info-title">Lugar</h4>
-                            <span>Santa Cruz </span>
-                          </li>
-                          <li>
-                            <h4 class="card-info-title">Provincia</h4>
-                            <span>Tenerife</span>
-                          </li>
-                        </ul>
-                      </div>
+                        <div class="card-overlay">
+                          <div class="card-overlay-a-content">
+                            <div class="card-header-a">
+                              <h2 class="card-title-a">
+                                <a>{{Producto.titulo}}</a>
+                              </h2>
+                            </div>
+                            <div class="card-body-a">
+                              <div class="price-box d-flex">
+                                <span class="price-a">{{Producto.precio}} €/hora</span>
+                              </div>
+                              <router-link :to="{ name: 'anuncio' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
+                            </div>
+                            <div class="card-footer-a">
+                              <ul class="card-info d-flex justify-content-around">
+                                <li>
+                                  <h4 class="card-info-title">Nivel</h4>
+                                  <span>{{Producto.nivel}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Localidad</h4>
+                                  <span>{{Producto.localidad}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Provincia</h4>
+                                  <span>{{Producto.provincia}}</span>
+                                </li>
+                                <li>
+                                  <h4 class="card-info-title">Fecha</h4>
+                                  <span>{{Producto.fecha}}</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item-b">
-                <div class="card-box-a card-shadow">
-                  <div class="img-box-a">
-                    <img src="img/Apuntes-4.jpg" alt="" class="img-a img-fluid">
-                  </div>
-                  <div class="card-overlay">
-                    <div class="card-overlay-a-content">
-                      <div class="card-header-a">
-                        <h2 class="card-title-a">
-                          <a href="property-single.html">Apuntes
-                            <br />Psicología</a>
-                        </h2>
-                      </div>
-                      <div class="card-body-a">
-                        <div class="price-box d-flex">
-                          <span class="price-a">35 eu</span>
-                        </div>
-                        <a href="#" class="link-a"> Más información
-                          <span class="ion-ios-arrow-forward"></span>
-                        </a>
-                      </div>
-                      <div class="card-footer-a">
-                        <ul class="card-info d-flex justify-content-around">
-                          <li>
-                            <h4 class="card-info-title">Precio</h4>
-                            <span>30</span>
-                          </li>
-                          <li>
-                            <h4 class="card-info-title">Lugar</h4>
-                            <span>Santa Cruz </span>
-                          </li>
-                          <li>
-                            <h4 class="card-info-title">Provincia</h4>
-                            <span>Tenerife</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+            </div>
+            <!-- Control del carousel -->
+            <a class="carousel-control-prev carousel-control left " href="#carouselapuntes" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next carousel-control right" href="#carouselapuntes" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
             </div>
           </div>
         </section>
-        <!--/ Property End /-->
 
   </div>
 
