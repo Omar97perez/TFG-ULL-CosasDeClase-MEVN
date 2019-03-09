@@ -81,18 +81,15 @@
 <script>
 
 export default {
-  name: 'anuncio',
+  name: 'anuncio_noticia',
   data(){
       return{
-          preview: '',
-          Producto: [],
           Productos: [],
       }
   },
   created() {
       this.getProductos();
   },
-  props: ['invId', 'name', 'image', 'price', 'offer'],
   methods: {
     getProductos() {
       fetch('/api/CosasDeClase/Producto/')
@@ -103,7 +100,6 @@ export default {
     },
   },
   computed: {
-    previewId() { return this.$store.getters.preview; },
     prev(){
         return this.Productos.find((PrevItem) =>{
             return PrevItem._id === this.$store.getters.preview;

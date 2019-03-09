@@ -8,7 +8,7 @@
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
               <h1 class="title-single">{{prev.titulo}}</h1>
-              <span class="color-text-a">{{prev.localidad}}, {{prev.provincia}}</span>
+              <span class="color-text-a">{{prev.localidad}} ({{prev.provincia}})</span>
             </div>
           </div>
         </div>
@@ -133,15 +133,12 @@ export default {
   name: 'anuncio',
   data(){
       return{
-          preview: '',
-          Producto: [],
           Productos: [],
       }
   },
   created() {
       this.getProductos();
   },
-  props: ['invId', 'name', 'image', 'price', 'offer'],
   methods: {
     getProductos() {
       fetch('/api/CosasDeClase/Producto/')
@@ -152,7 +149,6 @@ export default {
     },
   },
   computed: {
-    previewId() { return this.$store.getters.preview; },
     prev(){
         return this.Productos.find((PrevItem) =>{
             return PrevItem._id === this.$store.getters.preview;
