@@ -201,11 +201,11 @@ Productos_clases<template>
 
               </div>
               <!-- Control del carousel -->
-              <a class="carousel-control-prev carousel-control left " href="#carouselnoticias" role="button" data-slide="prev">
+              <a class="carousel-control-prev" href="#carouselnoticias" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
               </a>
-              <a class="carousel-control-next carousel-control right" href="#carouselnoticias" role="button" data-slide="next">
+              <a class="carousel-control-next" href="#carouselnoticias" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
               </a>
@@ -379,11 +379,11 @@ Productos_clases<template>
 
             </div>
             <!-- Control del carousel -->
-            <a class="carousel-control-prev carousel-control left " href="#carouselclases" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselclases" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next carousel-control right" href="#carouselclases" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselclases" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
@@ -557,11 +557,11 @@ Productos_clases<template>
 
             </div>
             <!-- Control del carousel -->
-            <a class="carousel-control-prev carousel-control left " href="#carouselapuntes" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselapuntes" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next carousel-control right" href="#carouselapuntes" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselapuntes" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
