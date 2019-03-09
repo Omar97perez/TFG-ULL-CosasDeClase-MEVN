@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Clases Particulares</h1>
+              <h1 class="title-single">Apuntes</h1>
             </div>
           </div>
         </div>
@@ -44,10 +44,9 @@
                     </div>
                     <div class="card-body-a">
                       <div class="price-box d-flex">
-                        <span class="price-a">{{Producto.precio}} €/hora</span>
-                        <td>{{Producto.precio}}</td>
+                        <span class="price-a">{{Producto.precio}}</span>
                       </div>
-                      <router-link :to="{ name: 'anuncio' }" class="link-a"><a >Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
+                      <router-link :to="{ name: 'anuncio' }" class="link-a"><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
                     </div>
                     <div class="card-footer-a">
                       <ul class="card-info d-flex justify-content-around">
@@ -82,7 +81,7 @@
 
 <script>
   export default {
-    name: 'app',
+    name: 'apuntes',
     data() {
       return {
         Productos: [],
@@ -96,8 +95,12 @@
         fetch('/api/CosasDeClase/Producto/')
           .then(res => res.json())
           .then(data => {
-            this.Productos = data.filter(data =>  data.tipo == 'clases');
+            this.Productos = data.filter(data =>  data.tipo == 'apuntes');
           });
+      },
+      addToPrev(invId) {
+        console.log(invId)
+        this.$store.dispatch('addToPrev', invId);
       },
     }
   };

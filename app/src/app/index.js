@@ -11,20 +11,20 @@ Vue.use(VueAxios, axios);
 
 import App from './App.vue';
 import Index from './components/index.vue';
-import Clases from './components/clases_particulares.vue'
-import Apuntes from './components/apuntes.vue'
-import Noticias from './components/noticias.vue'
+import Clases from './components/productos/clases_particulares.vue'
+import Apuntes from './components/productos/apuntes.vue'
+import Noticias from './components/productos/noticias.vue'
 import Contacto from './components/contacto.vue'
-import Perfil from './components/perfil.vue'
-import Administrador from './components/administrador.vue';
-import Nuevo_Anuncio from './components/nuevo_anuncio.vue'
-import Anuncio from './components/anuncio.vue'
-import Anuncio_noticia from './components/anuncio_noticia.vue'
-import store from './components/store';
-import Login from './components/Login.vue';
-import Logout from './components/Logout.vue';
-import Registro from './components/Registro.vue';
-import ModUsuario from './components/ModUsuario.vue';
+import Perfil from './components/usuario/perfil.vue'
+import Administrador from './components/productos/administrador.vue';
+import Nuevo_Anuncio from './components/productos/nuevo_anuncio.vue'
+import Anuncio from './components/productos/anuncio.vue'
+import Anuncio_noticia from './components/productos/anuncio_noticia.vue'
+import store from './js/store';
+import Login from './components/usuario/Login.vue';
+import Logout from './components/usuario/Logout.vue';
+import Registro from './components/usuario/Registro.vue';
+import ModUsuario from './components/usuario/ModUsuario.vue';
 
 const routes = [
   {

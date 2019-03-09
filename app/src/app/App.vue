@@ -246,7 +246,7 @@
 </template>
 
 <script>
-import { dollars } from './components/filters';
+import { dollars } from './js/filters';
 
 export default {
   name: 'App',

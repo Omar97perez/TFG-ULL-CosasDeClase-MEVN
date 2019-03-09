@@ -27,12 +27,13 @@
                 <div class="card-header-b">
                   <div class="card-title-b">
                     <h2 class="title-2">
-                      <router-link :to="{ name: 'anuncio_noticia' }"><a>{{Producto.titulo}}</a></router-link>
+                      <a>{{Producto.titulo}}</a>
                     </h2>
                   </div>
                   <div class="card-date">
                     <span class="date-b">{{Producto.fecha}}</span>
                   </div>
+                    <router-link :to="{ name: 'anuncio_noticia' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver noticia<span class="ion-ios-arrow-forward"></span></a></router-link>
                 </div>
               </div>
             </div>
@@ -46,7 +47,7 @@
 
 <script>
   export default {
-    name: 'app',
+    name: 'noticias',
     data() {
       return {
         Productos: [],
@@ -62,6 +63,10 @@
           .then(data => {
             this.Productos = data.filter(data =>  data.tipo == 'noticias');
           });
+      },
+      addToPrev(invId) {
+        console.log(invId)
+        this.$store.dispatch('addToPrev', invId);
       },
     }
   };
