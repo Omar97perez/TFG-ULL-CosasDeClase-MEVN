@@ -584,16 +584,30 @@ Productos_clases<template>
       }
     },
     created() {
-      this.getProductos();
+      this.getProductos_noticias();
+      this.getProductos_clases();
+      this.getProductos_apuntes();
     },
     methods: {
-      getProductos() {
+      getProductos_clases() {
         fetch('/api/CosasDeClase/Producto/')
           .then(res => res.json())
           .then(data => {
             this.Productos_clases = data.filter(data =>  data.tipo == 'clases');
-            this.Productos_apuntes = data.filter(data =>  data.tipo == 'apuntes');
-            this.Productos_noticias = data.filter(data =>  data.tipo == 'noticias');
+          });
+      },
+      getProductos_noticias() {
+        fetch('/api/CosasDeClase/Producto/')
+          .then(res => res.json())
+          .then(data => {
+            this.Productos_noticias = data.filter(data => data.tipo == 'noticias');
+          });
+      },
+      getProductos_apuntes() {
+        fetch('/api/CosasDeClase/Producto/')
+          .then(res => res.json())
+          .then(data => {
+            this.Productos_apuntes = data.filter(data => data.tipo == 'apuntes');
           });
       },
       addToPrev(invId) {
