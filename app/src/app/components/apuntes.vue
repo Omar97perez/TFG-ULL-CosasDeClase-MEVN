@@ -45,7 +45,6 @@
                     <div class="card-body-a">
                       <div class="price-box d-flex">
                         <span class="price-a">{{Producto.precio}}</span>
-                        <td>{{Producto.precio}}</td>
                       </div>
                       <router-link :to="{ name: 'anuncio' }" class="link-a"><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
                     </div>
