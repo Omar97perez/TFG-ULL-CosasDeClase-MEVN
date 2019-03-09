@@ -2,76 +2,31 @@ Productos_clases<template>
   <div>
 
         <div class="intro intro-carousel">
-          <div id="carousel" class="owl-carousel owl-theme">
-            <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/slide-1.jpg)">
-              <div class="overlay overlay-a"></div>
-              <div class="intro-content display-table">
-                <div class="table-cell">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-8">
-                        <div class="intro-body">
-                          <p class="intro-title-top">Santa cruz de Tenerife
-                            <br>(TENERIFE)</p>
-                          <h1 class="intro-title mb-4">
-                            <span class="color-b">Día</span> Europeo
-                            <br>Deporte escolar</h1>
-                          <p class="intro-subtitle intro-price">
-                            <a href="#"><span class="price-a">Noticia</span></a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="img/slide-1.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="img/slide-2.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="img/slide-3.jpg" alt="Third slide">
               </div>
             </div>
-            <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/slide-2.jpg)">
-              <div class="overlay overlay-a"></div>
-              <div class="intro-content display-table">
-                <div class="table-cell">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-8">
-                        <div class="intro-body">
-                          <p class="intro-title-top">La Laguna
-                            <br>(TENERIFE)</p>
-                          <h1 class="intro-title mb-4">
-                            <span class="color-b">Su</span>Historia
-                            <br>Personal</h1>
-                          <p class="intro-subtitle intro-price">
-                            <a href="#"><span class="price-a">Noticia</span></a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item-a intro-item bg-image" style="background-image: url(img/slide-3.jpg)">
-              <div class="overlay overlay-a"></div>
-              <div class="intro-content display-table">
-                <div class="table-cell">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-lg-8">
-                        <div class="intro-body">
-                          <p class="intro-title-top">Galdar
-                            <br>(Gran Canaria)</p>
-                          <h1 class="intro-title mb-4">
-                            <span class="color-b">Muestra</span>Tu
-                            <br>Talento artistico</h1>
-                          <p class="intro-subtitle intro-price">
-                            <a href="#"><span class="price-a">Noticia</span></a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
         </div>
 
