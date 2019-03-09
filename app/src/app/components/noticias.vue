@@ -27,7 +27,7 @@
                 <div class="card-header-b">
                   <div class="card-title-b">
                     <h2 class="title-2">
-                      <router-link><a>{{Producto.titulo}}</a></router-link>
+                      <a>{{Producto.titulo}}</a>
                     </h2>
                   </div>
                   <div class="card-date">
