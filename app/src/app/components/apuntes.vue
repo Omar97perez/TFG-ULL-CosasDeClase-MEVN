@@ -44,10 +44,10 @@
                     </div>
                     <div class="card-body-a">
                       <div class="price-box d-flex">
-                        <span class="price-a">{{Producto.precio}} €/hora</span>
+                        <span class="price-a">{{Producto.precio}}</span>
                         <td>{{Producto.precio}}</td>
                       </div>
-                      <router-link :to="{ name: 'anuncio' }" class="link-a"><a >Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
+                      <router-link :to="{ name: 'anuncio' }" class="link-a"><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
                     </div>
                     <div class="card-footer-a">
                       <ul class="card-info d-flex justify-content-around">
@@ -82,7 +82,7 @@
 
 <script>
   export default {
-    name: 'app',
+    name: 'apuntes',
     data() {
       return {
         Productos: [],
@@ -98,6 +98,10 @@
           .then(data => {
             this.Productos = data.filter(data =>  data.tipo == 'apuntes');
           });
+      },
+      addToPrev(invId) {
+        console.log(invId)
+        this.$store.dispatch('addToPrev', invId);
       },
     }
   };
