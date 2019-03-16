@@ -2,6 +2,7 @@ const chai          = require("chai");
 const assert        = chai.assert;
 const request       = require("supertest")("../../src/routes/Producto");
 const producto_js   = require("../../src/routes/Producto");
+const productos_js  = require("../../src/models/Productos.js");
 
 describe("Pruebas sobre un Producto de la página web", function(){
     describe("Prueba de creación de un producto", function(){
@@ -97,6 +98,45 @@ describe("Pruebas sobre un Producto de la página web", function(){
             request.get("/").expect('Content-Type', /json/);
         });
     });
+    describe("Pruebas sobre Productos.js", function(){
+        it("comprobando existe objeto Productos", function(){
+            assert.typeOf(productos_js.schema.obj, "object");
+        });
+        it("comprobando que campo id es de tipo Number", function(){
+            assert.equal(productos_js.schema.paths.id.instance, "Number");
+        });
+        it("comprobando que campo anunciante es de tipo String", function(){
+            assert.equal(productos_js.schema.paths.anunciante.instance, "String");
+        });
+        it("comprobando que campo fecha es de tipo Number", function(){
+            assert.equal(productos_js.schema.paths.fecha.instance, "String");
+        });
+        it("comprobando que campo titulo es de tipo String", function(){
+            assert.equal(productos_js.schema.paths.titulo.instance, "String");
+        });
+        it("comprobando que campo foto es de tipo String", function(){
+            assert.equal(productos_js.schema.paths.foto.instance, "String");
+        });
+        it("comprobando que campo descripcion es de tipo String", function(){
+            assert.equal(productos_js.schema.paths.descripcion.instance, "String");
+        });
+        it("comprobando que campo tipo es de tipo String", function(){
+            assert.equal(productos_js.schema.paths.tipo.instance, "String");
+        });
+        it("comprobando que campo nivel es de tipo String", function(){
+            assert.equal(productos_js.schema.paths.nivel.instance, "String");
+        });
+        it("comprobando que campo provincia es de tipo String", function(){
+            assert.equal(productos_js.schema.paths.provincia.instance, "String");
+        });
+        it("comprobando que campo localidad es de tipo Number", function(){
+            assert.equal(productos_js.schema.paths.localidad.instance, "String");
+        });
+        it("comprobando que campo precio es de tipo Number", function(){
+            assert.equal(productos_js.schema.paths.precio.instance, "Number");
+        });
+    });
+
     it("comprobando que existe método get sobre /", function(){
         assert.equal(producto_js.stack[0].route.path, "/");
         assert.equal(producto_js.stack[0].route.methods.get, true);
