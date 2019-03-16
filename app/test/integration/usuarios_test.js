@@ -3,7 +3,7 @@ const assert        = chai.assert;
 const request       = require("supertest")("../../src/authentication/backend/users/users-controller");
 const user_model    = require("../../src/authentication/backend/users/user-model");
 
-describe("Pruebas sobre users-controller.js", function(){
+describe("Pruebas sobre Usuarios", function(){
     describe("Prueba de registro de un usuario", function(){
         it("comprobando que se registra correctamente", function(){
             let user_test = {
@@ -11,8 +11,11 @@ describe("Pruebas sobre users-controller.js", function(){
                 name: "test_name",
                 surname: "test_surname",
                 email: "test_email",
+                paragraph: "test_parrafo",
+                image: "image",
+                telephone: "test_telefono",
                 birthdate: new Date("1997-03-25"),
-                genre: "test_genre"
+                genre: "test_genre",
             }
             request.post("/register").send(user_test).expect(201);
         });
@@ -20,12 +23,15 @@ describe("Pruebas sobre users-controller.js", function(){
     describe("Prueba de autentificación", function(){
         it("comprobando que se autentifica correctamente", function(){
             let user_test = {
-                password: "pass_test",
-                name: "test_name",
-                surname: "test_surname",
-                email: "test_email",
-                birthdate: new Date("1997-03-25"),
-                genre: "test_genre"
+              password: "pass_test",
+              name: "test_name",
+              surname: "test_surname",
+              email: "test_email",
+              paragraph: "test_parrafo",
+              image: "image",
+              telephone: "test_telefono",
+              birthdate: new Date("1997-03-25"),
+              genre: "test_genre",
             }
             request.post("/register").send(user_test).expect(201);
             request.post("/authenticate").send(user_test.email, user_test.password).expect(201);
@@ -34,12 +40,15 @@ describe("Pruebas sobre users-controller.js", function(){
     describe("Prueba de usuario actual", function(){
         it("comprobando que se retorna correctamente el usuario actual", function(){
             let user_test = {
-                password: "pass_test",
-                name: "test_name",
-                surname: "test_surname",
-                email: "test_email",
-                birthdate: new Date("1997-03-25"),
-                genre: "test_genre"
+              password: "pass_test",
+              name: "test_name",
+              surname: "test_surname",
+              email: "test_email",
+              paragraph: "test_parrafo",
+              image: "image",
+              telephone: "test_telefono",
+              birthdate: new Date("1997-03-25"),
+              genre: "test_genre",
             }
             request.post("/register").send(user_test).expect(201);
             request.post("/authenticate").send(user_test.email, user_test.password).expect(201);
@@ -83,12 +92,15 @@ describe("Pruebas sobre users-controller.js", function(){
     describe("Prueba sobre data_user", function(){
         it("comprobando que testea correctamente la autorización del usuario", function(){
             let user_test = {
-                password: "pass_test",
-                name: "test_name",
-                surname: "test_surname",
-                email: "test_email",
-                birthdate: new Date("1997-03-25"),
-                genre: "test_genre"
+              password: "pass_test",
+              name: "test_name",
+              surname: "test_surname",
+              email: "test_email",
+              paragraph: "test_parrafo",
+              image: "image",
+              telephone: "test_telefono",
+              birthdate: new Date("1997-03-25"),
+              genre: "test_genre",
             }
             request.post("/register").send(user_test).expect(201);
             request.post("/authenticate").send(user_test.email, user_test.password).expect(201);
