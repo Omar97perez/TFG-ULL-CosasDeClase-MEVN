@@ -95,7 +95,7 @@
                 <a class="dropdown-item" ><router-link :to="{ name: 'Logout' }" class="na-link"> <i class="fa fa-sign-out"></i> Logout</router-link></a>
               </div>
             </div>
-            <router-link v-else :to="{ name: 'Login' }"><span class="fa fa-user" aria-hidden="true"></span></router-link>
+            <router-link v-else :to="{ name: 'Login' }"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></router-link>
           </button>
 
         </div>
