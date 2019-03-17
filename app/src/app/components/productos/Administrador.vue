@@ -136,12 +136,16 @@
 
 <script>
 class Producto {
-  constructor(anunciante = '',titulo = '', foto = '',  descripcion = '', tipo = '', precio = '',) {
+  constructor(anunciante = '',fecha = '',titulo = '',foto = '',descripcion = '',tipo = '',nivel = '',provincia = '',localidad = '',precio = '') {
     this.anunciante = anunciante;
+    this.fecha = fecha;
     this.titulo = titulo;
     this.foto = foto;
     this.descripcion = descripcion;
     this.tipo = tipo;
+    this.nivel = nivel;
+    this.provincia = provincia;
+    this.localidad = localidad;
     this.precio = precio;
   }
 }
@@ -155,10 +159,16 @@ export default {
     }
   },
   created() {
-    this.getProductos();
+    this.getProductos(this.$store.getters.email);
+  },
+  computed: {
+    getEmail() {
+      return this.$store.getters.email
+    },
   },
   methods: {
     sendProducto() {
+      this.Producto.anunciante = this.$store.getters.email;
       if(this.edit === false) {
         fetch('/api/CosasDeClase/Producto/', {
           method: 'POST',
@@ -193,11 +203,11 @@ export default {
           });
       }
     },
-    getProductos() {
+    getProductos(email) {
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {
-          this.Productos = data;
+          this.Productos = data.filter(data =>  data.anunciante == email);
         });
     },
     deleteProducto(ProductoId) {
@@ -218,8 +228,8 @@ export default {
       fetch('/api/CosasDeClase/Producto/' + ProductoId)
         .then(res => res.json())
         .then(data => {
-          const { _id,titulo,foto,descripcion,tipo,plataforma,categoria,precio,oferta} = data;
-          this.Producto = new Producto(titulo,foto,descripcion,tipo,plataforma,categoria,precio,oferta);
+          const { _id,anunciante,fecha,titulo,foto,descripcion,tipo,nivel,provincia,localidad,precio,} = data;
+          this.Producto = new Producto(anunciante,fecha,titulo,foto,descripcion,tipo,nivel,provincia,localidad,precio,);
           this.ProductoToEdit = _id;
           this.edit = true;
         });

@@ -131,12 +131,16 @@
 
 <script>
 class Producto {
-  constructor(anunciante = '', titulo = '', foto = '',  descripcion = '', tipo = '', precio = '',) {
+  constructor(anunciante = '',fecha = '',titulo = '',foto = '',descripcion = '',tipo = '',nivel = '',provincia = '',localidad = '',precio = '') {
     this.anunciante = anunciante;
+    this.fecha = fecha;
     this.titulo = titulo;
     this.foto = foto;
     this.descripcion = descripcion;
     this.tipo = tipo;
+    this.nivel = nivel;
+    this.provincia = provincia;
+    this.localidad = localidad;
     this.precio = precio;
   }
 }
@@ -219,8 +223,8 @@ export default {
       fetch('/api/CosasDeClase/Producto/' + ProductoId)
         .then(res => res.json())
         .then(data => {
-          const { _id,titulo,foto,descripcion,tipo,plataforma,categoria,precio,oferta} = data;
-          this.Producto = new Producto(titulo,foto,descripcion,tipo,plataforma,categoria,precio,oferta);
+          const { _id,anunciante,fecha,titulo,foto,descripcion,tipo,nivel,provincia,localidad,precio,} = data;
+          this.Producto = new Producto(anunciante,fecha,titulo,foto,descripcion,tipo,nivel,provincia,localidad,precio,);
           this.ProductoToEdit = _id;
           this.edit = true;
         });
