@@ -118,17 +118,17 @@
                   <h3 class="w-title-a text-brand"><img src="img/favicon.png" alt="favicon"  width="15%"> CosasDeClase</h3>
                 </div>
                 <div class="w-body-a">
-                  <p class="w-text-a color-text-a">
+                  <p class="w-text-a color-a">
                     CosasDeClase consiste en una aplicación web basada en la idea de ayudar
-                    a los alumnos de cualquier curso académico
+                    a los alumnos de cualquier curso académico.
                   </p>
                 </div>
                 <div class="w-footer-a">
                   <ul class="list-unstyled">
-                    <li class="color-a">
-                      <span class="color-text-a">Email:</span> cosasdeclase@gmail.com</li>
-                    <li class="color-a">
-                      <span class="color-text-a">Teléfono:</span> +54 356 945234</li>
+                    <li class="color-text-a">
+                      <span class="color-a">Email:</span> cosasdeclase@gmail.com</li>
+                    <li class="color-text-a">
+                      <span class="color-a">Teléfono:</span> +54 356 945234</li>
                   </ul>
                 </div>
               </div>
@@ -142,22 +142,16 @@
                   <div class="w-body-a">
                     <ul class="list-unstyled">
                       <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Mapa</a>
+                        <i class="fa fa-angle-right"></i><router-link :to="{ name: 'contacto' }" class="na-link">Mapa</router-link>
                       </li>
                       <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
+                        <i class="fa fa-angle-right"></i><router-link :to="{ name: 'contacto' }" class="na-link">Contacto</router-link>
                       </li>
                       <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
+                        <i class="fa fa-angle-right"></i><router-link :to="{ name: 'contacto' }" class="na-link">Afiliados</router-link>
                       </li>
                       <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
-                      </li>
-                      <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
-                      </li>
-                      <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                        <i class="fa fa-angle-right"></i><router-link :to="{ name: 'contacto' }" class="na-link">Política de privacidad</router-link>
                       </li>
                     </ul>
                   </div>
@@ -172,19 +166,19 @@
                 <div class="w-body-a">
                   <ul class="list-unstyled">
                     <li class="item-list-a">
-                      <i class="fa fa-angle-right"></i> <a href="#">Inicio</a>
+                      <i class="fa fa-angle-right"></i><router-link :to="{ name: 'index' }" class="na-link">Inicio</router-link>
                     </li>
                     <li class="item-list-a">
-                      <i class="fa fa-angle-right"></i> <a href="#">Clases Particulares</a>
+                      <i class="fa fa-angle-right"></i><router-link :to="{ name: 'clases' }" class="na-link">Clases Particulares</router-link>
                     </li>
                     <li class="item-list-a">
-                      <i class="fa fa-angle-right"></i> <a href="#">Apuntes</a>
+                      <i class="fa fa-angle-right"></i><router-link :to="{ name: 'apuntes' }" class="na-link">Apuntes</router-link>
                     </li>
                     <li class="item-list-a">
-                      <i class="fa fa-angle-right"></i> <a href="#">Noticias</a>
+                      <i class="fa fa-angle-right"></i><router-link :to="{ name: 'noticias' }" class="na-link">Noticias</router-link>
                     </li>
                     <li class="item-list-a">
-                      <i class="fa fa-angle-right"></i> <a href="#">Contacto</a>
+                      <i class="fa fa-angle-right"></i><router-link :to="{ name: 'contacto' }" class="na-link">Contacto</router-link>
                     </li>
                   </ul>
                 </div>
