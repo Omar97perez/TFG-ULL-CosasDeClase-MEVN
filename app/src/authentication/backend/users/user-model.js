@@ -10,7 +10,7 @@ const userSchema = new Schema({
     paragraph: { type: String, required: true },
     image: { type: String, required: true },
     telephone: { type: String, required: true },
-    birthdate: { type: Date },
+    birthdate: String,
     genre: { type: String },
     createdDate: { type: Date, default: Date.now }
 });

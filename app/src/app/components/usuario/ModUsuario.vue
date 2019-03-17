@@ -31,7 +31,7 @@
         <label for="birthdate">
           Fecha de nacimiento
         </label>
-        <input type="date" class="form-control" id="birthdate" :placeholder="getBirthdate">
+        <input type="date" class="form-control" id="birthdate" v-model="birthdate" :placeholder="getBirthdate">
       </div>
       <div class="form-group">
         <label for="telephone">
