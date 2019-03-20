@@ -53,7 +53,11 @@
 
                             <div class="col">
                                 <label for="tittle">Provincia</label>
-                                <input v-model="Producto.provincia" type="text" class="form-control">
+                                <select class="form-control" id="provin" name="provincia" v-model="Producto.provincia" style="height: 40px;">
+                                    <option value="0"></option>
+                                    <option value="Tenerife">Santa Cruz de Tenerife</option>
+                                    <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
+                                </select>
                             </div>
 
                             <div class="col">
@@ -207,7 +211,7 @@ export default {
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {
-          this.Productos = data.filter(data =>  data.anunciante == email);
+          this.Productos = data;
         });
     },
     deleteProducto(ProductoId) {

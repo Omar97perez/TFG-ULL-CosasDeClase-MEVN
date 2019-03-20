@@ -154,7 +154,8 @@ class Buscador {
     },
     computed: {
       buscarProducto() {
-        return this.Productos.filter(Producto => Producto.tipo.includes(this.tipo));
+        return this.Productos.filter(Producto => Producto.tipo.includes(this.tipo) &&
+                                                 Producto.provincia.includes(this.ciudad));
       }
     }
   };
