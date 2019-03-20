@@ -70,7 +70,7 @@
             </div>
           </div>
           <div  v-for="Producto of buscarProducto" class="col-md-4">
-            <div class="card-box-a card-shadow">
+            <div v-if="Producto.tipo =='clases' || Producto.tipo =='apuntes' "  class="card-box-a card-shadow">
                 <div class="img-box-a">
                   <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
                 </div>
@@ -109,6 +109,24 @@
                     </div>
                   </div>
                 </div>
+            </div>
+            <div v-if="Producto.tipo =='noticias'" class="card-box-b card-shadow news-box">
+              <div class="img-box-b">
+                <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
+              </div>
+              <div class="card-overlay">
+                <div class="card-header-b">
+                  <div class="card-title-b">
+                    <h2 class="title-2">
+                      <a>{{Producto.titulo}}</a>
+                    </h2>
+                  </div>
+                  <div class="card-date">
+                    <span class="date-b">{{Producto.fecha}}</span>
+                  </div>
+                    <router-link :to="{ name: 'anuncio_noticia' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver noticia<span class="ion-ios-arrow-forward"></span></a></router-link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
