@@ -2,52 +2,7 @@
   <div>
     <body>
       <div class="click-closed"></div>
-      <!--/ Form Search Star /-->
-      <div class="box-collapse">
-        <div class="title-box-d">
-          <h3 class="title-d">Búsqueda</h3>
-        </div>
-        <span class="close-box-collapse right-boxed ion-ios-close"></span>
-        <div class="box-collapse-wrap form">
-          <form class="form-a">
-            <div class="row">
-              <div class="col-md-12 mb-2">
-                <div class="form-group">
-                  <label for="Type">¿Qué buscas?</label>
-                  <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="Buscador.busqueda">
-                </div>
-              </div>
-              <div class="col-md-6 mb-2">
-                <div class="form-group">
-                  <label for="Type">Tipo</label>
-                  <select class="form-control form-control-lg form-control-a" id="Type" v-model="Buscador.tipo">
-                    <option value="0"></option>
-                    <option value="Todo">Todo</option>
-                    <option value="Noticias">Noticias</option>
-                    <option value="Clases Particulares">Clases Particulares</option>
-                    <option value="Apuntes">Apuntes</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6 mb-2">
-                <div class="form-group">
-                  <label for="city">Ciudad</label>
-                  <select class="form-control form-control-lg form-control-a" id="city" v-model="Buscador.ciudad">
-                    <option value="0"></option>
-                    <option value="Todas">Todas</option>
-                    <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
-                    <option value="Las Palmas de Gran Canaria">Las Palmas de Gran Canaria</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <router-link :to="{ name: 'Buscador_productos' }" class="nav-link"><button @click="addToPrev(Buscador)" type="submit" class="btn btn-b">Buscar</button></router-link>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      <!--/ Form Search End /-->
+
       <!--/ Nav Star /-->
       <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
         <div class="container">
