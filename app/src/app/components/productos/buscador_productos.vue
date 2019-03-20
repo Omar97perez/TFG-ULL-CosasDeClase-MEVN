@@ -83,7 +83,7 @@
                       <div class="price-box d-flex">
                         <span class="price-a">{{Producto.precio}} €/hora</span>
                       </div>
-                      <a @click="getProductos()">Ver anuncio<span class="ion-ios-arrow-forward"></span></a>
+                      <router-link :to="{ name: 'anuncio' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
                     </div>
                     <div class="card-footer-a">
                       <ul class="card-info d-flex justify-content-around">
