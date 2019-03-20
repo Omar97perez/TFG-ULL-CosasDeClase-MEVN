@@ -29,6 +29,7 @@
             <div class="form-group">
               <label for="Type">Tipo</label>
               <select class="form-control form-control-lg form-control-a" id="Type" v-model="tipo">
+                <option value="">Todos</option>
                 <option value="noticias">Noticias</option>
                 <option value="clases">Clases Particulares</option>
                 <option value="apuntes">Apuntes</option>
@@ -39,6 +40,7 @@
             <div class="form-group">
               <label for="city">Ciudad</label>
               <select class="form-control form-control-lg form-control-a" id="city" v-model="ciudad">
+                <option value="">Todas</option>
                 <option value="Tenerife">Santa Cruz de Tenerife</option>
                 <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
               </select>
