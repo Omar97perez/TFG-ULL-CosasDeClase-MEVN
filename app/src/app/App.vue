@@ -31,10 +31,11 @@
               <div class="col-md-6 mb-2">
                 <div class="form-group">
                   <label for="city">Ciudad</label>
-                  <select class="form-control form-control-lg form-control-a" id="city">
-                    <option>Todas</option>
-                    <option>Santa Cruz de Tenerife</option>
-                    <option>Las Palmas de Gran Canaria</option>
+                  <select class="form-control form-control-lg form-control-a" id="city" v-model="Buscador.tipo">
+                    <option value="0"></option>
+                    <option value="Todas">Todas</option>
+                    <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
+                    <option value="Las Palmas de Gran Canaria">Las Palmas de Gran Canaria</option>
                   </select>
                 </div>
               </div>
@@ -240,6 +241,14 @@
 </template>
 
 <script>
+class Buscador {
+  constructor(busqueda = '',tipo = '',ciudad = '') {
+    this.busqueda = busqueda;
+    this.tipo = tipo;
+    this.ciudad = ciudad;
+  }
+}
+
 import { dollars } from './js/filters';
 
 export default {
@@ -247,6 +256,7 @@ export default {
   data(){
     return{
       Productos: [],
+      Buscador: new Buscador(),
     }
   },
   mounted() {
