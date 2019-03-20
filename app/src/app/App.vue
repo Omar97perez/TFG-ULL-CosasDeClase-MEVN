@@ -36,10 +36,10 @@
               </li>
             </ul>
           </div>
-          <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
+            <router-link :to="{ name: 'Buscador_productos' }" class="nav-link"><button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
             data-target="#navbarTogglerDemo01" aria-expanded="false">
-              <router-link :to="{ name: 'Buscador_productos' }" class="nav-link"><span class="fa fa-search" aria-hidden="true"></span></router-link>
-          </button>
+            <span class="fa fa-search" aria-hidden="true"></span>
+          </button></router-link>
 
           <button type="button" class="btn btn-b-n" data-toggle="collapse"
             data-target="#navbarTogglerDemo01" aria-expanded="false">
