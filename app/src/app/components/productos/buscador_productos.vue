@@ -22,13 +22,13 @@
           <div class="col-md-12 mb-2">
             <div class="form-group">
               <label for="Type">¿Qué buscas?</label>
-              <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="busqueda" @click="getProductos">
+              <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="busqueda">
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="Type">Tipo</label>
-              <select class="form-control form-control-lg form-control-a" id="Type" v-model="tipo" @click="getProductos">
+              <select class="form-control form-control-lg form-control-a" id="Type" v-model="tipo">
                 <option value="noticias">Noticias</option>
                 <option value="clases">Clases Particulares</option>
                 <option value="apuntes">Apuntes</option>
@@ -38,7 +38,7 @@
           <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="city">Ciudad</label>
-              <select class="form-control form-control-lg form-control-a" id="city" v-model="ciudad" @click="getProductos">
+              <select class="form-control form-control-lg form-control-a" id="city" v-model="ciudad">
                 <option value="Tenerife">Santa Cruz de Tenerife</option>
                 <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
               </select>
