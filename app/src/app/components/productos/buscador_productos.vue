@@ -22,7 +22,7 @@
           <div class="col-md-12 mb-2">
             <div class="form-group">
               <label for="Type">¿Qué buscas?</label>
-              <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="busqueda">
+              <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="busqueda" name="buscar" value="buscar">
             </div>
           </div>
           <div class="col-md-6 mb-2">
@@ -154,7 +154,8 @@ class Buscador {
     },
     computed: {
       buscarProducto() {
-        return this.Productos.filter(Producto => Producto.tipo.includes(this.tipo) &&
+        return this.Productos.filter(Producto => Producto.titulo.includes(this.busqueda) &&
+                                                 Producto.tipo.includes(this.tipo) &&
                                                  Producto.provincia.includes(this.ciudad));
       }
     }
