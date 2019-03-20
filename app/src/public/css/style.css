@@ -230,7 +230,7 @@ a:hover {
 /*------/ Space Padding /------*/
 
 .section-t8 {
-  padding-top: 8rem;
+  padding-top: 4rem;
 }
 
 .section-t4 {
@@ -833,7 +833,6 @@ a:hover {
   height: 100%;
   visibility: hidden;
   z-index: 1035;
-  background-color: #000000;
   opacity: .4;
 }
 

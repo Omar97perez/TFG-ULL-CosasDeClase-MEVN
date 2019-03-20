@@ -22,7 +22,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="agent-avatar-box">
-                  <img src="img/agent-7.jpg" alt="" class="agent-avatar img-fluid">
+                  <img v-bind:src="getImage" alt="" class="agent-avatar img-fluid">
                 </div>
               </div>
               <div class="col-md-5 section-md-t3">

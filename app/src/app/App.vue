@@ -2,50 +2,7 @@
   <div>
     <body>
       <div class="click-closed"></div>
-      <!--/ Form Search Star /-->
-      <div class="box-collapse">
-        <div class="title-box-d">
-          <h3 class="title-d">Búsqueda</h3>
-        </div>
-        <span class="close-box-collapse right-boxed ion-ios-close"></span>
-        <div class="box-collapse-wrap form">
-          <form class="form-a">
-            <div class="row">
-              <div class="col-md-12 mb-2">
-                <div class="form-group">
-                  <label for="Type">¿Qué buscas?</label>
-                  <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?">
-                </div>
-              </div>
-              <div class="col-md-6 mb-2">
-                <div class="form-group">
-                  <label for="Type">Tipo</label>
-                  <select class="form-control form-control-lg form-control-a" id="Type">
-                    <option>Todo</option>
-                    <option>Noticias</option>
-                    <option>Clases Particulares</option>
-                    <option>Apuntes</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-6 mb-2">
-                <div class="form-group">
-                  <label for="city">Ciudad</label>
-                  <select class="form-control form-control-lg form-control-a" id="city">
-                    <option>Todas</option>
-                    <option>Santa Cruz de Tenerife</option>
-                    <option>Las Palmas de Gran Canaria</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-md-12">
-                <button type="submit" class="btn btn-b">Buscar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      <!--/ Form Search End /-->
+
       <!--/ Nav Star /-->
       <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
         <div class="container">
@@ -79,23 +36,23 @@
               </li>
             </ul>
           </div>
-          <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
+            <router-link :to="{ name: 'Buscador_productos' }" class="nav-link"><button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
             data-target="#navbarTogglerDemo01" aria-expanded="false">
             <span class="fa fa-search" aria-hidden="true"></span>
-          </button>
+          </button></router-link>
 
           <button type="button" class="btn btn-b-n" data-toggle="collapse"
             data-target="#navbarTogglerDemo01" aria-expanded="false">
             <div class="dropdown"  v-if="loggedIn">
-              <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="fa fa-user" aria-hidden="true"></span></a>
-              <div class="dropdown-menu" aria-labelledby="login">
+              <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color:white"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></a>
+              <div class="dropdown-menu" aria-labelledby="login" >
                 <a class="dropdown-item" ><router-link :to="{ name: 'nuevoanuncio' }" class="na-link"><i class="fa fa-plus"></i> Nuevo Anuncio</router-link></a>
                 <a class="dropdown-item" ><router-link :to="{ name: 'ModUsuario' }" class="na-link"><i class="fa fa-user"></i> Modificar Usuario</router-link></a>
                 <a class="dropdown-item" ><router-link :to="{ name: 'perfil' }" class="na-link"><i class="fa fa-user"></i> Perfil</router-link></a>
                 <a class="dropdown-item" ><router-link :to="{ name: 'Logout' }" class="na-link"> <i class="fa fa-sign-out"></i> Logout</router-link></a>
               </div>
             </div>
-            <router-link v-else :to="{ name: 'Login' }"><span class="fa fa-user" aria-hidden="true"></span></router-link>
+            <router-link v-else :to="{ name: 'Login' }"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></router-link>
           </button>
 
         </div>
@@ -118,17 +75,17 @@
                   <h3 class="w-title-a text-brand"><img src="img/favicon.png" alt="favicon"  width="15%"> CosasDeClase</h3>
                 </div>
                 <div class="w-body-a">
-                  <p class="w-text-a color-text-a">
+                  <p class="w-text-a color-a">
                     CosasDeClase consiste en una aplicación web basada en la idea de ayudar
-                    a los alumnos de cualquier curso académico
+                    a los alumnos de cualquier curso académico.
                   </p>
                 </div>
                 <div class="w-footer-a">
                   <ul class="list-unstyled">
-                    <li class="color-a">
-                      <span class="color-text-a">Email:</span> cosasdeclase@gmail.com</li>
-                    <li class="color-a">
-                      <span class="color-text-a">Teléfono:</span> +54 356 945234</li>
+                    <li class="color-text-a">
+                      <span class="color-a">Email:</span> cosasdeclase@gmail.com</li>
+                    <li class="color-text-a">
+                      <span class="color-a">Teléfono:</span> +54 356 945234</li>
                   </ul>
                 </div>
               </div>
@@ -142,22 +99,16 @@
                   <div class="w-body-a">
                     <ul class="list-unstyled">
                       <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Mapa</a>
+                        <i class="fa fa-angle-right"></i><router-link :to="{ name: 'contacto' }" class="na-link">Mapa</router-link>
                       </li>
                       <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Legal</a>
+                        <i class="fa fa-angle-right"></i><router-link :to="{ name: 'contacto' }" class="na-link">Contacto</router-link>
                       </li>
                       <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Agent Admin</a>
+                        <i class="fa fa-angle-right"></i><router-link :to="{ name: 'contacto' }" class="na-link">Afiliados</router-link>
                       </li>
                       <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Careers</a>
-                      </li>
-                      <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Affiliate</a>
-                      </li>
-                      <li class="item-list-a">
-                        <i class="fa fa-angle-right"></i> <a href="#">Privacy Policy</a>
+                        <i class="fa fa-angle-right"></i><router-link :to="{ name: 'contacto' }" class="na-link">Política de privacidad</router-link>
                       </li>
                     </ul>
                   </div>
@@ -172,19 +123,19 @@
                 <div class="w-body-a">
                   <ul class="list-unstyled">
                     <li class="item-list-a">
-                      <i class="fa fa-angle-right"></i> <a href="#">Inicio</a>
+                      <i class="fa fa-angle-right"></i><router-link :to="{ name: 'index' }" class="na-link">Inicio</router-link>
                     </li>
                     <li class="item-list-a">
-                      <i class="fa fa-angle-right"></i> <a href="#">Clases Particulares</a>
+                      <i class="fa fa-angle-right"></i><router-link :to="{ name: 'clases' }" class="na-link">Clases Particulares</router-link>
                     </li>
                     <li class="item-list-a">
-                      <i class="fa fa-angle-right"></i> <a href="#">Apuntes</a>
+                      <i class="fa fa-angle-right"></i><router-link :to="{ name: 'apuntes' }" class="na-link">Apuntes</router-link>
                     </li>
                     <li class="item-list-a">
-                      <i class="fa fa-angle-right"></i> <a href="#">Noticias</a>
+                      <i class="fa fa-angle-right"></i><router-link :to="{ name: 'noticias' }" class="na-link">Noticias</router-link>
                     </li>
                     <li class="item-list-a">
-                      <i class="fa fa-angle-right"></i> <a href="#">Contacto</a>
+                      <i class="fa fa-angle-right"></i><router-link :to="{ name: 'contacto' }" class="na-link">Contacto</router-link>
                     </li>
                   </ul>
                 </div>
@@ -246,6 +197,14 @@
 </template>
 
 <script>
+class Buscador {
+  constructor(busqueda = '',tipo = '',ciudad = '') {
+    this.busqueda = busqueda;
+    this.tipo = tipo;
+    this.ciudad = ciudad;
+  }
+}
+
 import { dollars } from './js/filters';
 
 export default {
@@ -253,6 +212,7 @@ export default {
   data(){
     return{
       Productos: [],
+      Buscador: new Buscador(),
     }
   },
   mounted() {
@@ -292,6 +252,10 @@ export default {
         .then(data => {
           this.Productos = data;
         });
+    },
+    addToPrev(invId) {
+      console.log(invId)
+      this.$store.dispatch('addToPrev', invId);
     },
   },
 };

@@ -25,6 +25,8 @@ import Login from './components/usuario/Login.vue';
 import Logout from './components/usuario/Logout.vue';
 import Registro from './components/usuario/Registro.vue';
 import ModUsuario from './components/usuario/ModUsuario.vue';
+import Buscador_productos from './components/productos/buscador_productos.vue';
+import Buscador_noticias from './components/productos/buscador_noticias.vue';
 
 const routes = [
   {
@@ -134,6 +136,16 @@ const routes = [
   name: 'ModUsuario',
   path: '/Usuario/ModUsuario',
   component: ModUsuario,
+},
+{
+  name: 'Buscador_productos',
+  path: '/Buscador/productos',
+  component: Buscador_productos,
+},
+{
+  name: 'Buscador_noticias',
+  path: '/Buscador/noticias',
+  component: Buscador_noticias,
 },
 ];
 

@@ -25,9 +25,8 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-12 section-t8">
-            <div class="row">
-              <div class="col-md-5 section-md-t3">
+          <div class="col-sm-12 section-t8" align="center">
+              <div class="col-sm-6 section-md-t3">
                 <div class="icon-box section-b2">
                   <div class="icon-box-icon">
                     <span class="ion-ios-paper-plane"></span>
@@ -104,7 +103,6 @@
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
