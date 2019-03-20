@@ -39,7 +39,7 @@
                 </div>
               </div>
               <div class="col-md-12">
-                <button type="submit" class="btn btn-b">Buscar</button>
+                <router-link :to="{ name: 'Buscador_productos' }" class="nav-link"><button type="submit" class="btn btn-b">Buscar</button></router-link>
               </div>
             </div>
           </form>
