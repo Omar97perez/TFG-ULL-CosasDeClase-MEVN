@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-md-12 col-lg-8">
               <div class="title-single-box">
-                <h1 class="title-single">Nuevo Anuncio</h1>
+                <h1 class="title-single">Administrador</h1>
               </div>
             </div>
           </div>
@@ -20,6 +20,11 @@
                     <form @submit.prevent="sendProducto">
                       <div class="form-group row">
                           <div class="col">
+                              <label for="tittle">Anunciante</label>
+                              <input v-model="Producto.anunciante" type="text" class="form-control">
+                          </div>
+
+                          <div class="col">
                               <label for="tittle">Titulo del producto</label>
                               <input v-model="Producto.titulo" type="text" class="form-control">
                           </div>
@@ -30,25 +35,31 @@
                           </div>
                       </div>
 
-                      <div class="form-group">
-                          <label for="sel1">Tipo de producto:</label>
-                          <select class="form-control" id="product" name="product" v-model="Producto.tipo" style="height: 40px;">
-                              <option value="0"></option>
-                              <option value="clases">Clases Particulares</option>
-                              <option value="apuntes">Apuntes</option>
-                              <option value="noticias">Noticias</option>
-                          </select>
+                      <div class="form-group row">
+                          <div class="col">
+                            <label for="sel1">Tipo de producto:</label>
+                            <select class="form-control" id="product" name="product" v-model="Producto.tipo" style="height: 40px;">
+                                <option value="0"></option>
+                                <option value="clases">Clases Particulares</option>
+                                <option value="apuntes">Apuntes</option>
+                                <option value="noticias">Noticias</option>
+                            </select>
+                          </div>
+
+                          <div class="col">
+                            <label for="tittle">Provincia</label>
+                            <select class="form-control" id="provin" name="provincia" v-model="Producto.provincia" style="height: 40px;">
+                                <option value="0"></option>
+                                <option value="Tenerife">Santa Cruz de Tenerife</option>
+                                <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
+                            </select>
+                          </div>
                       </div>
                       <div v-if="Producto.tipo === 'clases' || Producto.tipo === 'apuntes'" class="form-group" id="game">
                         <div class="form-group row">
                             <div class="col">
                                 <label for="tittle">Localidad</label>
                                 <input v-model="Producto.localidad" type="text" class="form-control">
-                            </div>
-
-                            <div class="col">
-                                <label for="tittle">Provincia</label>
-                                <input v-model="Producto.provincia" type="text" class="form-control">
                             </div>
 
                             <div class="col">
