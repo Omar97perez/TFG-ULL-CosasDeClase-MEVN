@@ -14,24 +14,25 @@
               <div class="col-md-12 mb-2">
                 <div class="form-group">
                   <label for="Type">¿Qué buscas?</label>
-                  <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?">
+                  <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="Buscador.busqueda">
                 </div>
               </div>
               <div class="col-md-6 mb-2">
                 <div class="form-group">
                   <label for="Type">Tipo</label>
-                  <select class="form-control form-control-lg form-control-a" id="Type">
-                    <option>Todo</option>
-                    <option>Noticias</option>
-                    <option>Clases Particulares</option>
-                    <option>Apuntes</option>
+                  <select class="form-control form-control-lg form-control-a" id="Type" v-model="Buscador.tipo">
+                    <option value="0"></option>
+                    <option value="Todo">Todo</option>
+                    <option value="Noticias">Noticias</option>
+                    <option value="Clases Particulares">Clases Particulares</option>
+                    <option value="Apuntes">Apuntes</option>
                   </select>
                 </div>
               </div>
               <div class="col-md-6 mb-2">
                 <div class="form-group">
                   <label for="city">Ciudad</label>
-                  <select class="form-control form-control-lg form-control-a" id="city" v-model="Buscador.tipo">
+                  <select class="form-control form-control-lg form-control-a" id="city" v-model="Buscador.ciudad">
                     <option value="0"></option>
                     <option value="Todas">Todas</option>
                     <option value="Santa Cruz de Tenerife">Santa Cruz de Tenerife</option>
@@ -40,7 +41,7 @@
                 </div>
               </div>
               <div class="col-md-12">
-                <router-link :to="{ name: 'Anuncio' }" class="nav-link"><button @click="addToPrev(Producto._id)" type="submit" class="btn btn-b">Buscar</button></router-link>
+                <router-link :to="{ name: 'Buscador_productos' }" class="nav-link"><button @click="addToPrev(Buscador)" type="submit" class="btn btn-b">Buscar</button></router-link>
               </div>
             </div>
           </form>
@@ -82,7 +83,7 @@
           </div>
           <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
             data-target="#navbarTogglerDemo01" aria-expanded="false">
-            <span class="fa fa-search" aria-hidden="true"></span>
+              <router-link :to="{ name: 'Buscador_productos' }" class="nav-link"><span class="fa fa-search" aria-hidden="true"></span></router-link>
           </button>
 
           <button type="button" class="btn btn-b-n" data-toggle="collapse"
