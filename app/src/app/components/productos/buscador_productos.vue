@@ -1,5 +1,7 @@
 <template>
   <div>
+
+
     <!--/ Intro Single star /-->
     <section class="intro-single">
       <div class="container">
@@ -13,6 +15,41 @@
       </div>
     </section>
     <!--/ Intro Single End /-->
+
+    <div class="container">
+      <form class="form-a">
+        <div class="row">
+          <div class="col-md-12 mb-2">
+            <div class="form-group">
+              <label for="Type">¿Qué buscas?</label>
+              <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="busqueda" @click="getProductos">
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group">
+              <label for="Type">Tipo</label>
+              <select class="form-control form-control-lg form-control-a" id="Type" v-model="tipo" @click="getProductos">
+                <option value="noticias">Noticias</option>
+                <option value="clases">Clases Particulares</option>
+                <option value="apuntes">Apuntes</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <div class="form-group">
+              <label for="city">Ciudad</label>
+              <select class="form-control form-control-lg form-control-a" id="city" v-model="ciudad" @click="getProductos">
+                <option value="Tenerife">Santa Cruz de Tenerife</option>
+                <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <router-link :to="{ name: 'Buscador_productos' }" class="nav-link"><button @click="addToPrev(Buscador)" type="submit" class="btn btn-b">Buscar</button></router-link>
+          </div>
+        </div>
+      </form>
+    </div>
 
     <!--/ Property Grid Star /-->
     <section class="property-grid grid">
@@ -30,7 +67,7 @@
               </form>
             </div>
           </div>
-          <div  v-for="Producto of Productos" class="col-md-4">
+          <div  v-for="Producto of buscarProducto" class="col-md-4">
             <div class="card-box-a card-shadow">
                 <div class="img-box-a">
                   <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
@@ -46,7 +83,7 @@
                       <div class="price-box d-flex">
                         <span class="price-a">{{Producto.precio}} €/hora</span>
                       </div>
-                      <router-link :to="{ name: 'anuncio' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
+                      <a @click="getProductos()">Ver anuncio<span class="ion-ios-arrow-forward"></span></a>
                     </div>
                     <div class="card-footer-a">
                       <ul class="card-info d-flex justify-content-around">
@@ -80,11 +117,23 @@
 </template>
 
 <script>
+class Buscador {
+  constructor(busqueda = '',tipo = '',ciudad = '') {
+    this.busqueda = busqueda;
+    this.tipo = tipo;
+    this.ciudad = ciudad;
+  }
+}
+
   export default {
     name: 'clases',
     data() {
       return {
-        Productos: [],
+            Productos: [],
+            Buscador: new Buscador(),
+            busqueda: '',
+            tipo: '',
+            ciudad: '',
       }
     },
     created() {
@@ -95,13 +144,18 @@
         fetch('/api/CosasDeClase/Producto/')
           .then(res => res.json())
           .then(data => {
-            this.Productos = data.filter(data =>  data.tipo == 'clases');
+            this.Productos = data ;
           });
       },
       addToPrev(invId) {
-        console.log(invId)
+        console.log(this.tipo)
         this.$store.dispatch('addToPrev', invId);
       },
+    },
+    computed: {
+      buscarProducto() {
+        return this.Productos.filter(Producto => Producto.tipo.includes(this.tipo));
+      }
     }
   };
 </script>
