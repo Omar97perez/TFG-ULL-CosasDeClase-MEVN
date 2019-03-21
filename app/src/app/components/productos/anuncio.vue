@@ -64,7 +64,7 @@
               </div>
               <div class="col-md-6 col-lg-7">
                 <div class="property-agent">
-                  <h4 class="title-agent">Anabella Geller</h4>
+                  <h4 class="title-agent">{{Anunciante.name}}</h4>
                   <p class="color-text-a">
                     Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
                     dui. Quisque velit nisi,
@@ -134,10 +134,12 @@ export default {
   data(){
       return{
           Productos: [],
+          Anunciante: "",
       }
   },
   created() {
       this.getProductos();
+      this.getUser();
   },
   methods: {
     getProductos() {
@@ -145,6 +147,14 @@ export default {
         .then(res => res.json())
         .then(data => {
           this.Productos = data;
+        });
+    },
+    getUser() {
+      fetch('/users')
+        .then(res => res.json())
+        .then(data => {
+          this.Anunciante == data.filter(data =>  data.name == 'omar');
+          console.log(this.Anunciante)
         });
     },
   },
