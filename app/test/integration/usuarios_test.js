@@ -14,7 +14,7 @@ describe("Pruebas sobre Usuarios", function(){
                 paragraph: "test_parrafo",
                 image: "image",
                 telephone: "test_telefono",
-                birthdate: new Date("1997-03-25"),
+                birthdate: "9/10/1995",
                 genre: "test_genre",
             }
             request.post("/register").send(user_test).expect(201);
@@ -30,7 +30,7 @@ describe("Pruebas sobre Usuarios", function(){
               paragraph: "test_parrafo",
               image: "image",
               telephone: "test_telefono",
-              birthdate: new Date("1997-03-25"),
+              birthdate: "9/10/1995",
               genre: "test_genre",
             }
             request.post("/register").send(user_test).expect(201);
@@ -47,7 +47,7 @@ describe("Pruebas sobre Usuarios", function(){
               paragraph: "test_parrafo",
               image: "image",
               telephone: "test_telefono",
-              birthdate: new Date("1997-03-25"),
+              birthdate: "9/10/1995",
               genre: "test_genre",
             }
             request.post("/register").send(user_test).expect(201);
@@ -99,7 +99,7 @@ describe("Pruebas sobre Usuarios", function(){
               paragraph: "test_parrafo",
               image: "image",
               telephone: "test_telefono",
-              birthdate: new Date("1997-03-25"),
+              birthdate: "9/10/1995",
               genre: "test_genre",
             }
             request.post("/register").send(user_test).expect(201);
@@ -126,7 +126,7 @@ describe("Pruebas sobre user-model.js", function(){
         assert.equal(user_model.schema.paths.email.instance, "String");
     });
     it("comprobando que campo birthdate es de tipo Date", function(){
-        assert.equal(user_model.schema.paths.birthdate.instance, "Date");
+        assert.equal(user_model.schema.paths.birthdate.instance, "String");
     });
     it("comprobando que campo genre es de tipo String", function(){
         assert.equal(user_model.schema.paths.genre.instance, "String");
