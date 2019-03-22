@@ -16,7 +16,7 @@ import Apuntes from './components/productos/apuntes.vue'
 import Noticias from './components/productos/noticias.vue'
 import Contacto from './components/contacto.vue'
 import Perfil from './components/usuario/perfil.vue'
-import Administrador from './components/productos/administrador.vue';
+import Administrador from './components/productos/Administrador.vue';
 import Nuevo_Anuncio from './components/productos/nuevo_anuncio.vue'
 import Anuncio from './components/productos/anuncio.vue'
 import Anuncio_noticia from './components/productos/anuncio_noticia.vue'
