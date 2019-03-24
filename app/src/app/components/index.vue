@@ -1,6 +1,7 @@
 Productos_clases<template>
   <div>
 
+      <section class="intro-single">
         <div class="intro intro-carousel">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -29,6 +30,7 @@ Productos_clases<template>
             </a>
           </div>
         </div>
+      </section>
 
         <section class="section-services section-t8">
           <div class="container">
