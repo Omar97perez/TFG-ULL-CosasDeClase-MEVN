@@ -61,7 +61,7 @@
                                 <label for="tittle">Localidad</label>
                                 <input v-model="Producto.localidad" type="text" class="form-control">
                             </div>
-                            
+
                             <div class="col">
                                 <label for="price">Precio</label>
                                 <input v-model="Producto.precio" type="text" class="form-control">
@@ -103,7 +103,6 @@
                       <th >Título</th>
                       <th >Fecha</th>
                       <th>Foto</th>
-                      <th>Decripcion</th>
                       <th>Tipo</th>
                       <th>Nivel</th>
                       <th>Precio</th>
@@ -120,7 +119,6 @@
                           <img v-bind:src="Producto.foto"  width="150" height="150"></img>
                         </div>
                       </td>
-                      <td>{{Producto.descripcion}}</td>
                       <td>{{Producto.tipo}}</td>
                       <td>{{Producto.nivel}}</td>
                       <td>{{Producto.precio}}</td>

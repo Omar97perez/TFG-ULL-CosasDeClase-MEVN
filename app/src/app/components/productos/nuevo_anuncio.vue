@@ -99,7 +99,6 @@
                 <table class="table table-striped">
                   <thead style="background-color:#434343;color:#ffffff">
                     <tr>
-                      <th >Anunciante</th>
                       <th >Título</th>
                       <th >Fecha</th>
                       <th>Foto</th>
@@ -112,7 +111,6 @@
                   </thead>
                   <tbody >
                     <tr v-for="Producto of Productos">
-                      <td>{{Producto.anunciante}}</td>
                       <td>{{Producto.titulo}}</td>
                       <td>{{Producto.fecha}}</td>
                       <td>
