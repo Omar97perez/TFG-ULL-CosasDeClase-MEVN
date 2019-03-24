@@ -21,16 +21,15 @@
           <div class="col-sm-12">
             <div class="grid-option">
               <form>
-                <select class="custom-select">
-                  <option selected>Predeterminado</option>
-                  <option value="1">Nuevo a viejo</option>
-                  <option value="2">Viejo a nuevo</option>
-                  <option value="3">Mejores valorados</option>
+                <select class="custom-select" id="city" v-model="ciudad">
+                  <option value="">Todas las ciudades</option>
+                  <option value="Tenerife">Santa Cruz de Tenerife</option>
+                  <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
                 </select>
               </form>
             </div>
           </div>
-          <div  v-for="Producto of Productos" class="col-md-4">
+          <div  v-for="Producto of buscarProducto" class="col-md-4">
             <div class="card-box-a card-shadow">
                 <div class="img-box-a">
                   <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
@@ -85,6 +84,7 @@
     data() {
       return {
         Productos: [],
+        ciudad: '',
       }
     },
     created() {
@@ -102,6 +102,11 @@
         console.log(invId)
         this.$store.dispatch('addToPrev', invId);
       },
+    },
+    computed: {
+      buscarProducto() {
+        return this.Productos.filter(Producto => Producto.provincia.includes(this.ciudad));
+      }
     }
   };
 </script>
