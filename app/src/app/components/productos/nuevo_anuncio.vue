@@ -7,7 +7,7 @@
           <div class="row">
             <div class="col-md-12 col-lg-8">
               <div class="title-single-box">
-                <h1 class="title-single">Administrador</h1>
+                <h1 class="title-single">Nuevo Anuncio</h1>
               </div>
             </div>
           </div>
@@ -21,7 +21,7 @@
                       <div class="form-group row">
                           <div class="col">
                               <label for="tittle">Anunciante</label>
-                              <input v-model="Producto.anunciante" type="text" class="form-control">
+                              <input v-model="Producto.anunciante" type="text" class="form-control" :placeholder="getEmail">
                           </div>
 
                           <div class="col">
