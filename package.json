@@ -9,8 +9,8 @@
     "dev": "nodemon app/src/index.js --ignore 'src/public'",
     "webpack": "webpack --watch --mode development",
     "build": "webpack --mode production",
-    "test": "mocha ./test/integration --exit",
-    "jest": "jest ./test/vue_tests"
+    "test": "mocha ./app/test/integration --exit",
+    "jest": "jest ./app/test/vue_tests"
   },
   "keywords": [],
   "author": "",

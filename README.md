@@ -1,5 +1,5 @@
 # TFG DE LA UNIVERNIDAD DE LA LAGUNA
-[Ver mejor la explicación](https://omar97perez.github.io/CosasDeClase-MEVN/) 
+[Ver mejor la explicación](https://omar97perez.github.io/CosasDeClase-MEVN/)
 ## CosasDeClase
 Este repositorio consiste en el desarrollo de una aplicación web basada en la idea de ayudar a los alumnos de cualquier curso académico en donde se podrán encontrar:
 - Noticias: existencia de noticias importantes sobre la actualidad de la educación ( becas
@@ -22,7 +22,7 @@ Despliegue hecho con Heroku ayudado de Mongodb Atlas.
 [Link hacia la aplicación](https://cosasdeclase.herokuapp.com/#/)
 
 ## Travis
-[![Build Status](https://travis-ci.org/SyTW12018/E04.svg?branch=master)](https://travis-ci.org/SyTW12018/E04)
+[![Build Status](https://travis-ci.com/Omar97perez/CosasDeClase-MEVN.svg?branch=master)](https://travis-ci.com/Omar97perez/CosasDeClase-MEVN)
 
 ## Build Setup
 - Intalar dependencias: npm install.
