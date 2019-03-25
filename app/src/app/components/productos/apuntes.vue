@@ -21,15 +21,15 @@
           <div class="col-sm-12">
             <div class="grid-option">
               <form>
-                <select class="custom-select" id="city" v-model="ciudad">
-                  <option value="">Todas las ciudades</option>
+                <select class="custom-select" id="city" v-model="ciudad" value=""  @change="buscarProducto" v-on:click="resetpag">
+                  <option value="" >Todas las ciudades</option>
                   <option value="Tenerife">Santa Cruz de Tenerife</option>
                   <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
                 </select>
               </form>
             </div>
           </div>
-          <div  v-for="Producto of buscarProducto" class="col-md-4">
+          <div  v-for="Producto of Productos" class="col-md-4">
             <div class="card-box-a card-shadow">
                 <div class="img-box-a">
                   <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
@@ -43,9 +43,9 @@
                     </div>
                     <div class="card-body-a">
                       <div class="price-box d-flex">
-                        <span class="price-a">{{Producto.precio}} €</span>
+                        <span class="price-a">{{Producto.precio}} €/hora</span>
                       </div>
-                      <router-link :to="{ name: 'anuncio' }" class="link-a"><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
+                      <router-link :to="{ name: 'anuncio' }" class="link-a" ><a @click="addToPrev(Producto._id)">Ver anuncio<span class="ion-ios-arrow-forward"></span></a></router-link>
                     </div>
                     <div class="card-footer-a">
                       <ul class="card-info d-flex justify-content-around">
@@ -72,6 +72,31 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <nav class="pagination-a">
+              <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <span class="ion-ios-arrow-back"></span>
+                  </a>
+                </li>
+                <div v-for="Num in NumPaginas()" class="">
+                  <li  class="page-item">
+                      <a class="page-link" @click="pagination(Num)">{{Num}}</a>
+                  </li>
+
+                </div>
+
+                <li class="page-item next">
+                  <a class="page-link" href="#">
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
     </section>
     <!--/ Property Grid End /-->
@@ -80,32 +105,62 @@
 
 <script>
   export default {
-    name: 'apuntes',
+    name: 'clases',
     data() {
       return {
         Productos: [],
+        ProductosPaginacion: [],
+        Paginacion: [],
         ciudad: '',
+        numeropagina: '1',
+        tampagina: '6',
       }
     },
     created() {
       this.getProductos();
+      this.NumPaginas();
     },
     methods: {
       getProductos() {
         fetch('/api/CosasDeClase/Producto/')
           .then(res => res.json())
           .then(data => {
-            this.Productos = data.filter(data =>  data.tipo == 'apuntes');
+            this.Paginacion = data.filter(data =>  data.tipo == 'apuntes');
+            this.Productos = this.Paginacion.slice(0,3);
           });
       },
       addToPrev(invId) {
-        console.log(invId)
         this.$store.dispatch('addToPrev', invId);
       },
+      NumPaginas() {
+
+        var numero = this.ProductosPaginacion.length/this.tampagina;
+        return Math.round(numero);
+      },
+      resetpag() {
+        this.numeropagina = '1';
+      },
+      pagination(numpag) {
+        this.numeropagina = numpag
+        var x;
+        x = this.tampagina * numpag;
+        numpag = numpag - 1;
+        numpag = numpag * this.tampagina;
+        this.Productos = this.Paginacion.slice(numpag,x);
+      },
+      buscador_pagination(vector) {
+        var numpag,x;
+        numpag = this.numeropagina
+        x = this.tampagina * numpag;
+        numpag = numpag - 1;
+        numpag = numpag * this.tampagina;
+        this.Productos = vector.slice(numpag,x);
+      }
     },
-    computed: {
+    computed:  {
       buscarProducto() {
-        return this.Productos.filter(Producto => Producto.provincia.includes(this.ciudad));
+        this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad));
+        this.buscador_pagination(this.ProductosPaginacion);
       }
     }
   };
