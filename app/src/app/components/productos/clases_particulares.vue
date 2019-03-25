@@ -76,7 +76,7 @@
           <div class="col-sm-12">
             <nav class="pagination-a">
               <ul class="pagination justify-content-end">
-                <li class="page-item disabled">
+                <li class="page-item" @click="cambioanterior">
                   <a class="page-link" href="#" tabindex="-1">
                     <span class="ion-ios-arrow-back"></span>
                   </a>
@@ -85,10 +85,8 @@
                   <li  class="page-item">
                       <a class="page-link" @click="pagination(Num)">{{Num}}</a>
                   </li>
-
                 </div>
-
-                <li class="page-item next">
+                <li class="page-item" @click="cambiosiguiente">
                   <a class="page-link" href="#">
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
@@ -112,7 +110,7 @@
         ProductosPaginacion: [],
         Paginacion: [],
         ciudad: '',
-        numeropagina: '1',
+        numeropagina: 1,
         tampagina: '6',
       }
     },
@@ -131,6 +129,12 @@
       },
       addToPrev(invId) {
         this.$store.dispatch('addToPrev', invId);
+      },
+      cambiosiguiente() {
+        this.numeropagina = this.numeropagina + 1;
+      },
+      cambioanterior() {
+        this.numeropagina = this.numeropagina - 1;
       },
       NumPaginas() {
 

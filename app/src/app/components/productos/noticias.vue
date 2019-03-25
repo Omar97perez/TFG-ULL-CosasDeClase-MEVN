@@ -54,7 +54,7 @@
           <div class="col-sm-12">
             <nav class="pagination-a">
               <ul class="pagination justify-content-end">
-                <li class="page-item disabled">
+                <li class="page-item" @click="cambioanterior">
                   <a class="page-link" href="#" tabindex="-1">
                     <span class="ion-ios-arrow-back"></span>
                   </a>
@@ -63,10 +63,8 @@
                   <li  class="page-item">
                       <a class="page-link" @click="pagination(Num)">{{Num}}</a>
                   </li>
-
                 </div>
-
-                <li class="page-item next">
+                <li class="page-item" @click="cambiosiguiente">
                   <a class="page-link" href="#">
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
@@ -111,12 +109,17 @@
         this.$store.dispatch('addToPrev', invId);
       },
       NumPaginas() {
-
         var numero = this.ProductosPaginacion.length/this.tampagina;
         return Math.round(numero);
       },
       resetpag() {
         this.numeropagina = '1';
+      },
+      cambiosiguiente() {
+        this.numeropagina = this.numeropagina + 1;
+      },
+      cambioanterior() {
+        this.numeropagina = this.numeropagina - 1;
       },
       pagination(numpag) {
         this.numeropagina = numpag
