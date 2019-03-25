@@ -21,7 +21,7 @@
           <div class="col-sm-12">
             <div class="grid-option">
               <form>
-                <select class="custom-select" id="city" v-model="ciudad" @change="buscarProducto">
+                <select class="custom-select" id="city" v-model="ciudad" value=""  @change="buscarProducto">
                   <option value="" >Todas las ciudades</option>
                   <option value="Tenerife">Santa Cruz de Tenerife</option>
                   <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
@@ -113,6 +113,7 @@
         Productos: [],
         Paginacion: [],
         ciudad: '',
+        numeropagina: '1',
       }
     },
     created() {
@@ -131,22 +132,25 @@
         this.$store.dispatch('addToPrev', invId);
       },
       pagination(numpag) {
-        console.log("Página");
-        console.log(numpag);
+        this.numeropagina = numpag
         var x;
         x = 3 * numpag;
         numpag = numpag - 1;
         numpag = numpag * 3;
         this.Productos = this.Paginacion.slice(numpag,x);
-        console.log("Inicio");
-        console.log(numpag);
-        console.log("Final");
-        console.log(x);
-        console.log(this.Productos);
       },
+      buscador_pagination(numpag,vector) {
+        this.numeropagina = numpag
+        var x;
+        x = 3 * numpag;
+        numpag = numpag - 1;
+        numpag = numpag * 3;
+        this.Productos = vector.slice(numpag,x);
+      }
+    },
+    computed:  {
       buscarProducto() {
-        return this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad));
-        console.log(this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad)))
+        this.buscador_pagination(this.numeropagina,this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad)))
       }
     }
   };
