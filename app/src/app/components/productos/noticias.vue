@@ -88,8 +88,9 @@
         ProductosPaginacion: [],
         Paginacion: [],
         ciudad: '',
-        numeropagina: '1',
+        numeropagina: 1,
         tampagina: '6',
+        numero: '',
       }
     },
     created() {
@@ -109,17 +110,21 @@
         this.$store.dispatch('addToPrev', invId);
       },
       NumPaginas() {
-        var numero = this.ProductosPaginacion.length/this.tampagina;
-        return Math.round(numero);
+        this.numero = Math.round(this.ProductosPaginacion.length/this.tampagina);
+        return this.numero;
       },
       resetpag() {
-        this.numeropagina = '1';
+        this.numeropagina = 1;
       },
       cambiosiguiente() {
-        this.numeropagina = this.numeropagina + 1;
+        if(this.numeropagina < this.numero ){
+            this.numeropagina = this.numeropagina + 1;
+        }
       },
       cambioanterior() {
-        this.numeropagina = this.numeropagina - 1;
+        if(this.numeropagina > 1 ){
+            this.numeropagina = this.numeropagina - 1;
+        }
       },
       pagination(numpag) {
         this.numeropagina = numpag

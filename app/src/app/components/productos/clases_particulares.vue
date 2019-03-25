@@ -131,10 +131,14 @@
         this.$store.dispatch('addToPrev', invId);
       },
       cambiosiguiente() {
-        this.numeropagina = this.numeropagina + 1;
+        if(this.numeropagina < this.numero ){
+            this.numeropagina = this.numeropagina + 1;
+        }
       },
       cambioanterior() {
-        this.numeropagina = this.numeropagina - 1;
+        if(this.numeropagina > 1 ){
+            this.numeropagina = this.numeropagina - 1;
+        }
       },
       NumPaginas() {
 
@@ -142,7 +146,7 @@
         return Math.round(numero);
       },
       resetpag() {
-        this.numeropagina = '1';
+        this.numeropagina = 1;
       },
       pagination(numpag) {
         this.numeropagina = numpag
