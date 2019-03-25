@@ -21,7 +21,7 @@
           <div class="col-sm-12">
             <div class="grid-option">
               <form>
-                <select class="custom-select" id="city" v-model="ciudad" value=""  @change="buscarProducto">
+                <select class="custom-select" id="city" v-model="ciudad" value=""  @change="buscarProducto" v-on:click="resetpag">
                   <option value="" >Todas las ciudades</option>
                   <option value="Tenerife">Santa Cruz de Tenerife</option>
                   <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
@@ -131,6 +131,11 @@
       addToPrev(invId) {
         this.$store.dispatch('addToPrev', invId);
       },
+      resetpag() {
+        this.numeropagina = '1';
+        console.log("Número de Página funcion seleccionar")
+        console.log(this.numeropagina)
+      },
       pagination(numpag) {
         this.numeropagina = numpag
         var x;
@@ -138,19 +143,23 @@
         numpag = numpag - 1;
         numpag = numpag * 3;
         this.Productos = this.Paginacion.slice(numpag,x);
+        console.log("Número de Página funcion paginacoión")
+        console.log(this.numeropagina)
       },
-      buscador_pagination(numpag,vector) {
-        this.numeropagina = numpag
-        var x;
+      buscador_pagination(vector) {
+        var numpag,x;
+        numpag = this.numeropagina
         x = 3 * numpag;
         numpag = numpag - 1;
         numpag = numpag * 3;
         this.Productos = vector.slice(numpag,x);
+        console.log("Número de Página funcion buscador_pagination")
+        console.log(this.numeropagina)
       }
     },
     computed:  {
       buscarProducto() {
-        this.buscador_pagination(this.numeropagina,this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad)))
+        this.buscador_pagination(this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad)));
       }
     }
   };
