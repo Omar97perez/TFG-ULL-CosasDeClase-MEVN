@@ -22,14 +22,14 @@
             <div class="grid-option">
               <form>
                 <select class="custom-select" id="city" v-model="ciudad">
-                  <option value="">Todas las ciudades</option>
-                  <option value="Tenerife">Santa Cruz de Tenerife</option>
-                  <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
+                  <option value="" v-on:@click="buscarProducto()">Todas las ciudades</option>
+                  <option value="Tenerife" v-on:@click="buscarProducto()">Santa Cruz de Tenerife</option>
+                  <option value="Gran Canaria" v-on:@click="buscarProducto()">Las Palmas de Gran Canaria</option>
                 </select>
               </form>
             </div>
           </div>
-          <div  v-for="Producto of buscarProducto" class="col-md-4">
+          <div  v-for="Producto of Productos" class="col-md-4">
             <div class="card-box-a card-shadow">
                 <div class="img-box-a">
                   <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
@@ -72,6 +72,33 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <nav class="pagination-a">
+              <ul class="pagination justify-content-end">
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <span class="ion-ios-arrow-back"></span>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" @click="pagination(1)">1</a>
+                </li>
+                <li class="page-item active">
+                  <a class="page-link" @click="pagination(2)">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" @click="pagination(3)">3</a>
+                </li>
+                <li class="page-item next">
+                  <a class="page-link" href="#">
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
     </section>
     <!--/ Property Grid End /-->
@@ -84,6 +111,7 @@
     data() {
       return {
         Productos: [],
+        Paginacion: [],
         ciudad: '',
       }
     },
@@ -95,18 +123,30 @@
         fetch('/api/CosasDeClase/Producto/')
           .then(res => res.json())
           .then(data => {
-            this.Productos = data.filter(data =>  data.tipo == 'clases');
+            this.Paginacion = data.filter(data =>  data.tipo == 'clases');
+            this.Productos = this.Paginacion.slice(0,3);
           });
       },
       addToPrev(invId) {
-        console.log(invId)
         this.$store.dispatch('addToPrev', invId);
       },
-    },
-    computed: {
+      pagination(numpag) {
+        console.log("Página");
+        console.log(numpag);
+        var x;
+        x = 3 * numpag;
+        numpag = numpag - 1;
+        numpag = numpag * 3;
+        this.Productos = this.Paginacion.slice(numpag,x);
+        console.log("Inicio");
+        console.log(numpag);
+        console.log("Final");
+        console.log(x);
+      },
       buscarProducto() {
-        return this.Productos.filter(Producto => Producto.provincia.includes(this.ciudad));
+        this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad));
+        pagination(1);
       }
-    }
+    },
   };
 </script>
