@@ -113,7 +113,7 @@
         Paginacion: [],
         ciudad: '',
         numeropagina: '1',
-        tampagina: '3',
+        tampagina: '6',
       }
     },
     created() {
@@ -133,7 +133,9 @@
         this.$store.dispatch('addToPrev', invId);
       },
       NumPaginas() {
-        return this.ProductosPaginacion.length/this.tampagina;
+
+        var numero = this.ProductosPaginacion.length/this.tampagina;
+        return Math.round(numero);
       },
       resetpag() {
         this.numeropagina = '1';
