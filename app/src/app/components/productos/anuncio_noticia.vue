@@ -19,7 +19,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <div class="news-img-box">
+            <div class="news-img-box"  align="center">
                   <img class="img-fluid" :src="prev.foto">
             </div>
           </div>
