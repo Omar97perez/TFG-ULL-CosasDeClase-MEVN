@@ -103,7 +103,7 @@
           .then(res => res.json())
           .then(data => {
             this.Paginacion = data.filter(data =>  data.tipo == 'noticias');
-            this.Productos = this.Paginacion.slice(0,3);
+            this.Productos = this.Paginacion.slice(0,this.tampagina);
           });
       },
       addToPrev(invId) {
