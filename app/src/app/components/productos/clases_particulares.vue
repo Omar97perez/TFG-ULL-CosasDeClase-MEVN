@@ -21,10 +21,10 @@
           <div class="col-sm-12">
             <div class="grid-option">
               <form>
-                <select class="custom-select" id="city" v-model="ciudad">
-                  <option value="" v-on:@click="buscarProducto()">Todas las ciudades</option>
-                  <option value="Tenerife" v-on:@click="buscarProducto()">Santa Cruz de Tenerife</option>
-                  <option value="Gran Canaria" v-on:@click="buscarProducto()">Las Palmas de Gran Canaria</option>
+                <select class="custom-select" id="city" v-model="ciudad" @change="buscarProducto">
+                  <option value="" >Todas las ciudades</option>
+                  <option value="Tenerife">Santa Cruz de Tenerife</option>
+                  <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
                 </select>
               </form>
             </div>
@@ -142,11 +142,12 @@
         console.log(numpag);
         console.log("Final");
         console.log(x);
+        console.log(this.Productos);
       },
       buscarProducto() {
-        this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad));
-        pagination(1);
+        return this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad));
+        console.log(this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad)))
       }
-    },
+    }
   };
 </script>
