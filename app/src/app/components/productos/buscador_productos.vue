@@ -39,8 +39,8 @@
           <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="city">Ciudad</label>
-              <select class="custom-select" id="city" v-model="ciudad" value=""  @change="buscarProducto" v-on:click="resetpag">
-                <option value="" >Todas las ciudades</option>
+              <select class="form-control form-control-lg form-control-a" id="city" v-model="ciudad">
+                <option value="">Todas</option>
                 <option value="Tenerife">Santa Cruz de Tenerife</option>
                 <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
               </select>
@@ -69,7 +69,7 @@
               </form>
             </div>
           </div>
-          <div  v-for="Producto of Productos" class="col-md-4">
+          <div  v-for="Producto of buscarProducto" class="col-md-4">
             <div v-if="Producto.tipo =='clases' || Producto.tipo =='apuntes' "  class="card-box-a card-shadow">
                 <div class="img-box-a">
                   <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
@@ -130,29 +130,6 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <nav class="pagination-a">
-              <ul class="pagination justify-content-end">
-                <li class="page-item" @click="cambioanterior">
-                  <a class="page-link" href="#" tabindex="-1">
-                    <span class="ion-ios-arrow-back"></span>
-                  </a>
-                </li>
-                <div v-for="Num in NumPaginas()" class="">
-                  <li  class="page-item">
-                      <a class="page-link" @click="pagination(Num)">{{Num}}</a>
-                  </li>
-                </div>
-                <li class="page-item" @click="cambiosiguiente">
-                  <a class="page-link" href="#">
-                    <span class="ion-ios-arrow-forward"></span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
       </div>
     </section>
     <!--/ Property Grid End /-->
@@ -168,77 +145,38 @@ class Buscador {
   }
 }
 
-export default {
-  name: 'clases',
-  data() {
-    return {
-      Productos: [],
-      ProductosPaginacion: [],
-      Paginacion: [],
-      ciudad: '',
-      numeropagina: 1,
-      tampagina: 6,
-      busqueda: '',
-      tipo: '',
-      ciudad: '',
-    }
-  },
-  created() {
-    this.getProductos();
-    this.NumPaginas();
-  },
-  methods: {
-    getProductos() {
-      fetch('/api/CosasDeClase/Producto/')
-        .then(res => res.json())
-        .then(data => {
-          this.Paginacion = data;
-          this.Productos = this.Paginacion.slice(0,this.tampagina);
-        });
-    },
-    addToPrev(invId) {
-      this.$store.dispatch('addToPrev', invId);
-    },
-    cambiosiguiente() {
-      if(this.numeropagina < this.numero ){
-          this.numeropagina = this.numeropagina + 1;
+  export default {
+    name: 'clases',
+    data() {
+      return {
+            Productos: [],
+            Buscador: new Buscador(),
+            busqueda: '',
+            tipo: '',
+            ciudad: '',
       }
     },
-    cambioanterior() {
-      if(this.numeropagina > 1 ){
-          this.numeropagina = this.numeropagina - 1;
-      }
+    created() {
+      this.getProductos();
     },
-    NumPaginas() {
-
-      var numero = this.ProductosPaginacion.length/this.tampagina;
-      return Math.round(numero);
+    methods: {
+      getProductos() {
+        fetch('/api/CosasDeClase/Producto/')
+          .then(res => res.json())
+          .then(data => {
+            this.Productos = data ;
+          });
+      },
+      addToPrev(invId) {
+        console.log(this.tipo)
+        this.$store.dispatch('addToPrev', invId);
+      },
     },
-    resetpag() {
-      this.numeropagina = 1;
-    },
-    pagination(numpag) {
-      this.numeropagina = numpag
-      var x;
-      x = this.tampagina * numpag;
-      numpag = numpag - 1;
-      numpag = numpag * this.tampagina;
-      this.Productos = this.Paginacion.slice(numpag,x);
-    },
-    buscador_pagination(vector) {
-      var numpag,x;
-      numpag = this.numeropagina
-      x = this.tampagina * numpag;
-      numpag = numpag - 1;
-      numpag = numpag * this.tampagina;
-      this.Productos = vector.slice(numpag,x);
-    }
-  },
     computed: {
       buscarProducto() {
-        this.ProductosPaginacion =  this.Paginacion.filter(Producto => Producto.titulo.includes(this.busqueda) &&
-                                                                       Producto.tipo.includes(this.tipo) &&
-                                                                       Producto.provincia.includes(this.ciudad));
+        return this.Productos.filter(Producto => Producto.titulo.includes(this.busqueda) &&
+                                                 Producto.tipo.includes(this.tipo) &&
+                                                 Producto.provincia.includes(this.ciudad));
       }
     }
   };
