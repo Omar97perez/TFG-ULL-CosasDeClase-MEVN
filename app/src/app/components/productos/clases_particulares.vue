@@ -81,15 +81,13 @@
                     <span class="ion-ios-arrow-back"></span>
                   </a>
                 </li>
-                <li class="page-item">
-                  <a class="page-link" @click="pagination(1)">1</a>
-                </li>
-                <li class="page-item active">
-                  <a class="page-link" @click="pagination(2)">2</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" @click="pagination(3)">3</a>
-                </li>
+                <div v-for="Num in NumPaginas()" class="">
+                  <li  class="page-item">
+                      <a class="page-link" @click="pagination(Num)">{{Num}}</a>
+                  </li>
+
+                </div>
+
                 <li class="page-item next">
                   <a class="page-link" href="#">
                     <span class="ion-ios-arrow-forward"></span>
@@ -111,13 +109,16 @@
     data() {
       return {
         Productos: [],
+        ProductosPaginacion: [],
         Paginacion: [],
         ciudad: '',
         numeropagina: '1',
+        tampagina: '3',
       }
     },
     created() {
       this.getProductos();
+      this.NumPaginas();
     },
     methods: {
       getProductos() {
@@ -131,35 +132,33 @@
       addToPrev(invId) {
         this.$store.dispatch('addToPrev', invId);
       },
+      NumPaginas() {
+        return this.ProductosPaginacion.length/this.tampagina;
+      },
       resetpag() {
         this.numeropagina = '1';
-        console.log("Número de Página funcion seleccionar")
-        console.log(this.numeropagina)
       },
       pagination(numpag) {
         this.numeropagina = numpag
         var x;
-        x = 3 * numpag;
+        x = this.tampagina * numpag;
         numpag = numpag - 1;
-        numpag = numpag * 3;
+        numpag = numpag * this.tampagina;
         this.Productos = this.Paginacion.slice(numpag,x);
-        console.log("Número de Página funcion paginacoión")
-        console.log(this.numeropagina)
       },
       buscador_pagination(vector) {
         var numpag,x;
         numpag = this.numeropagina
-        x = 3 * numpag;
+        x = this.tampagina * numpag;
         numpag = numpag - 1;
-        numpag = numpag * 3;
+        numpag = numpag * this.tampagina;
         this.Productos = vector.slice(numpag,x);
-        console.log("Número de Página funcion buscador_pagination")
-        console.log(this.numeropagina)
       }
     },
     computed:  {
       buscarProducto() {
-        this.buscador_pagination(this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad)));
+        this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad));
+        this.buscador_pagination(this.ProductosPaginacion);
       }
     }
   };
