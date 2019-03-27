@@ -71,7 +71,7 @@
                     <router-link :to="{ name: 'administrador' }" class="nav-link"><a class="nav-link">Administrador</a></router-link>
                 </li>
             </ul>
-            <div class="navbar-collapse collapse justify-content-center" id="navbarDefault" align="center">
+            <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
               <router-link :to="{ name: 'Buscador_productos' }" >
                   <button type="button" class="btn btn-b-n" data-toggle="collapse" data-target="#navbarTogglerDemo01 nav-link" aria-expanded="false">
                     <span class="fa fa-search" aria-hidden="true" style="color:white"></span>
