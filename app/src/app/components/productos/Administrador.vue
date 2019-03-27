@@ -1,18 +1,20 @@
-<template class="pt-5">
-
-    <div>
-      <!--/ Intro Single star /-->
-      <section class="intro-single">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 col-lg-8">
-              <div class="title-single-box">
-                <h1 class="title-single">Administrador</h1>
-              </div>
+<template>
+  <div>
+    <!--/ Intro Single star /-->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Administrador</h1>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    <!--/ Intro Single End /-->
+
+    <!--/ Property Grid Star /-->
       <section class="property-grid grid">
         <div class="container">
             <div class="row">

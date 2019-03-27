@@ -27,7 +27,7 @@
               <ul class="navbar-nav">
                 <li class="nav-link navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarDefault"
                   aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-                  <router-link :to="{ name: 'index' }" class="nav-link"><a class="nav-link">Inicio</a></router-link>
+                  <router-link :to="{ name: 'index' }" ><a class="nav-link">Inicio</a></router-link>
                 </li>
                 <li class="nav-item">
                   <router-link :to="{ name: 'clases' }" class="nav-link navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarDefault"
