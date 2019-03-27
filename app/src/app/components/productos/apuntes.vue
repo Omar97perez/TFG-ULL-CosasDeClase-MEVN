@@ -100,7 +100,6 @@
     <!--/ Property Grid End /-->
   </div>
 </template>
-
 <script>
   export default {
     name: 'clases',
@@ -112,6 +111,7 @@
         ciudad: '',
         numeropagina: 1,
         tampagina: '6',
+        numero: '',
       }
     },
     created() {
@@ -130,6 +130,13 @@
       addToPrev(invId) {
         this.$store.dispatch('addToPrev', invId);
       },
+      NumPaginas() {
+        this.numero = Math.round(this.ProductosPaginacion.length/this.tampagina);
+        return this.numero;
+      },
+      resetpag() {
+        this.numeropagina = 1;
+      },
       cambiosiguiente() {
         if(this.numeropagina < this.numero ){
             this.numeropagina = this.numeropagina + 1;
@@ -139,14 +146,6 @@
         if(this.numeropagina > 1 ){
             this.numeropagina = this.numeropagina - 1;
         }
-      },
-      NumPaginas() {
-
-        var numero = this.ProductosPaginacion.length/this.tampagina;
-        return Math.round(numero);
-      },
-      resetpag() {
-        this.numeropagina = 1;
       },
       pagination(numpag) {
         this.numeropagina = numpag
