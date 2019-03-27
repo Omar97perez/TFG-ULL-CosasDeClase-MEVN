@@ -15,7 +15,7 @@
                 <span class="span1"></span>
               </div>
               <div class="col-8">
-                <router-link :to="{ name: 'index' }" class="nav-link"><a class="navbar-brand text-brand"><img src="img/favicon.png" alt="favicon"  width="25%">CosasDe<a style="color:#2eca6a">Clase</a></a></router-link>
+                <a class="navbar-brand text-brand"><img src="img/favicon.png" alt="favicon"  width="25%">CosasDe<a style="color:#2eca6a">Clase</a></a>
               </div>
             </div>
 
