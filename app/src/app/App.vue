@@ -22,28 +22,54 @@
           </button>
 
           <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
-            <ul class="navbar-nav">
-              <li class="nav-item ocultar-en-escritorio">
-                <router-link :to="{ name: 'index' }" class="nav-link"><a class="navbar-brand text-brand"><img src="img/favicon.png" alt="favicon"  width="15%"> CosasDe<span class="color-b">Clase</span></a></router-link>
-              </li>
-              <li class="nav-item mostrado-movil">
-                <router-link :to="{ name: 'index' }" class="nav-link"><a class="nav-link">Inicio</a></router-link>
-              </li>
-              <li class="nav-item">
-                <router-link :to="{ name: 'clases' }" class="nav-link"><a class="nav-link">Clases Particulares</a></router-link>
-              </li>
-              <li class="nav-item">
-                  <router-link :to="{ name: 'apuntes' }" class="nav-link"><a class="nav-link">Apuntes</a></router-link>
-              </li>
-              <li class="nav-item">
-                  <router-link :to="{ name: 'noticias' }" class="nav-link"><a class="nav-link">Noticias</a></router-link>
-              </li>
-              <li class="nav-item">
-                  <router-link :to="{ name: 'contacto' }" class="nav-link"><a class="nav-link">Contacto</a></router-link>
-              </li>
-              <li class="nav-item">
-                  <router-link :to="{ name: 'administrador' }" class="nav-link"><a class="nav-link">Administrador</a></router-link>
-              </li>
+
+              <!-- Inicio Menu-movil -->
+              <ul class="navbar-nav">
+                <li class="nav-link navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarDefault"
+                  aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+                  <router-link :to="{ name: 'index' }" class="nav-link"><a class="nav-link">Inicio</a></router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link :to="{ name: 'clases' }" class="nav-link navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarDefault"
+                    aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation"><a class="nav-link">Clases Particulares</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'apuntes' }" class="nav-link navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarDefault"
+                      aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation"><a class="nav-link">Apuntes</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'noticias' }" class="nav-link navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarDefault"
+                      aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation"><a class="nav-link">Noticias</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'contacto' }" class="nav-link navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarDefault"
+                      aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation"><a class="nav-link">Contacto</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'administrador' }" class="nav-link navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarDefault"
+                      aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation"><a class="nav-link">Administrador</a></router-link>
+                </li>
+              </ul>
+              <!-- Fin Menu Móvil -->
+              <ul class="navbar-nav ocultar-en-escritorio">
+                <li class="nav-item ">
+                  <router-link :to="{ name: 'index' }" class="nav-link"><a class="navbar-brand text-brand"><img src="img/favicon.png" alt="favicon"  width="15%"> CosasDe<span class="color-b">Clase</span></a></router-link>
+                </li>
+                <li class="nav-item">
+                  <router-link :to="{ name: 'clases' }" class="nav-link"><a class="nav-link">Clases Particulares</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'apuntes' }" class="nav-link"><a class="nav-link">Apuntes</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'noticias' }" class="nav-link"><a class="nav-link">Noticias</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'contacto' }" class="nav-link"><a class="nav-link">Contacto</a></router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'administrador' }" class="nav-link"><a class="nav-link">Administrador</a></router-link>
+                </li>
             </ul>
             <div class="navbar-collapse collapse justify-content-center" id="navbarDefault" align="center">
               <router-link :to="{ name: 'Buscador_productos' }" >
@@ -52,7 +78,7 @@
                   </button>
                </router-link>
 
-                <button type="button" class="btn btn-b-n" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
+                <button type="button" class="btn btn-b-n" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false" >
                   <div class="dropdown"  v-if="loggedIn">
                     <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color:white"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></a>
                     <div class="dropdown-menu" aria-labelledby="login" >
