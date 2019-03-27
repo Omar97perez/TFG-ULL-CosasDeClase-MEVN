@@ -54,6 +54,12 @@
           <div class="col-sm-12">
             <nav class="pagination-a">
               <ul class="pagination justify-content-end">
+                <li class="page-item" @click="cambioprimera">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <span class="ion-ios-arrow-back"></span>
+                    <span class="ion-ios-arrow-back"></span>
+                  </a>
+                </li>
                 <li class="page-item" @click="cambioanterior">
                   <a class="page-link" href="#" tabindex="-1">
                     <span class="ion-ios-arrow-back"></span>
@@ -66,6 +72,12 @@
                 </div>
                 <li class="page-item" @click="cambiosiguiente">
                   <a class="page-link" href="#">
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </li>
+                <li class="page-item" @click="cambioultima">
+                  <a class="page-link" href="#">
+                    <span class="ion-ios-arrow-forward"></span>
                     <span class="ion-ios-arrow-forward"></span>
                   </a>
                 </li>
@@ -89,7 +101,7 @@
         Paginacion: [],
         ciudad: '',
         numeropagina: 1,
-        tampagina: '6',
+        tampagina: '3',
         numero: '',
       }
     },
@@ -125,6 +137,12 @@
         if(this.numeropagina > 1 ){
             this.numeropagina = this.numeropagina - 1;
         }
+      },
+      cambioprimera() {
+            this.numeropagina = 1;
+      },
+      cambioultima() {
+            this.numeropagina = this.numero;
       },
       pagination(numpag) {
         this.numeropagina = numpag
