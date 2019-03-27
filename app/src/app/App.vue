@@ -22,7 +22,26 @@
           </button>
 
           <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+            <div class="navbar-collapse collapse justify-content-center" id="navbarDefault" align="center">
+              <router-link :to="{ name: 'Buscador_productos' }" >
+                  <button type="button" class="btn btn-b-n" data-toggle="collapse" data-target="#navbarTogglerDemo01 nav-link" aria-expanded="false">
+                    <span class="fa fa-search" aria-hidden="true" style="color:white"></span>
+                  </button>
+               </router-link>
 
+                <button type="button" class="btn btn-b-n" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false" >
+                  <div class="dropdown"  v-if="loggedIn">
+                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color:white"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></a>
+                    <div class="dropdown-menu" aria-labelledby="login" >
+                      <a class="dropdown-item" ><router-link :to="{ name: 'nuevoanuncio' }" class="na-link"><i class="fa fa-plus"></i> Nuevo Anuncio</router-link></a>
+                      <a class="dropdown-item" ><router-link :to="{ name: 'ModUsuario' }" class="na-link"><i class="fa fa-user"></i> Modificar Usuario</router-link></a>
+                      <a class="dropdown-item" ><router-link :to="{ name: 'perfil' }" class="na-link"><i class="fa fa-user"></i> Perfil</router-link></a>
+                      <a class="dropdown-item" ><router-link :to="{ name: 'Logout' }" class="na-link"> <i class="fa fa-sign-out"></i> Logout</router-link></a>
+                    </div>
+                  </div>
+                  <router-link v-else :to="{ name: 'Login' }"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></router-link>
+                </button>
+              </div>
               <!-- Inicio Menu-movil -->
               <ul class="navbar-nav">
                 <li class="nav-item">
@@ -71,26 +90,7 @@
                     <router-link :to="{ name: 'administrador' }" class="nav-link"><a class="nav-link">Administrador</a></router-link>
                 </li>
             </ul>
-            <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
-              <router-link :to="{ name: 'Buscador_productos' }" >
-                  <button type="button" class="btn btn-b-n" data-toggle="collapse" data-target="#navbarTogglerDemo01 nav-link" aria-expanded="false">
-                    <span class="fa fa-search" aria-hidden="true" style="color:white"></span>
-                  </button>
-               </router-link>
 
-                <button type="button" class="btn btn-b-n" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false" >
-                  <div class="dropdown"  v-if="loggedIn">
-                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color:white"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></a>
-                    <div class="dropdown-menu" aria-labelledby="login" >
-                      <a class="dropdown-item" ><router-link :to="{ name: 'nuevoanuncio' }" class="na-link"><i class="fa fa-plus"></i> Nuevo Anuncio</router-link></a>
-                      <a class="dropdown-item" ><router-link :to="{ name: 'ModUsuario' }" class="na-link"><i class="fa fa-user"></i> Modificar Usuario</router-link></a>
-                      <a class="dropdown-item" ><router-link :to="{ name: 'perfil' }" class="na-link"><i class="fa fa-user"></i> Perfil</router-link></a>
-                      <a class="dropdown-item" ><router-link :to="{ name: 'Logout' }" class="na-link"> <i class="fa fa-sign-out"></i> Logout</router-link></a>
-                    </div>
-                  </div>
-                  <router-link v-else :to="{ name: 'Login' }"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></router-link>
-                </button>
-              </div>
           </div>
 
 
