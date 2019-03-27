@@ -122,7 +122,7 @@
         Paginacion: [],
         ciudad: '',
         numeropagina: 1,
-        tampagina: '3',
+        tampagina: '6',
         numero: '',
       }
     },
