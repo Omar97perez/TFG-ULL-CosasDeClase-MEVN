@@ -167,7 +167,7 @@
             this.numeropagina = this.numero;
       },
       pagination(numpag) {
-        this.numeropagina = numpag
+        this.numeropagina = numpag;
         var x;
         x = this.tampagina * numpag;
         numpag = numpag - 1;
