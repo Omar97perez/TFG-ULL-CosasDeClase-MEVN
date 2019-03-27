@@ -1647,6 +1647,7 @@ footer .credits {
 @media (min-width: 576px) {
   .intro .intro-title {
     font-size: 3.5rem;
+    padding: 50rem 0 3rem;
   }
 
   .intro .intro-subtitle.intro-price {
@@ -1954,7 +1955,7 @@ footer .credits {
   }
 
   .section-t8 {
-    padding-top: 4rem;
+    padding-top: 0rem;
   }
 
   .section-t4 {
@@ -1970,7 +1971,7 @@ footer .credits {
   }
 
   .intro-single {
-    padding-top: 9rem;
+    padding-top: 14rem;
   }
 
   .card-box-a,

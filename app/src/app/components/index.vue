@@ -2,7 +2,7 @@ Productos_clases<template>
   <div>
 
       <section class="intro-single">
-        <div class="intro intro-carousel">
+        <div class="intro-carousel">
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
