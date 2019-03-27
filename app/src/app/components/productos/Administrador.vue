@@ -219,7 +219,7 @@ export default {
       ciudad: '',
       tipo: '',
       numeropagina: 1,
-      tampagina: '6',
+      tampagina: '10',
       numero: '',
       busqueda: '',
     }
