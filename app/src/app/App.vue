@@ -8,10 +8,19 @@
         <div class="container">
           <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault"
             aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
+            <div class="row">
+              <div class="col-2">
+                <span class="span1"></span>
+                <span class="span2"></span>
+                <span class="span1"></span>
+              </div>
+              <div class="col-8">
+                <router-link :to="{ name: 'index' }" class="nav-link"><a class="navbar-brand text-brand"><img src="img/favicon.png" alt="favicon"  width="25%">CosasDe<a style="color:#2eca6a">Clase</a></a></router-link>
+              </div>
+            </div>
+
           </button>
+
           <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
             <ul class="navbar-nav">
               <li class="nav-item">
@@ -33,7 +42,7 @@
                   <router-link :to="{ name: 'administrador' }" class="nav-link"><a class="nav-link">Administrador</a></router-link>
               </li>
             </ul>
-            <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+            <div class="navbar-collapse collapse justify-content-center" id="navbarDefault" align="center">
               <router-link :to="{ name: 'Buscador_productos' }" >
                   <button type="button" class="btn btn-b-n" data-toggle="collapse" data-target="#navbarTogglerDemo01 nav-link" aria-expanded="false">
                     <span class="fa fa-search" aria-hidden="true" style="color:white"></span>
