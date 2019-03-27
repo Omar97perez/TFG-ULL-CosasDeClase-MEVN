@@ -23,8 +23,11 @@
 
           <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
             <ul class="navbar-nav">
-              <li class="nav-item">
+              <li class="nav-item ocultar-en-escritorio">
                 <router-link :to="{ name: 'index' }" class="nav-link"><a class="navbar-brand text-brand"><img src="img/favicon.png" alt="favicon"  width="15%"> CosasDe<span class="color-b">Clase</span></a></router-link>
+              </li>
+              <li class="nav-item mostrado-movil">
+                <router-link :to="{ name: 'index' }" class="nav-link"><a class="nav-link">Inicio</a></router-link>
               </li>
               <li class="nav-item">
                 <router-link :to="{ name: 'clases' }" class="nav-link"><a class="nav-link">Clases Particulares</a></router-link>

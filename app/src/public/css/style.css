@@ -1679,6 +1679,12 @@ footer .credits {
     font-size: 3.5rem;
     padding: 50rem 0 3rem;
   }
+  .mostrado-movil {
+    max-height: 0px;
+    font-size: 0;
+    display: none !important;
+  }
+
 
   .intro .intro-subtitle.intro-price {
     font-size: 1.3rem;
@@ -2033,6 +2039,11 @@ footer .credits {
 }
 
 @media (max-width: 575px) {
+  .ocultar-en-escritorio {
+    max-height: 0px;
+    font-size: 0;
+    display: none !important;
+  }
   .box-collapse .title-box-d {
     left: 35px;
   }
@@ -2041,7 +2052,6 @@ footer .credits {
     font-size: 1.3rem;
   }
 }
-
 .buscadmin {
   padding: 2rem 0 3rem;
 }
