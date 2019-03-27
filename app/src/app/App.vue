@@ -12,13 +12,11 @@
             <span></span>
             <span></span>
           </button>
-          <router-link :to="{ name: 'index' }" class="nav-link"><a class="navbar-brand text-brand"><img src="img/favicon.png" alt="favicon"  width="15%"> CosasDe<span class="color-b">Clase</span></a></router-link>
-          <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
-            data-target="#navbarTogglerDemo01" aria-expanded="false">
-            <span class="fa fa-search" aria-hidden="true"></span>
-          </button>
           <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
             <ul class="navbar-nav">
+              <li class="nav-item">
+                <router-link :to="{ name: 'index' }" class="nav-link"><a class="navbar-brand text-brand"><img src="img/favicon.png" alt="favicon"  width="15%"> CosasDe<span class="color-b">Clase</span></a></router-link>
+              </li>
               <li class="nav-item">
                 <router-link :to="{ name: 'clases' }" class="nav-link"><a class="nav-link">Clases Particulares</a></router-link>
               </li>
@@ -35,25 +33,28 @@
                   <router-link :to="{ name: 'administrador' }" class="nav-link"><a class="nav-link">Administrador</a></router-link>
               </li>
             </ul>
-          </div>
-            <router-link :to="{ name: 'Buscador_productos' }" class="nav-link"><button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
-            data-target="#navbarTogglerDemo01" aria-expanded="false">
-            <span class="fa fa-search" aria-hidden="true"></span>
-          </button></router-link>
+            <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+              <router-link :to="{ name: 'Buscador_productos' }" >
+                  <button type="button" class="btn btn-b-n" data-toggle="collapse" data-target="#navbarTogglerDemo01 nav-link" aria-expanded="false">
+                    <span class="fa fa-search" aria-hidden="true" style="color:white"></span>
+                  </button>
+               </router-link>
 
-          <button type="button" class="btn btn-b-n" data-toggle="collapse"
-            data-target="#navbarTogglerDemo01" aria-expanded="false">
-            <div class="dropdown"  v-if="loggedIn">
-              <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color:white"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></a>
-              <div class="dropdown-menu" aria-labelledby="login" >
-                <a class="dropdown-item" ><router-link :to="{ name: 'nuevoanuncio' }" class="na-link"><i class="fa fa-plus"></i> Nuevo Anuncio</router-link></a>
-                <a class="dropdown-item" ><router-link :to="{ name: 'ModUsuario' }" class="na-link"><i class="fa fa-user"></i> Modificar Usuario</router-link></a>
-                <a class="dropdown-item" ><router-link :to="{ name: 'perfil' }" class="na-link"><i class="fa fa-user"></i> Perfil</router-link></a>
-                <a class="dropdown-item" ><router-link :to="{ name: 'Logout' }" class="na-link"> <i class="fa fa-sign-out"></i> Logout</router-link></a>
+                <button type="button" class="btn btn-b-n" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-expanded="false">
+                  <div class="dropdown"  v-if="loggedIn">
+                    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="color:white"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></a>
+                    <div class="dropdown-menu" aria-labelledby="login" >
+                      <a class="dropdown-item" ><router-link :to="{ name: 'nuevoanuncio' }" class="na-link"><i class="fa fa-plus"></i> Nuevo Anuncio</router-link></a>
+                      <a class="dropdown-item" ><router-link :to="{ name: 'ModUsuario' }" class="na-link"><i class="fa fa-user"></i> Modificar Usuario</router-link></a>
+                      <a class="dropdown-item" ><router-link :to="{ name: 'perfil' }" class="na-link"><i class="fa fa-user"></i> Perfil</router-link></a>
+                      <a class="dropdown-item" ><router-link :to="{ name: 'Logout' }" class="na-link"> <i class="fa fa-sign-out"></i> Logout</router-link></a>
+                    </div>
+                  </div>
+                  <router-link v-else :to="{ name: 'Login' }"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></router-link>
+                </button>
               </div>
-            </div>
-            <router-link v-else :to="{ name: 'Login' }"><span class="fa fa-user" aria-hidden="true" style="color:white"></span></router-link>
-          </button>
+          </div>
+
 
         </div>
       </nav>
