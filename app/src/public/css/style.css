@@ -1977,6 +1977,11 @@ footer .credits {
   .property-contact {
     margin-top: 2.5rem;
   }
+  .ocultar-en-escritorio {
+    max-height: 0px;
+    font-size: 0;
+    display: none !important;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1988,6 +1993,11 @@ footer .credits {
 @media (max-width: 767px) {
   .text-brand {
     font-size: 1.8rem;
+  }
+  .ocultar-en-escritorio {
+    max-height: 0px;
+    font-size: 0;
+    display: none !important;
   }
 
   .section-t8 {
