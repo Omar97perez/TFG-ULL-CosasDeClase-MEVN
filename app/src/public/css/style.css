@@ -1679,12 +1679,6 @@ footer .credits {
     font-size: 3.5rem;
     padding: 50rem 0 3rem;
   }
-  .mostrado-movil {
-    max-height: 0px;
-    font-size: 0;
-    display: none !important;
-  }
-
 
   .intro .intro-subtitle.intro-price {
     font-size: 1.3rem;
@@ -1965,6 +1959,11 @@ footer .credits {
 @media (min-width: 1200px) {
   .card-box-d .card-overlay-hover {
     padding: 15px 40px 5px 35px;
+  }
+  .mostrado-movil {
+    max-height: 0px;
+    font-size: 0;
+    display: none !important;
   }
 
   .card-box-d .title-d {
