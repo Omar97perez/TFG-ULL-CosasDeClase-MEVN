@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">{{getName}}</h1>
+              <h1 class="title-single">{{Anunciante[0].name}}</h1>
             </div>
           </div>
         </div>
@@ -22,31 +22,31 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="agent-avatar-box">
-                  <img v-bind:src="getImage" alt="" class="agent-avatar img-fluid">
+                  <img v-bind:src="Anunciante[0].image" alt="" class="agent-avatar img-fluid">
                 </div>
               </div>
               <div class="col-md-5 section-md-t3">
                 <div class="agent-info-box">
                   <div class="agent-title">
                     <div class="title-box-d">
-                      <h3 class="title-d">{{getName}}
-                        <br> {{getSurname}}</h3>
+                      <h3 class="title-d">{{Anunciante[0].name}}
+                        <br> {{Anunciante[0].surname}}</h3>
                     </div>
                   </div>
                   <div class="agent-content mb-3">
-                    <p class="content-d color-text-a">{{getParagraph}}</p>
+                    <p class="content-d color-text-a">{{Anunciante[0].paragraph}}</p>
                     <div class="info-agents color-a">
                       <p>
                         <strong>Teléfono: </strong>
-                        <span class="color-text-a">{{getTelephone}}</span>
+                        <span class="color-text-a">{{Anunciante[0].telephone}}</span>
                       </p>
                       <p>
                         <strong>Email: </strong>
-                        <span class="color-text-a">{{getEmail}}</span>
+                        <span class="color-text-a">{{Anunciante[0].email}}</span>
                       </p>
                       <p>
                         <strong>Fecha de Nacimiento: </strong>
-                        <span class="color-text-a">{{getBirthdate}}</span>
+                        <span class="color-text-a">{{Anunciante[0].birthdate}}</span>
                       </p>
                     </div>
                   </div>
@@ -164,6 +164,7 @@ export default {
       birthdate: '',
       genre: '',
       Productos: [],
+      Anunciante: [],
     }
   },
   created() {
@@ -174,18 +175,21 @@ export default {
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {
-          this.Productos = data.filter(data =>  data.email == email);
+          this.Productos = data.filter(data =>  data.anunciante == email);
+          console.log(this.Productos)
         });
     },
-    getUser(user) {
+    getUser() {
       fetch('/users')
         .then(res => res.json())
         .then(data => {
-          console.log(user)
           this.getProductos();
           this.Anunciante  = data.filter(data =>  data._id == this.$store.getters.preview);
-          this.getUser(this.Anunciante[0].email);
+          this.getProductos(this.Anunciante[0].email);
         });
+    },
+    addToPrev(invId) {
+      this.$store.dispatch('addToPrev', invId);
     },
   },
 }
