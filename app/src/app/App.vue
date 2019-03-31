@@ -245,15 +245,6 @@
                   </li>
                 </ul>
               </div>
-              <div class="copyright-footer">
-                <p class="copyright color-text-a">
-                  &copy; Copyright
-                  <span class="color-a">CosasDeClase</span> All Rights Reserved.
-                </p>
-              </div>
-              <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-              </div>
             </div>
           </div>
         </div>

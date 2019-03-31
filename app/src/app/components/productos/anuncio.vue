@@ -58,61 +58,63 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6 col-lg-4">
-                <img v-bind:src="Anunciante[0].image" alt="" class="img-fluid">
-              </div>
-              <div class="col-md-6 col-lg-7">
-                <div class="property-agent">
-                  <h4 class="title-agent">{{Anunciante[0].name}}</h4>
-                  <h4 class="title-agent">{{Anunciante[0].surname}}</h4>
-                  <p class="color-text-a">{{Anunciante[0].paragraph}}</p>
-                  <ul class="list-unstyled">
-                    <li class="d-flex justify-content-between">
-                      <strong>Phone:</strong>
-                      <span class="color-text-a">{{Anunciante[0].telephone}}</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                      <strong>Mobile:</strong>
-                      <span class="color-text-a">{{Anunciante[0].surname}}</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                      <strong>Email:</strong>
-                      <span class="color-text-a">{{Anunciante[0].email}}</span>
-                    </li>
-                  </ul>
-                  <div class="socials-a">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </a>
+            <router-link :to="{ name: 'Perfil_anuncio' }" class="link-a" >
+              <div @click="addToPrev(Anunciante[0]._id)" class="row">
+                <div class="col-md-6 col-lg-4">
+                  <img v-bind:src="Anunciante[0].image" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-6 col-lg-7">
+                  <div class="property-agent">
+                    <h4 class="title-agent">{{Anunciante[0].name}}</h4>
+                    <h4 class="title-agent">{{Anunciante[0].surname}}</h4>
+                    <p class="color-text-a">{{Anunciante[0].paragraph}}</p>
+                    <ul class="list-unstyled">
+                      <li class="d-flex justify-content-between">
+                        <strong>Phone:</strong>
+                        <span class="color-text-a">{{Anunciante[0].telephone}}</span>
                       </li>
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="fa fa-twitter" aria-hidden="true"></i>
-                        </a>
+                      <li class="d-flex justify-content-between">
+                        <strong>Mobile:</strong>
+                        <span class="color-text-a">{{Anunciante[0].surname}}</span>
                       </li>
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="fa fa-instagram" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a href="#">
-                          <i class="fa fa-dribbble" aria-hidden="true"></i>
-                        </a>
+                      <li class="d-flex justify-content-between">
+                        <strong>Email:</strong>
+                        <span class="color-text-a">{{Anunciante[0].email}}</span>
                       </li>
                     </ul>
+                    <div class="socials-a">
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <a href="#">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#">
+                            <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                        <li class="list-inline-item">
+                          <a href="#">
+                            <i class="fa fa-dribbble" aria-hidden="true"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -149,6 +151,9 @@ export default {
           this.getProductos();
           this.Anunciante  = data.filter(data =>  data.email == user);
         });
+    },
+    addToPrev(invId) {
+      this.$store.dispatch('addToPrev', invId);
     },
   },
 };

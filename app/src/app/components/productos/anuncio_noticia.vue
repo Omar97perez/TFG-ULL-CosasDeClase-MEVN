@@ -88,13 +88,13 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <router-link :to="{ name: 'Perfil_anuncio' }" class="link-a" ><div @click="addToPrev(Anunciante[0]._id)" class="row">
               <div class="col-md-6 col-lg-4">
                 <img v-bind:src="Anunciante[0].image" alt="" class="img-fluid">
               </div>
               <div class="col-md-6 col-lg-7">
                 <div class="property-agent">
-                  <router-link :to="{ name: 'Perfil_anuncio' }" class="link-a" ><h4 @click="addToPrev(Anunciante[0]._id)" class="title-agent">{{Anunciante[0].name}}</h4></router-link>
+                  <h4  class="title-agent">{{Anunciante[0].name}}</h4>
                   <h4 class="title-agent">{{Anunciante[0].surname}}</h4>
                   <p class="color-text-a">{{Anunciante[0].paragraph}}</p>
                   <ul class="list-unstyled">
@@ -142,7 +142,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div></router-link>
           </div>
         </div>
       </div>
