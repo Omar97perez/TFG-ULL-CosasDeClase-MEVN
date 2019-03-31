@@ -93,11 +93,11 @@
           <div class="col-sm-12">
             <div class="grid-option">
               <form>
-                <select class="custom-select">
-                  <option selected>Todo</option>
-                  <option value="1">Nuevo a viejo</option>
-                  <option value="2">Viejo a nuevo </option>
-                  <option value="3">Mejores valorados</option>
+                <select class="custom-select" id="city" v-model="tipo" value=""  @change="buscarProducto" v-on:click="resetpag">
+                  <option value="" >Todas las ciudades</option>
+                  <option value="clases">Clases Particulares</option>
+                  <option value="apuntes">Apuntes</option>
+                  <option value="noticias">Noticias</option>
                 </select>
               </form>
             </div>
@@ -163,6 +163,41 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <nav class="pagination-a">
+              <ul class="pagination justify-content-end">
+                <li class="page-item" @click="cambioprimera">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <span class="ion-ios-arrow-back"></span>
+                    <span class="ion-ios-arrow-back"></span>
+                  </a>
+                </li>
+                <li class="page-item" @click="cambioanterior">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <span class="ion-ios-arrow-back"></span>
+                  </a>
+                </li>
+                <div v-for="Num in NumPaginas()" class="">
+                  <li  class="page-item">
+                      <a class="page-link" @click="pagination(Num)">{{Num}}</a>
+                  </li>
+                </div>
+                <li class="page-item" @click="cambiosiguiente">
+                  <a class="page-link" href="#">
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </li>
+                <li class="page-item" @click="cambioultima">
+                  <a class="page-link" href="#">
+                    <span class="ion-ios-arrow-forward"></span>
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
     </section>
     <!--/ Agent Single End /-->
@@ -176,18 +211,25 @@ export default {
     return {
       Productos: [],
       Anunciante: [],
+      ProductosPaginacion: [],
+      Paginacion: [],
+      tipo: '',
+      numeropagina: 1,
+      tampagina: '6',
+      numero: '',
     }
   },
   created() {
     this.getUser();
+    this.NumPaginas();
   },
   methods: {
     getProductos(email) {
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {
-          this.Productos = data.filter(data =>  data.anunciante == email);
-          console.log(this.Productos)
+          this.Paginacion = data.filter(data =>  data.anunciante == email);
+          this.Productos = this.Paginacion.slice(0,this.tampagina);
         });
     },
     getUser() {
@@ -196,12 +238,58 @@ export default {
         .then(data => {
           this.getProductos();
           this.Anunciante  = data.filter(data =>  data._id == this.$store.getters.preview);
+
           this.getProductos(this.Anunciante[0].email);
         });
     },
     addToPrev(invId) {
       this.$store.dispatch('addToPrev', invId);
     },
+    NumPaginas() {
+      this.numero = Math.round(this.ProductosPaginacion.length/this.tampagina);
+      return this.numero;
+    },
+    resetpag() {
+      this.numeropagina = 1;
+    },
+    cambiosiguiente() {
+      if(this.numeropagina < this.numero ){
+          this.numeropagina = this.numeropagina + 1;
+      }
+    },
+    cambioanterior() {
+      if(this.numeropagina > 1 ){
+          this.numeropagina = this.numeropagina - 1;
+      }
+    },
+    cambioprimera() {
+          this.numeropagina = 1;
+    },
+    cambioultima() {
+          this.numeropagina = this.numero;
+    },
+    pagination(numpag) {
+      this.numeropagina = numpag;
+      var x;
+      x = this.tampagina * numpag;
+      numpag = numpag - 1;
+      numpag = numpag * this.tampagina;
+      this.Productos = this.Paginacion.slice(numpag,x);
+    },
+    buscador_pagination(vector) {
+      var numpag,x;
+      numpag = this.numeropagina
+      x = this.tampagina * numpag;
+      numpag = numpag - 1;
+      numpag = numpag * this.tampagina;
+      this.Productos = vector.slice(numpag,x);
+    }
   },
+  computed:  {
+    buscarProducto() {
+      this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipo));
+      this.buscador_pagination(this.ProductosPaginacion);
+    }
+  }
 }
 </script>
