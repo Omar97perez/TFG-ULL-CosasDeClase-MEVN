@@ -613,7 +613,6 @@ Productos_clases<template>
           });
       },
       addToPrev(invId) {
-        console.log(invId)
         this.$store.dispatch('addToPrev', invId);
       },
     }

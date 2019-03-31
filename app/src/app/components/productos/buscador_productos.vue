@@ -235,7 +235,6 @@ class Buscador {
         numpag = numpag - 1;
         numpag = numpag * this.tampagina;
         this.Productos = vector.slice(numpag,x);
-        console.log(this.Productos)
       }
     },
     computed: {

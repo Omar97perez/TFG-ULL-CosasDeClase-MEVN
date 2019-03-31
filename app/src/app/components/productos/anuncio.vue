@@ -146,7 +146,6 @@ export default {
       fetch('/users')
         .then(res => res.json())
         .then(data => {
-          console.log(user)
           this.getProductos();
           this.Anunciante  = data.filter(data =>  data.email == user);
         });

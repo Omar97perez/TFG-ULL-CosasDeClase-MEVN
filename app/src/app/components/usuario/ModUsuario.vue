@@ -133,13 +133,11 @@ export default {
       //this.$router.push({ name: 'DeleteUser'})
       this.$store.dispatch('deleteUser')
       .then(response => {
-        console.log("afsdfasdfasdfasdfasdfasdfasdfasdfasd")
         this.$store.dispatch('destroyToken')
         this.$router.push({ name: 'Inicio'})
         // this.$router.push({ name: 'Inicio'})
       })
       .catch(err => {
-        console.log("afsdfasdfasdfasdfasdfasdfasdfasdfasd")
         $('#m_error_m').empty()
         $('#m_error_m').append(`
             <br>
@@ -162,7 +160,6 @@ export default {
         genre: this.genre
       })
       .then(response => {
-        // console.log(`Respuesta : ${Object.keys(response.data)}`)
         $('#m_error_m').empty()
         $('#m_error_m').append(`
             <br>

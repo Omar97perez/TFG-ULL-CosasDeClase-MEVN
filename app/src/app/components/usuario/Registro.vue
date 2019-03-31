@@ -111,7 +111,6 @@ export default {
         genre: this.genre
       })
       .then(response => {
-        console.log(response)
         this.$router.push({ name: 'Login' })
       })
       .catch(error => {
