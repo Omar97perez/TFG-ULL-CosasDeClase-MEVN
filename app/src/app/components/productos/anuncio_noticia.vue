@@ -177,7 +177,6 @@ export default {
       fetch('/users')
         .then(res => res.json())
         .then(data => {
-          this.getProductos();
           this.Anunciante  = data.filter(data =>  data.email == user);
         });
     },
