@@ -7,8 +7,8 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">{{prev.titulo}}</h1>
-              <span class="color-text-a">{{prev.localidad}} ({{prev.provincia}})</span>
+              <h1 class="title-single">{{Productos[0].titulo}}</h1>
+              <span class="color-text-a">{{Productos[0].localidad}} ({{Productos[0].provincia}})</span>
             </div>
           </div>
         </div>
@@ -24,13 +24,13 @@
             <div class="row justify-content-between">
               <div class="col-md-5 col-lg-4">
                 <div class="property-price d-flex justify-content-center foo">
-                      <img class="prod-img" :src="prev.foto">
+                      <img class="prod-img" :src="Productos[0].foto">
                 </div>
                 </br>
                 <div class="property-price d-flex justify-content-center foo">
                   <div class="card-header-c d-flex">
                     <div class="card-box-ico">
-                      <h1 class="ion-money">{{prev.precio}} €</h1>
+                      <h1 class="ion-money">{{Productos[0].precio}} €</h1>
                     </div>
                   </div>
                 </div>
@@ -44,7 +44,7 @@
                   </div>
                 </div>
                 <div class="property-description">
-                  <p class="description color-text-a">{{prev.descripcion}}</p>
+                  <p class="description color-text-a">{{Productos[0].descripcion}}</p>
                 </div>
 
               </div>
@@ -60,32 +60,25 @@
             </div>
             <div class="row">
               <div class="col-md-6 col-lg-4">
-                <img src="img/agent-4.jpg" alt="" class="img-fluid">
+                <img v-bind:src="Anunciante[0].image" alt="" class="img-fluid">
               </div>
               <div class="col-md-6 col-lg-7">
                 <div class="property-agent">
-                  <h4 class="title-agent">{{Anunciante.name}}</h4>
-                  <p class="color-text-a">
-                    Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
-                    dui. Quisque velit nisi,
-                    pretium ut lacinia in, elementum id enim.
-                  </p>
+                  <h4 class="title-agent">{{Anunciante[0].name}}</h4>
+                  <h4 class="title-agent">{{Anunciante[0].surname}}</h4>
+                  <p class="color-text-a">{{Anunciante[0].paragraph}}</p>
                   <ul class="list-unstyled">
                     <li class="d-flex justify-content-between">
                       <strong>Phone:</strong>
-                      <span class="color-text-a">(222) 4568932</span>
+                      <span class="color-text-a">{{Anunciante[0].telephone}}</span>
                     </li>
                     <li class="d-flex justify-content-between">
                       <strong>Mobile:</strong>
-                      <span class="color-text-a">777 287 378 737</span>
+                      <span class="color-text-a">{{Anunciante[0].surname}}</span>
                     </li>
                     <li class="d-flex justify-content-between">
                       <strong>Email:</strong>
-                      <span class="color-text-a">annabella@example.com</span>
-                    </li>
-                    <li class="d-flex justify-content-between">
-                      <strong>Skype:</strong>
-                      <span class="color-text-a">Annabela.ge</span>
+                      <span class="color-text-a">{{Anunciante[0].email}}</span>
                     </li>
                   </ul>
                   <div class="socials-a">
@@ -139,29 +132,23 @@ export default {
   },
   created() {
       this.getProductos();
-      this.getUser();
   },
   methods: {
     getProductos() {
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {
-          this.Productos = data;
+          this.Productos = data.filter(data =>  data._id == this.$store.getters.preview);
+          this.getUser(this.Productos[0].anunciante);
         });
     },
-    getUser() {
+    getUser(user) {
       fetch('/users')
         .then(res => res.json())
         .then(data => {
-          this.Anunciante == data.filter(data =>  data.name == 'omar');
-          console.log(this.Anunciante)
-        });
-    },
-  },
-  computed: {
-    prev(){
-        return this.Productos.find((PrevItem) =>{
-            return PrevItem._id === this.$store.getters.preview;
+          console.log(user)
+          this.getProductos();
+          this.Anunciante  = data.filter(data =>  data.email == user);
         });
     },
   },
