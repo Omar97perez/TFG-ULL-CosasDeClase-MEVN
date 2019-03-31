@@ -26,6 +26,7 @@ import Logout from './components/usuario/Logout.vue';
 import Registro from './components/usuario/Registro.vue';
 import ModUsuario from './components/usuario/ModUsuario.vue';
 import Buscador_productos from './components/productos/buscador_productos.vue';
+import Perfil_anuncio from './components/usuario/perfil_anuncio.vue';
 
 const routes = [
   {
@@ -140,6 +141,11 @@ const routes = [
   name: 'Buscador_productos',
   path: '/Buscador/productos',
   component: Buscador_productos,
+},
+{
+  name: 'Perfil_anuncio',
+  path: '/Perfil',
+  component: Perfil_anuncio,
 },
 ];
 
