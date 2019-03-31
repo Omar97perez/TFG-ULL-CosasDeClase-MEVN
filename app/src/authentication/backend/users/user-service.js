@@ -16,7 +16,7 @@ module.exports = {
 
 async function authenticate({ email, password }) {
     const user = await User.findOne({ email })
-    
+
     if (user && bcrypt.compareSync(password, user.password)) {
         //console.log(user)
         // const { password, ...userWithoutHash } = user.toObject()
@@ -40,7 +40,7 @@ async function getById(id) {
 }
 
 async function create(userParam, res) {
-    
+
     // validate
     if (await User.findOne({ email: userParam.email })) {
         // console.log("el email existe")
@@ -84,6 +84,18 @@ async function update(id, userParam) {
     }
     if(userParam.surname) {
         user.surname = userParam.surname
+    }
+    if(userParam.email) {
+        user.email = userParam.email
+    }
+    if(userParam.paragraph) {
+        user.paragraph = userParam.paragraph
+    }
+    if(userParam.image) {
+        user.image = userParam.image
+    }
+    if(userParam.telephone) {
+        user.telephone = userParam.telephone
     }
     if(userParam.birthdate) {
         user.birthdate = userParam.birthdate
