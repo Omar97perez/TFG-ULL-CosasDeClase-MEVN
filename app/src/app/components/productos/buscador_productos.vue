@@ -22,13 +22,13 @@
           <div class="col-md-12 mb-2">
             <div class="form-group">
               <label for="Type">¿Qué buscas?</label>
-              <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="busqueda" name="buscar" value="buscar">
+              <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="busqueda" name="buscar" value="buscar" v-on:click="resetpag">
             </div>
           </div>
           <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="Type">Tipo</label>
-              <select class="form-control form-control-lg form-control-a" id="Type" v-model="tipo">
+              <select class="form-control form-control-lg form-control-a" id="Type" v-model="tipo" value=""  @change="buscarProducto" v-on:click="resetpag">
                 <option value="">Todos</option>
                 <option value="noticias">Noticias</option>
                 <option value="clases">Clases Particulares</option>
@@ -39,37 +39,22 @@
           <div class="col-md-6 mb-2">
             <div class="form-group">
               <label for="city">Ciudad</label>
-              <select class="form-control form-control-lg form-control-a" id="city" v-model="ciudad">
-                <option value="">Todas</option>
+              <select class="form-control form-control-lg form-control-a" id="city"  v-model="ciudad" value=""  @change="buscarProducto" v-on:click="resetpag">
+                <option value="" >Todas las ciudades</option>
                 <option value="Tenerife">Santa Cruz de Tenerife</option>
                 <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
               </select>
             </div>
-          </div>
-          <div class="col-md-12">
-            <router-link :to="{ name: 'Buscador_productos' }" class="nav-link"><button @click="addToPrev(Buscador)" type="submit" class="btn btn-b">Buscar</button></router-link>
           </div>
         </div>
       </form>
     </div>
 
     <!--/ Property Grid Star /-->
-    <section class="property-grid grid">
+    <section class="property-grid grid separacion">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12">
-            <div class="grid-option">
-              <form>
-                <select class="custom-select">
-                  <option selected>Predeterminado</option>
-                  <option value="1">Nuevo a viejo</option>
-                  <option value="2">Viejo a nuevo</option>
-                  <option value="3">Mejores valorados</option>
-                </select>
-              </form>
-            </div>
-          </div>
-          <div  v-for="Producto of buscarProducto" class="col-md-4">
+          <div  v-for="Producto of Productos" class="col-md-4">
             <div v-if="Producto.tipo =='clases' || Producto.tipo =='apuntes' "  class="card-box-a card-shadow">
                 <div class="img-box-a">
                   <img v-bind:src="Producto.foto"  class="img-a img-fluid"></img>
@@ -130,6 +115,41 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <nav class="pagination-a">
+              <ul class="pagination justify-content-end">
+                <li class="page-item" @click="cambioprimera">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <span class="ion-ios-arrow-back"></span>
+                    <span class="ion-ios-arrow-back"></span>
+                  </a>
+                </li>
+                <li class="page-item" @click="cambioanterior">
+                  <a class="page-link" href="#" tabindex="-1">
+                    <span class="ion-ios-arrow-back"></span>
+                  </a>
+                </li>
+                <div v-for="Num in NumPaginas()" class="">
+                  <li  class="page-item">
+                      <a class="page-link" @click="pagination(Num)">{{Num}}</a>
+                  </li>
+                </div>
+                <li class="page-item" @click="cambiosiguiente">
+                  <a class="page-link" href="#">
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </li>
+                <li class="page-item" @click="cambioultima">
+                  <a class="page-link" href="#">
+                    <span class="ion-ios-arrow-forward"></span>
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
     </section>
     <!--/ Property Grid End /-->
@@ -154,29 +174,74 @@ class Buscador {
             busqueda: '',
             tipo: '',
             ciudad: '',
+            ProductosPaginacion: [],
+            Paginacion: [],
+            numeropagina: 1,
+            tampagina: '9',
+            numero: '',
       }
     },
     created() {
       this.getProductos();
+      this.NumPaginas();
     },
     methods: {
       getProductos() {
         fetch('/api/CosasDeClase/Producto/')
           .then(res => res.json())
           .then(data => {
-            this.Productos = data ;
+            this.Paginacion = data;
+            this.Productos = this.Paginacion.slice(0,this.tampagina);
           });
       },
       addToPrev(invId) {
-        console.log(this.tipo)
         this.$store.dispatch('addToPrev', invId);
       },
+      NumPaginas() {
+        this.numero = Math.round(this.ProductosPaginacion.length/this.tampagina);
+        return this.numero;
+      },
+      resetpag() {
+        this.numeropagina = 1;
+      },
+      cambiosiguiente() {
+        if(this.numeropagina < this.numero ){
+            this.numeropagina = this.numeropagina + 1;
+        }
+      },
+      cambioanterior() {
+        if(this.numeropagina > 1 ){
+            this.numeropagina = this.numeropagina - 1;
+        }
+      },
+      cambioprimera() {
+            this.numeropagina = 1;
+      },
+      cambioultima() {
+            this.numeropagina = this.numero;
+      },
+      pagination(numpag) {
+        this.numeropagina = numpag
+        var x;
+        x = this.tampagina * numpag;
+        numpag = numpag - 1;
+        numpag = numpag * this.tampagina;
+        this.Productos = this.Paginacion.slice(numpag,x);
+      },
+      buscador_pagination(vector) {
+        var numpag,x;
+        numpag = this.numeropagina
+        x = this.tampagina * numpag;
+        numpag = numpag - 1;
+        numpag = numpag * this.tampagina;
+        this.Productos = vector.slice(numpag,x);
+        console.log(this.Productos)
+      }
     },
     computed: {
       buscarProducto() {
-        return this.Productos.filter(Producto => Producto.titulo.includes(this.busqueda) &&
-                                                 Producto.tipo.includes(this.tipo) &&
-                                                 Producto.provincia.includes(this.ciudad));
+        this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipo) && Producto.provincia.includes(this.ciudad) && Producto.titulo.includes(this.busqueda) );
+        this.buscador_pagination(this.ProductosPaginacion);
       }
     }
   };
