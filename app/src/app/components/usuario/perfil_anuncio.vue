@@ -188,6 +188,5 @@ export default {
         });
     },
   },
-};
 }
 </script>
