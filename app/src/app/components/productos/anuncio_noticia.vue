@@ -94,7 +94,7 @@
               </div>
               <div class="col-md-6 col-lg-7">
                 <div class="property-agent">
-                  <h4 class="title-agent">{{Anunciante[0].name}}</h4>
+                  <router-link :to="{ name: 'Perfil_anuncio' }" class="link-a" ><h4 @click="addToPrev(Producto._id)" class="title-agent">{{Anunciante[0].name}}</h4></router-link>
                   <h4 class="title-agent">{{Anunciante[0].surname}}</h4>
                   <p class="color-text-a">{{Anunciante[0].paragraph}}</p>
                   <ul class="list-unstyled">
@@ -181,6 +181,9 @@ export default {
           this.getProductos();
           this.Anunciante  = data.filter(data =>  data.email == user);
         });
+    },
+    addToPrev(invId) {
+      this.$store.dispatch('addToPrev', invId);
     },
   },
 };

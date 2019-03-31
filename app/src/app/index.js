@@ -144,7 +144,7 @@ const routes = [
 },
 {
   name: 'Perfil_anuncio',
-  path: '/Perfil',
+  path: '/Perfil/anuncio',
   component: Perfil_anuncio,
 },
 ];
