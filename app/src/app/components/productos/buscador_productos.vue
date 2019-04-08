@@ -234,7 +234,10 @@ class Buscador {
     },
     computed: {
       buscarProducto() {
-        this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipo) && Producto.provincia.includes(this.ciudad) && Producto.titulo.includes(this.busqueda) );
+        this.ProductosPaginacion = this.Paginacion.filter(
+          Producto => Producto.tipo.includes(this.tipo)
+                      && Producto.provincia.includes(this.ciudad)
+                      && Producto.titulo.includes(this.busqueda) );
         this.buscador_pagination(this.ProductosPaginacion);
       }
     }
