@@ -222,11 +222,6 @@ class Buscador {
       },
       pagination(numpag) {
         this.numeropagina = numpag
-        var x;
-        x = this.tampagina * numpag;
-        numpag = numpag - 1;
-        numpag = numpag * this.tampagina;
-        this.Productos = this.Paginacion.slice(numpag,x);
       },
       buscador_pagination(vector) {
         var numpag,x;
