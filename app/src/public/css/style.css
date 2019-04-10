@@ -2068,3 +2068,26 @@ footer .credits {
 .separacion {
   padding: 2rem 0 3rem;
 }
+
+
+
+.card {
+    border: 1px solid #333;
+    height: 30rem;
+    width: 20rem;
+    position: relative;
+}
+
+.card-footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 9px;
+    background: #dfe6e9;
+}
+
+.card-footer input {
+    text-align: center;
+}

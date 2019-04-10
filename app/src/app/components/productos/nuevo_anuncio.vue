@@ -88,6 +88,13 @@
                       <div class="form-group">
                         <label for="price">URL imagen</label>
                         <input v-model="Producto.foto" type="text" class="form-control">
+                          <div class="card">
+                            <img id="img-preview">
+                            <div class="card-footer">
+                                <input type="file" id="img-uploader">
+                                <progress id="img-upload-bar" value="0" max="100" style="width: 100%"></progress>
+                            </div>
+                        </div>
                       </div>
 
                       <button type="submit" class="btn btn-default">Publicar</button>
