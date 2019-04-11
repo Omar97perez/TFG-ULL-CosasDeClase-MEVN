@@ -109,7 +109,6 @@ export default {
     }
   },
   created(){
-    this.SubImagen()
   },
   computed: {
     getName() {

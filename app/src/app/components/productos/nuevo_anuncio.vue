@@ -106,8 +106,8 @@
                         <div class="card">
                           <img class="card-Foto" id="img-preview">
                           <div class="card-footer">
-                              <input  type="file" id="img-uploader">
-                              <progress id="img-upload-bar" value="0" max="100" style="width:100%"></progress>
+                              <input type="file" id="img-uploader">
+                              <progress id="img-upload-bar" value="0" max="100" style="width: 100%"></progress>
                           </div>
                       </div>
                     </div>
