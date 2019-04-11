@@ -91,8 +91,7 @@
   </div>
 </template>
 
-<script>
-  export default {
+<script>  export default {
     name: 'clases',
     data() {
       return {
@@ -114,7 +113,7 @@
         fetch('/api/CosasDeClase/Producto/')
           .then(res => res.json())
           .then(data => {
-            this.Paginacion = data.filter(data =>  data.tipo == 'noticias');
+            this.Paginacion = data.filter(data =>  data.tipo == 'apuntes');
             this.Productos = this.Paginacion.slice(0,this.tampagina);
           });
       },

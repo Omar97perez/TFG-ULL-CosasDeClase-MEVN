@@ -114,80 +114,80 @@
 </template>
 
 <script>
-  export default {
-    name: 'clases',
-    data() {
-      return {
-        Productos: [],
-        ProductosPaginacion: [],
-        Paginacion: [],
-        ciudad: '',
-        numeropagina: 1,
-        tampagina: '6',
-        numero: '',
-      }
-    },
-    created() {
-      this.getProductos();
-      this.NumPaginas();
-    },
-    methods: {
-      getProductos() {
-        fetch('/api/CosasDeClase/Producto/')
-          .then(res => res.json())
-          .then(data => {
-            this.Paginacion = data.filter(data =>  data.tipo == 'clases');
-            this.Productos = this.Paginacion.slice(0,this.tampagina);
-          });
-      },
-      addToPrev(invId) {
-        this.$store.dispatch('addToPrev', invId);
-      },
-      NumPaginas() {
-        this.numero = Math.round(this.ProductosPaginacion.length/this.tampagina);
-        return this.numero;
-      },
-      resetpag() {
-        this.numeropagina = 1;
-      },
-      cambiosiguiente() {
-        if(this.numeropagina < this.numero ){
-            this.numeropagina = this.numeropagina + 1;
-        }
-      },
-      cambioanterior() {
-        if(this.numeropagina > 1 ){
-            this.numeropagina = this.numeropagina - 1;
-        }
-      },
-      cambioprimera() {
-            this.numeropagina = 1;
-      },
-      cambioultima() {
-            this.numeropagina = this.numero;
-      },
-      pagination(numpag) {
-        this.numeropagina = numpag;
-        var x;
-        x = this.tampagina * numpag;
-        numpag = numpag - 1;
-        numpag = numpag * this.tampagina;
-        this.Productos = this.Paginacion.slice(numpag,x);
-      },
-      buscador_pagination(vector) {
-        var numpag,x;
-        numpag = this.numeropagina
-        x = this.tampagina * numpag;
-        numpag = numpag - 1;
-        numpag = numpag * this.tampagina;
-        this.Productos = vector.slice(numpag,x);
-      }
-    },
-    computed:  {
-      buscarProducto() {
-        this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad));
-        this.buscador_pagination(this.ProductosPaginacion);
-      }
+export default {
+  name: 'clases',
+  data() {
+    return {
+      Productos: [],
+      ProductosPaginacion: [],
+      Paginacion: [],
+      ciudad: '',
+      numeropagina: 1,
+      tampagina: '6',
+      numero: '',
     }
-  };
+  },
+  created() {
+    this.getProductos();
+    this.NumPaginas();
+  },
+  methods: {
+    getProductos() {
+      fetch('/api/CosasDeClase/Producto/')
+        .then(res => res.json())
+        .then(data => {
+          this.Paginacion = data.filter(data =>  data.tipo == 'apuntes');
+          this.Productos = this.Paginacion.slice(0,this.tampagina);
+        });
+    },
+    addToPrev(invId) {
+      this.$store.dispatch('addToPrev', invId);
+    },
+    NumPaginas() {
+      this.numero = Math.round(this.ProductosPaginacion.length/this.tampagina);
+      return this.numero;
+    },
+    resetpag() {
+      this.numeropagina = 1;
+    },
+    cambiosiguiente() {
+      if(this.numeropagina < this.numero ){
+          this.numeropagina = this.numeropagina + 1;
+      }
+    },
+    cambioanterior() {
+      if(this.numeropagina > 1 ){
+          this.numeropagina = this.numeropagina - 1;
+      }
+    },
+    cambioprimera() {
+          this.numeropagina = 1;
+    },
+    cambioultima() {
+          this.numeropagina = this.numero;
+    },
+    pagination(numpag) {
+      this.numeropagina = numpag
+      var x;
+      x = this.tampagina * numpag;
+      numpag = numpag - 1;
+      numpag = numpag * this.tampagina;
+      this.Productos = this.Paginacion.slice(numpag,x);
+    },
+    buscador_pagination(vector) {
+      var numpag,x;
+      numpag = this.numeropagina
+      x = this.tampagina * numpag;
+      numpag = numpag - 1;
+      numpag = numpag * this.tampagina;
+      this.Productos = vector.slice(numpag,x);
+    }
+  },
+  computed:  {
+    buscarProducto() {
+      this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.provincia.includes(this.ciudad));
+      this.buscador_pagination(this.ProductosPaginacion);
+    }
+  }
+};
 </script>
