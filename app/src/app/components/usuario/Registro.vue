@@ -24,10 +24,6 @@
         <input type="text" class="form-control" id="surname" placeholder="Apellidos" v-model="surname" required>
       </div>
       <div class="form-group">
-        <label for="surname">Imagen</label>
-        <input type="text" class="form-control" id="image" placeholder="Imagen" v-model="image" required>
-      </div>
-      <div class="form-group">
         <label for="birthdate">
           Fecha de nacimiento
         </label>
@@ -53,6 +49,27 @@
           <label for="paragraph">Descripción personal</label>
           <textarea type="paragraph" class="form-control" id="paragraph" placeholder="Descripción" v-model="paragraph" cols="30" rows="5" ></textarea>
       </div>
+
+      <div class="form-group">
+        <label for="tittle">¿Quiere subir foto?</label>
+        <select class="form-control" id="SaberFoto" name="SabeFoto" v-model="SaberFoto" style="height: 40px;">
+            <option value="No"></option>
+            <option value="Si">Sí</option>
+            <option value="No">No</option>
+        </select>
+      </div>
+
+      <div v-if="SaberFoto === 'Si'" class="form-group" align="center">
+        <label for="price">Subir Imagen</label>
+          <div class="card">
+            <img class="card-Foto" id="img-preview">
+            <div class="card-footer">
+                <input  type="file" id="img-uploader">
+                <progress id="img-upload-bar" value="0" max="100" style="width:100%"></progress>
+            </div>
+        </div>
+      </div>
+
       <div class="form-group">
         <label class="col-form-label col-sm-2">Género</label>
         <div class="col-sm-10">
@@ -94,7 +111,8 @@ export default {
       email: '',
       password: '',
       birthdate: '',
-      genre: ''
+      genre: '',
+      SaberFoto:'',
     }
   },
   methods: {
@@ -103,7 +121,7 @@ export default {
         name: this.name,
         surname: this.surname,
         paragraph: this.paragraph,
-        image: this.image,
+        image: document.getElementById('img-preview').src,
         telephone: this.telephone,
         email: this.email,
         password: this.password,

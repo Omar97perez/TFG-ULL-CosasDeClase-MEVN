@@ -24,10 +24,6 @@
         <input type="text" class="form-control" id="surname" v-model="surname" :placeholder="getSurname">
       </div>
       <div class="form-group">
-        <label for="surname">Imagen</label>
-        <input type="text" class="form-control" id="image"  v-model="image" :placeholder="getImage">
-      </div>
-      <div class="form-group">
         <label for="birthdate">
           Fecha de nacimiento
         </label>
@@ -53,6 +49,18 @@
           <label for="paragraph">Descripción personal</label>
           <textarea type="paragraph" class="form-control" id="paragraph" :placeholder="getParagraph" v-model="paragraph" cols="30" rows="5" ></textarea>
       </div>
+
+      <div class="form-group" align="center">
+        <label for="price">Subir Nueva Imagen</label>
+          <div class="card">
+            <img  class="card-Foto" id="img-preview">
+            <div class="card-footer">
+                <input  type="file" id="img-uploader">
+                <progress id="img-upload-bar" value="0" max="100" style="width:100%"></progress>
+            </div>
+        </div>
+      </div>
+
       <div class="form-group">
         <label class="col-form-label col-sm-2">Género</label>
         <div class="col-sm-10">
@@ -97,10 +105,11 @@ export default {
       email: '',
       password: '',
       birthdate: '',
-      genre: ''
+      genre: '',
     }
   },
   created(){
+    this.SubImagen()
   },
   computed: {
     getName() {
@@ -129,6 +138,7 @@ export default {
     }
   },
   methods: {
+
     deleteUser () {
       //this.$router.push({ name: 'DeleteUser'})
       this.$store.dispatch('deleteUser')
@@ -152,7 +162,7 @@ export default {
         name: this.name,
         surname: this.surname,
         paragraph: this.paragraph,
-        image: this.image,
+        image: document.getElementById('img-preview').src,
         telephone: this.telephone,
         email: this.email,
         password: this.password,
@@ -178,7 +188,7 @@ export default {
             </div>
           `)
       })
-    }
+    },
   }
 }
 </script>
