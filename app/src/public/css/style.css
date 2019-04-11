@@ -2073,8 +2073,15 @@ footer .credits {
 
 .card {
     border: 1px solid #333;
-    height: 30rem;
-    width: 20rem;
+    height: 25rem;
+    width: 25rem;
+    position: relative;
+}
+
+.card-Foto {
+    border: 1px solid #333;
+    height: 25rem;
+    width: 25rem;
     position: relative;
 }
 

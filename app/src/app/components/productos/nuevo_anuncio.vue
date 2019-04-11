@@ -85,19 +85,20 @@
                         </select>
                       </div>
 
-                      <div class="form-group">
-                        <label for="price">URL imagen</label>
-                        <input v-model="Producto.foto" type="text" class="form-control">
+                      <div class="form-group" align="center">
+                        <label for="price">Subir Imagen</label>
                           <div class="card">
-                            <img id="img-preview">
+                            <img class="card-Foto" id="img-preview">
                             <div class="card-footer">
-                                <input type="file" id="img-uploader">
-                                <progress id="img-upload-bar" value="0" max="100" style="width: 100%"></progress>
+                                <input  type="file" id="img-uploader">
+                                <progress id="img-upload-bar" value="0" max="100" style="width:100%"></progress>
                             </div>
                         </div>
                       </div>
+                      <div class="form-group" align="center">
+                          <button type="submit" class="btn btn-b-n" >Publicar</button>
+                      </div>
 
-                      <button type="submit" class="btn btn-default">Publicar</button>
                     </form>
               </div>
             </div>
@@ -178,8 +179,12 @@ export default {
     },
   },
   methods: {
+    SubirProducto(hola){
+      console.log(hola);
+    },
     sendProducto() {
       this.Producto.anunciante = this.$store.getters.email;
+      this.Producto.foto = document.getElementById('img-preview').src;
       if(this.edit === false) {
         fetch('/api/CosasDeClase/Producto/', {
           method: 'POST',
@@ -247,4 +252,5 @@ export default {
     }
   }
 }
+
 </script>
