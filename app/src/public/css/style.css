@@ -978,6 +978,10 @@ a:hover {
 .intro-single {
   padding: 12rem 0 3rem;
 }
+.margin-1 {
+  padding: 1rem 0 1rem;
+}
+
 
 .intro-single .title-single-box {
   padding: 1rem 0 1rem 2rem;

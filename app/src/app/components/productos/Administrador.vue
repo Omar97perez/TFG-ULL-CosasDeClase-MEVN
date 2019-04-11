@@ -17,7 +17,13 @@
     <!--/ Property Grid Star /-->
       <section class="property-grid grid">
         <div class="container">
-            <div class="row">
+            <div class="row" align="center">
+              <div class="col-12" >
+                    <h4><strong>Subir Producto</strong></h4>
+              </div>
+            </div>
+
+            <div class="row margin-1">
               <div class="col-md-12">
                     <form @submit.prevent="sendProducto">
                       <div class="form-group row">
@@ -56,6 +62,14 @@
                                 <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
                             </select>
                           </div>
+                          <div class="col">
+                            <label for="tittle">¿Quiere subir foto?</label>
+                            <select class="form-control" id="SaberFoto" name="SabeFoto" v-model="SaberFoto" style="height: 40px;">
+                                <option value="No"></option>
+                                <option value="Si">Sí</option>
+                                <option value="No">No</option>
+                            </select>
+                          </div>
                       </div>
                       <div v-if="Producto.tipo === 'clases' || Producto.tipo === 'apuntes'" class="form-group" id="game">
                         <div class="form-group row">
@@ -68,35 +82,49 @@
                                 <label for="price">Precio</label>
                                 <input v-model="Producto.precio" type="text" class="form-control">
                             </div>
+                            <div class="col">
+                              <label for="sel1">Nivel de las clases:</label>
+                              <select v-model="Producto.nivel" class="form-control" name="" id="" style="height: 40px;">
+                                  <option value="todos">Todos</option>
+                                  <option value="primaria">Primaria</option>
+                                  <option value="secundaria">Secundaria</option>
+                                  <option value="bachillerato">Bachillerato</option>
+                                  <option value="universidad">Universidad</option>
+                              </select>
+                            </div>
                         </div>
                       </div>
+
 
                       <div class="form-group">
                           <label for="desc">Descripción del articulo</label>
                           <textarea v-model="Producto.descripcion" name="desc" id="desc" cols="30" rows="5" class="form-control"></textarea>
                       </div>
 
-                      <div v-if="Producto.tipo === 'clases' || Producto.tipo === 'apuntes'" class="form-group" id="game">
-                        <label for="sel1">Nivel de las clases:</label>
-                        <select v-model="Producto.nivel" class="form-control" name="" id="" style="height: 40px;">
-                            <option value="todos">Todos</option>
-                            <option value="primaria">Primaria</option>
-                            <option value="secundaria">Secundaria</option>
-                            <option value="bachillerato">Bachillerato</option>
-                            <option value="universidad">Universidad</option>
-                        </select>
+
+                      <div v-if="SaberFoto === 'Si'" class="form-group" align="center">
+                        <label for="price">Subir Imagen</label>
+                          <div class="card">
+                            <img class="card-Foto" id="img-preview">
+                            <div class="card-footer">
+                                <input  type="file" id="img-uploader">
+                                <progress id="img-upload-bar" value="0" max="100" style="width:100%"></progress>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="form-group" align="center">
+                          <button type="submit" class="btn btn-b-n" >Publicar</button>
                       </div>
 
-                      <div class="form-group">
-                        <label for="price">URL imagen</label>
-                        <input v-model="Producto.foto" type="text" class="form-control">
-                      </div>
-
-                      <button type="submit" class="btn btn-default">Publicar</button>
                     </form>
               </div>
             </div>
-            <div class="row buscadmin">
+            <div class="row" align="center">
+              <div class="col-12" >
+                    <h4><strong>Buscador</strong></h4>
+              </div>
+            </div>
+            <div class="row margin-1">
                     <div class="col">
                       <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="busqueda" name="buscar" value="buscar" v-on:click="resetpag">
                       </div>
@@ -224,6 +252,7 @@ export default {
       tampagina: '10',
       numero: '',
       busqueda: '',
+      SaberFoto:'',
     }
   },
   created() {
@@ -238,6 +267,7 @@ export default {
   methods: {
     sendProducto() {
       this.Producto.anunciante = this.$store.getters.email;
+      this.Producto.foto = document.getElementById('img-preview').src;
       if(this.edit === false) {
         fetch('/api/CosasDeClase/Producto/', {
           method: 'POST',
