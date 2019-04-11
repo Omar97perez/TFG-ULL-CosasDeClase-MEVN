@@ -63,14 +63,6 @@
                               <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
                           </select>
                         </div>
-                        <div class="col">
-                          <label for="tittle">¿Quiere subir foto?</label>
-                          <select class="form-control" id="SaberFoto" name="SabeFoto" v-model="SaberFoto" style="height: 40px;">
-                              <option value="No"></option>
-                              <option value="Si">Sí</option>
-                              <option value="No">No</option>
-                          </select>
-                        </div>
                     </div>
                     <div v-if="Producto.tipo === 'clases' || Producto.tipo === 'apuntes'" class="form-group" id="game">
                       <div class="form-group row">
@@ -103,8 +95,10 @@
                     </div>
 
 
-                    <div v-if="SaberFoto === 'Si'" class="form-group" align="center">
-                      <label for="price">Subir Imagen</label>
+                    <div  class="form-group" align="center">
+                      <label for="Titulo">Subir Imagen</label>
+                    </br>
+                      <label for="Texto">Si no visualiza la imagen recarga la página</label>
                         <div class="card">
                           <img class="card-Foto" id="img-preview">
                           <div class="card-footer">
@@ -113,6 +107,7 @@
                           </div>
                       </div>
                     </div>
+
                     <div class="form-group" align="center">
                         <button type="submit" class="btn btn-b-n" >Publicar</button>
                     </div>
@@ -306,6 +301,8 @@ export default {
       }
     },
     getProductos(email) {
+      console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
+      console.log(document.getElementById('img-preview'));
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {

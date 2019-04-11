@@ -15,52 +15,55 @@
     <!--/ Intro Single End /-->
     <div id="m_error_r"></div>
     <form id="registro" @submit.prevent="register" class="text-left">
-      <div class="form-group">
-        <label for="name">Nombre</label>
-        <input type="text" class="form-control" id="name" placeholder="Nombre" v-model="name" required>
+      <div class="form-group row">
+        <div class="form-group col">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" id="name" placeholder="Nombre" v-model="name" required>
+        </div>
+        <div class="form-group col">
+          <label for="surname">Apellidos</label>
+          <input type="text" class="form-control" id="surname" placeholder="Apellidos" v-model="surname" required>
+        </div>
+        <div class="form-group">
+          <label for="birthdate">
+            Fecha de nacimiento
+          </label>
+          <input type="date" class="form-control" id="birthdate" placeholder="Fecha de nacimiento" v-model="birthdate" required>
+        </div>
+
       </div>
-      <div class="form-group">
-        <label for="surname">Apellidos</label>
-        <input type="text" class="form-control" id="surname" placeholder="Apellidos" v-model="surname" required>
+
+      <div class="form-group row">
+
+        <div class="form-group col">
+          <label for="telephone">
+            Teléfono
+          </label>
+          <input type="telephone" class="form-control" id="telephone" aria-describedby="telephoneHelp" placeholder="Número de Teléfono" v-model="telephone" required>
+        </div>
+
+        <div class="form-group col">
+          <label for="email">
+            Email
+          </label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" v-model="email" required>
+        </div>
+
+        <div class="form-group col">
+          <label for="password">Contraseña</label>
+          <input type="password" class="form-control" id="password" placeholder="Contraseña" v-model="password">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="birthdate">
-          Fecha de nacimiento
-        </label>
-        <input type="date" class="form-control" id="birthdate" placeholder="Fecha de nacimiento" v-model="birthdate" required>
-      </div>
-      <div class="form-group">
-        <label for="telephone">
-          Teléfono
-        </label>
-        <input type="telephone" class="form-control" id="telephone" aria-describedby="telephoneHelp" placeholder="Número de Teléfono" v-model="telephone" required>
-      </div>
-      <div class="form-group">
-        <label for="email">
-          Email
-        </label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" v-model="email" required>
-      </div>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" class="form-control" id="password" placeholder="Contraseña" v-model="password">
-      </div>
+
       <div class="form-group">
           <label for="paragraph">Descripción personal</label>
           <textarea type="paragraph" class="form-control" id="paragraph" placeholder="Descripción" v-model="paragraph" cols="30" rows="5" ></textarea>
       </div>
 
-      <div class="form-group">
-        <label for="tittle">¿Quiere subir foto?</label>
-        <select class="form-control" id="SaberFoto" name="SabeFoto" v-model="SaberFoto" style="height: 40px;">
-            <option value="No"></option>
-            <option value="Si">Sí</option>
-            <option value="No">No</option>
-        </select>
-      </div>
-
-      <div v-if="SaberFoto === 'Si'" class="form-group" align="center">
+      <div  class="form-group" align="center">
         <label for="price">Subir Imagen</label>
+        </br>
+        <label for="Texto">Si no visualiza la imagen recarga la página</label>
           <div class="card">
             <img class="card-Foto" id="img-preview">
             <div class="card-footer">
@@ -70,30 +73,10 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label class="col-form-label col-sm-2">Género</label>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="generos" id="genero" value="masculino" v-model="genre">
-            <label class="form-check-label" for="masculino">
-              Masculino
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="generos" id="genero" value="femenino" v-model="genre">
-            <label class="form-check-label" for="femenino">
-              Femenino
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="generos" id="genero" value="otro" v-model="genre">
-            <label class="form-check-label" for="otro">
-              Otro
-            </label>
-          </div>
-        </div>
+      <div class="form-group" align="center">
+          <button type="submit" class="btn btn-b-n" value="registrarse"  @click="">Registrarse</button>
       </div>
-      <button type="submit" value="registrarse" class="btn btn-outline-success" @click="">Registrarse</button>
+
     </form>
   </div>
 </template>

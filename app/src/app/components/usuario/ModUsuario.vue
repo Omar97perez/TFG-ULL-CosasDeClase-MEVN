@@ -15,36 +15,47 @@
     <!--/ Intro Single End /-->
     <div id="m_error_m"></div>
     <form id="actualizar" @submit.prevent="update" class="text-left">
-      <div class="form-group">
-        <label for="name">Nombre</label>
-        <input type="text" class="form-control" id="name" v-model="name" :placeholder="getName">
+      <div class="form-group row">
+        <div class="form-group col">
+          <label for="name">Nombre</label>
+          <input type="text" class="form-control" id="name" v-model="name" :placeholder="getName">
+        </div>
+
+        <div class="form-group col">
+          <label for="surname">Apellidos</label>
+          <input type="text" class="form-control" id="surname" v-model="surname" :placeholder="getSurname">
+        </div>
+
+        <div class="form-group col">
+          <label for="birthdate">
+            Fecha de nacimiento
+          </label>
+          <input type="date" class="form-control" id="birthdate" v-model="birthdate" :placeholder="getBirthdate">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="surname">Apellidos</label>
-        <input type="text" class="form-control" id="surname" v-model="surname" :placeholder="getSurname">
+
+      <div class="form-group row">
+
+        <div class="form-group col">
+          <label for="telephone">
+            Teléfono
+          </label>
+          <input type="telephone" class="form-control" id="telephone" v-model="telephone" :placeholder="getTelephone">
+        </div>
+
+        <div class="form-group col">
+          <label for="email">
+            Email
+          </label>
+          <input type="email" class="form-control" id="email" v-model="email" :placeholder="getEmail">
+        </div>
+
+        <div class="form-group col">
+          <label for="password">Contraseña</label>
+          <input type="password" class="form-control" v-model="password" id="password" placeholder="Contraseña">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="birthdate">
-          Fecha de nacimiento
-        </label>
-        <input type="date" class="form-control" id="birthdate" v-model="birthdate" :placeholder="getBirthdate">
-      </div>
-      <div class="form-group">
-        <label for="telephone">
-          Teléfono
-        </label>
-        <input type="telephone" class="form-control" id="telephone" v-model="telephone" :placeholder="getTelephone">
-      </div>
-      <div class="form-group">
-        <label for="email">
-          Email
-        </label>
-        <input type="email" class="form-control" id="email" v-model="email" :placeholder="getEmail">
-      </div>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" class="form-control" v-model="password" id="password" placeholder="Contraseña">
-      </div>
+
       <div class="form-group">
           <label for="paragraph">Descripción personal</label>
           <textarea type="paragraph" class="form-control" id="paragraph" :placeholder="getParagraph" v-model="paragraph" cols="30" rows="5" ></textarea>
@@ -52,6 +63,8 @@
 
       <div class="form-group" align="center">
         <label for="price">Subir Nueva Imagen</label>
+        </br>
+        <label for="Texto">Si no visualiza la imagen recarga la página</label>
           <div class="card">
             <img  class="card-Foto" id="img-preview">
             <div class="card-footer">
@@ -61,34 +74,15 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label class="col-form-label col-sm-2">Género</label>
-        <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="generos" id="genero" value="masculino">
-            <label class="form-check-label" for="masculino">
-              Masculino
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="generos" id="genero" value="femenino">
-            <label class="form-check-label" for="femenino">
-              Femenino
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="generos" id="genero" value="otro">
-            <label class="form-check-label" for="otro">
-              Otro
-            </label>
-          </div>
-        </div>
+      <div class="form-group" align="center">
+          <button type="submit" class="btn btn-outline-success" value="guardar" >Guardar datos</button>
       </div>
-      <button type="submit" value="guardar" class="btn btn-outline-success">Guardar datos</button>
 
     </form>
-    <br>
-    <button @click="deleteUser()" value="eliminar" class="btn btn-danger">Eliminar usuario</button>
+      <div class="form-group" align="center">
+        <button @click="deleteUser()" value="eliminar" class="btn btn-danger">Eliminar usuario</button>
+      </div>
+
   </div>
 </template>
 

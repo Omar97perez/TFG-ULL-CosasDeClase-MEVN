@@ -61,14 +61,6 @@
                               <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
                           </select>
                         </div>
-                        <div class="col">
-                          <label for="tittle">¿Quiere subir foto?</label>
-                          <select class="form-control" id="SaberFoto" name="SabeFoto" v-model="SaberFoto" style="height: 40px;">
-                              <option value="No"></option>
-                              <option value="Si">Sí</option>
-                              <option value="No">No</option>
-                          </select>
-                        </div>
                     </div>
                     <div v-if="Producto.tipo === 'clases' || Producto.tipo === 'apuntes'" class="form-group" id="game">
                       <div class="form-group row">
@@ -101,8 +93,10 @@
                     </div>
 
 
-                    <div v-if="SaberFoto === 'Si'" class="form-group" align="center">
+                    <div class="form-group" align="center">
                       <label for="price">Subir Imagen</label>
+                      </br>
+                      <label for="Texto">Si no visualiza la imagen recarga la página</label>
                         <div class="card">
                           <img class="card-Foto" id="img-preview">
                           <div class="card-footer">
