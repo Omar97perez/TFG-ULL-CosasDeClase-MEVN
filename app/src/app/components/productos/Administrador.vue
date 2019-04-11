@@ -22,7 +22,6 @@
                     <h4><strong>Subir Producto</strong></h4>
               </div>
             </div>
-
             <div class="row margin-1">
               <div class="col-md-12">
                     <form @submit.prevent="sendProducto">
@@ -179,7 +178,6 @@
                 </table>
               </div>
             </div>
-
             <div class="row">
               <div class="col-sm-12">
                 <nav class="pagination-a">
