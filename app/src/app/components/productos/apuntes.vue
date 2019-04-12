@@ -51,19 +51,19 @@
                       <ul class="card-info d-flex justify-content-around">
                         <li>
                           <h4 class="card-info-title">Nivel</h4>
-                          <span>{{Producto.nivel}}</span>
+                          <span style="text-transform:capitalize;">{{Producto.nivel}}</span>
                         </li>
                         <li>
                           <h4 class="card-info-title">Localidad</h4>
-                          <span>{{Producto.localidad}}</span>
+                          <span style="text-transform:capitalize;">{{Producto.localidad}}</span>
                         </li>
                         <li>
                           <h4 class="card-info-title">Provincia</h4>
-                          <span>{{Producto.provincia}}</span>
+                          <span style="text-transform:capitalize;">{{Producto.provincia}}</span>
                         </li>
                         <li>
                           <h4 class="card-info-title">Fecha</h4>
-                          <span>{{Producto.fecha}}</span>
+                          <span >{{Producto.fecha}}</span>
                         </li>
                       </ul>
                     </div>
