@@ -2,9 +2,6 @@ const imagePreview = document.getElementById('img-preview');
 const imageUploader = document.getElementById('img-uploader');
 const imageUploadbar = document.getElementById('img-upload-bar');
 
-console.log("AAAAAAAAAAAAAAAAAAAAAAAA");
-console.log(imagePreview);
-
 const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/dd1yne8b4/image/upload`
 const CLOUDINARY_UPLOAD_PRESET = 'o5ugmoss';
 
