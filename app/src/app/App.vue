@@ -70,7 +70,7 @@
                     <router-link :to="{ name: 'contacto' }" class="nav-link navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarDefault"
                       aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation"><a class="nav-link">Contacto</a></router-link>
                 </li>
-                <li class="nav-item">
+                <li v-if="isAdmin" class="nav-item">
                     <router-link :to="{ name: 'administrador' }" class="nav-link navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarDefault"
                       aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation"><a class="nav-link">Administrador</a></router-link>
                 </li>
@@ -96,7 +96,7 @@
                 <li class="nav-item">
                     <router-link :to="{ name: 'contacto' }" class="nav-link"><a class="nav-link">Contacto</a></router-link>
                 </li>
-                <li class="nav-item">
+                <li v-if="isAdmin" class="nav-item">
                     <router-link :to="{ name: 'administrador' }" class="nav-link"><a class="nav-link">Administrador</a></router-link>
                 </li>
               </ul>

@@ -30,7 +30,7 @@ export default new Vuex.Store({
     telephone: state => state.userData.telephone,
     _id: state => state.userData._id,
     isAdmin(state){
-      return state.userData.email == "root@root.com"
+      return state.userData.email == "omarperezznakar@gmail.com"
     }
   },
   setters: {
