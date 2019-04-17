@@ -27,5 +27,9 @@ describe("/apuntes.vue", () => {
     expect(wrapper.find('.error').exists()).toBe(false)
   });
 
-
+  it("Comprobando que el tipo de anuncio que se muestra see de apuntes", () => {
+    expect(wrapper.vm.tipo).toBe("apuntes")
+    expect(wrapper.find('.error').exists()).toBe(false)
+  });
+  
 });

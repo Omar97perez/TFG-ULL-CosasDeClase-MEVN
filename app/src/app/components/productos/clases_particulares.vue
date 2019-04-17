@@ -125,6 +125,7 @@ export default {
       numeropagina: 1,
       tampagina: '6',
       numero: '',
+      tipo:'clases',
     }
   },
   created() {
@@ -136,7 +137,7 @@ export default {
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {
-          this.Paginacion = data.filter(data =>  data.tipo == 'apuntes');
+          this.Paginacion = data.filter(data =>  data.tipo == this.tipo);
           this.Productos = this.Paginacion.slice(0,this.tampagina);
         });
     },
