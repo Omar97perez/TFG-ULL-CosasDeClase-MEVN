@@ -1,9 +1,9 @@
 import { mount } from 'vue-test-utils'
-import Clases from "../../../src/app/components/productos/clases_particulares.vue";
+import Noticias from "../../../src/app/components/productos/noticias.vue";
 
-describe("/clases_particularesClases.vue", () => {
+describe("/noticias.vue", () => {
 
-  const wrapper = mount(Clases);
+  const wrapper = mount(Noticias);
 
   it("Comprobando la introducción de ciudad y que no tenga errores", () => {
     wrapper.setData({ ciudad: 'Tenerife' })
@@ -27,8 +27,8 @@ describe("/clases_particularesClases.vue", () => {
     expect(wrapper.find('.error').exists()).toBe(false)
   });
 
-  it("Comprobando que el tipo de anuncio que se muestra es de clases particulares", () => {
-    expect(wrapper.vm.tipo).toBe("clases")
+  it("Comprobando que el tipo de anuncio que se muestra es de noticias", () => {
+    expect(wrapper.vm.tipo).toBe("noticias")
     expect(wrapper.find('.error').exists()).toBe(false)
   });
 
