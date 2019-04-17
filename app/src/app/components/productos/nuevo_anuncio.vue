@@ -1,21 +1,23 @@
-<template class="pt-5">
-
-    <div>
-      <!--/ Intro Single star /-->
-      <section class="intro-single">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 col-lg-8">
-              <div class="title-single-box">
-                <h1 class="title-single">Nuevo Anuncio</h1>
-              </div>
+<template>
+  <div>
+    <!--/ Intro Single star /-->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single">Nuevo anuncio</h1>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+    <!--/ Intro Single End /-->
 
+    <!--/ Property Grid Star /-->
       <section class="property-grid grid">
         <div class="container">
+
           <div class="row" align="center">
             <div class="col-12" >
                   <h4><strong>Subir Producto</strong></h4>
@@ -28,24 +30,24 @@
                     <div class="form-group row">
                         <div class="col">
                             <label for="tittle">Anunciante</label>
-                            <input v-model="Producto.anunciante" type="text" class="form-control">
+                            <input v-model="anunciante" type="text" class="form-control">
                         </div>
 
                         <div class="col">
                             <label for="tittle">Titulo del producto</label>
-                            <input v-model="Producto.titulo" type="text" class="form-control">
+                            <input v-model="titulo" type="text" class="form-control">
                         </div>
 
                         <div class="col">
                             <label for="tittle">Fecha</label>
-                            <input v-model="Producto.fecha" type="date" class="form-control" />
+                            <input v-model="fecha" type="date" class="form-control" />
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col">
                           <label for="sel1">Tipo de producto:</label>
-                          <select class="form-control" id="product" name="product" v-model="Producto.tipo" style="height: 40px;">
+                          <select class="form-control" id="product" name="product" v-model="tipo" style="height: 40px;">
                               <option value="0"></option>
                               <option value="clases">Clases Particulares</option>
                               <option value="apuntes">Apuntes</option>
@@ -55,27 +57,27 @@
 
                         <div class="col">
                           <label for="tittle">Provincia</label>
-                          <select class="form-control" id="provin" name="provincia" v-model="Producto.provincia" style="height: 40px;">
+                          <select class="form-control" id="provin" name="provincia" v-model="provincia" style="height: 40px;">
                               <option value="0"></option>
                               <option value="Tenerife">Santa Cruz de Tenerife</option>
                               <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
                           </select>
                         </div>
                     </div>
-                    <div v-if="Producto.tipo === 'clases' || Producto.tipo === 'apuntes'" class="form-group" id="game">
+                    <div v-if="tipo === 'clases' || tipo === 'apuntes'" class="form-group" id="game">
                       <div class="form-group row">
                           <div class="col">
                               <label for="tittle">Localidad</label>
-                              <input v-model="Producto.localidad" type="text" class="form-control">
+                              <input v-model="localidad" type="text" class="form-control">
                           </div>
 
                           <div class="col">
                               <label for="price">Precio</label>
-                              <input v-model="Producto.precio" type="text" class="form-control">
+                              <input v-model="precio" type="text" class="form-control">
                           </div>
                           <div class="col">
                             <label for="sel1">Nivel de las clases:</label>
-                            <select v-model="Producto.nivel" class="form-control" name="" id="" style="height: 40px;">
+                            <select v-model="nivel" class="form-control" name="" id="" style="height: 40px;">
                                 <option value="todos">Todos</option>
                                 <option value="primaria">Primaria</option>
                                 <option value="secundaria">Secundaria</option>
@@ -89,13 +91,13 @@
 
                     <div class="form-group">
                         <label for="desc">Descripción del articulo</label>
-                        <textarea v-model="Producto.descripcion" name="desc" id="desc" cols="30" rows="5" class="form-control"></textarea>
+                        <textarea v-model="descripcion" name="desc" id="desc" cols="30" rows="5" class="form-control"></textarea>
                     </div>
 
 
-                    <div class="form-group" align="center">
-                      <label for="price">Subir Imagen</label>
-                      </br>
+                    <div  class="form-group" align="center">
+                      <label for="Titulo">Subir Imagen</label>
+                    </br>
                       <label for="Texto">Si no visualiza la imagen recarga la página</label>
                         <div class="card">
                           <img class="card-Foto" id="img-preview">
@@ -105,6 +107,7 @@
                           </div>
                       </div>
                     </div>
+
                     <div class="form-group" align="center">
                         <button type="submit" class="btn btn-b-n" >Publicar</button>
                     </div>
@@ -113,15 +116,32 @@
             </div>
           </div>
 
-            <div class="row">
-              <div class="col-md-12">
+          <div class="row" align="center">
+            <div class="col-12" >
+                  <h4><strong>Buscador</strong></h4>
+            </div>
+          </div>
+
+            <div class="row margin-1">
+                    <div class="col">
+                      <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="busqueda" name="buscar" value="buscar" v-on:click="resetpag">
+                      </div>
+                      <div class="col">
+                        <select class="custom-select" id="city" v-model="tipo" value=""  @change="buscarProducto" v-on:click="resetpag">
+                          <option value="">Todos</option>
+                          <option value="noticias">Noticias</option>
+                          <option value="clases">Clases Particulares</option>
+                          <option value="apuntes">Apuntes</option>
+                        </select>
+                      </div>
+              <div class="col-md-12 buscadmin">
                 <table class="table table-striped">
                   <thead style="background-color:#434343;color:#ffffff">
                     <tr>
+                      <th >Anunciante</th>
                       <th >Título</th>
                       <th >Fecha</th>
                       <th>Foto</th>
-                      <th>Decripcion</th>
                       <th>Tipo</th>
                       <th>Nivel</th>
                       <th>Precio</th>
@@ -130,6 +150,7 @@
                   </thead>
                   <tbody >
                     <tr v-for="Producto of Productos">
+                      <td>{{Producto.anunciante}}</td>
                       <td>{{Producto.titulo}}</td>
                       <td>{{Producto.fecha}}</td>
                       <td>
@@ -137,7 +158,6 @@
                           <img v-bind:src="Producto.foto"  width="150" height="150"></img>
                         </div>
                       </td>
-                      <td>{{Producto.descripcion}}</td>
                       <td>{{Producto.tipo}}</td>
                       <td>{{Producto.nivel}}</td>
                       <td>{{Producto.precio}}</td>
@@ -148,6 +168,42 @@
                     </tr>
                   </tbody>
                 </table>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <nav class="pagination-a">
+                  <ul class="pagination justify-content-end">
+                    <li class="page-item" @click="cambioprimera">
+                      <a class="page-link" href="#" tabindex="-1">
+                        <span class="ion-ios-arrow-back"></span>
+                        <span class="ion-ios-arrow-back"></span>
+                      </a>
+                    </li>
+                    <li class="page-item" @click="cambioanterior">
+                      <a class="page-link" href="#" tabindex="-1">
+                        <span class="ion-ios-arrow-back"></span>
+                      </a>
+                    </li>
+                    <div v-for="Num in NumPaginas()" class="">
+                      <li  class="page-item">
+                          <a class="page-link" @click="pagination(Num)">{{Num}}</a>
+                      </li>
+                    </div>
+                    <li class="page-item" @click="cambiosiguiente">
+                      <a class="page-link" href="#">
+                        <span class="ion-ios-arrow-forward"></span>
+                      </a>
+                    </li>
+                    <li class="page-item" @click="cambioultima">
+                      <a class="page-link" href="#">
+                        <span class="ion-ios-arrow-forward"></span>
+                        <span class="ion-ios-arrow-forward"></span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </div>
         </div>
@@ -179,23 +235,46 @@ export default {
       Productos: [],
       edit: false,
       ProductoToEdit: '',
+      ProductosPaginacion: [],
+      Paginacion: [],
+      ciudad: '',
+      tipo: '',
+      numeropagina: 1,
+      tampagina: '10',
+      numero: '',
+      busqueda: '',
       SaberFoto:'',
+      anunciante: this.$store.getters.email,
+      fecha:'',
+      titulo:'',
+      foto:'',
+      descripcion:'',
+      tipo:'',
+      nivel:'',
+      provincia:'',
+      localidad:'',
+      precio:'',
     }
   },
   created() {
-    this.getProductos(this.$store.getters.email);
+    this.getProductos();
+    this.NumPaginas();
   },
-  computed: {
-    getEmail() {
-      return this.$store.getters.email
-    },
-  },
+
   methods: {
-    SubirProducto(hola){
-      console.log(hola);
-    },
     sendProducto() {
-      this.Producto.anunciante = this.$store.getters.email;
+
+      this.Producto.anunciante = this.anunciante;
+      this.Producto.fecha = this.fecha;
+      this.Producto.titulo = this.titulo;
+      this.Producto.foto = this.foto;
+      this.Producto.descripcion = this.descripcion;
+      this.Producto.tipo = this.tipo;
+      this.Producto.nivel = this.nivel;
+      this.Producto.provincia = this.provincia;
+      this.Producto.localidad = this.localidad;
+      this.Producto.precio = this.precio;
+
       this.Producto.foto = document.getElementById('img-preview').src;
       if(this.edit === false) {
         fetch('/api/CosasDeClase/Producto/', {
@@ -231,12 +310,23 @@ export default {
           });
       }
     },
-    getProductos(email) {
+    getProductos() {
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {
-          this.Productos = data.filter(data =>  data.anunciante == email);
+          this.Paginacion = data.filter(data =>  data.anunciante == this.anunciante);
+          this.Productos = this.Paginacion.slice(0,this.tampagina);
         });
+
+        this.fecha = '';
+        this.titulo = '';
+        this.foto = '';
+        this.descripcion = '';
+        this.tipo = '';
+        this.nivel = '';
+        this.provincia = '';
+        this.localidad = '';
+        this.precio = '';
     },
     deleteProducto(ProductoId) {
       fetch('/api/CosasDeClase/Producto/' + ProductoId, {
@@ -259,10 +349,63 @@ export default {
           const { _id,anunciante,fecha,titulo,foto,descripcion,tipo,nivel,provincia,localidad,precio,} = data;
           this.Producto = new Producto(anunciante,fecha,titulo,foto,descripcion,tipo,nivel,provincia,localidad,precio,);
           this.ProductoToEdit = _id;
+          this.fecha = fecha;
+          this.titulo = titulo;
+          this.foto = foto;
+          this.descripcion = descripcion;
+          this.tipo = tipo;
+          this.nivel = nivel;
+          this.provincia = provincia;
+          this.localidad = localidad;
+          this.precio = precio;
           this.edit = true;
         });
+    },
+    NumPaginas() {
+      this.numero = Math.ceil(this.ProductosPaginacion.length/this.tampagina);
+      return this.numero;
+    },
+    resetpag() {
+      this.numeropagina = 1;
+    },
+    cambiosiguiente() {
+      if(this.numeropagina < this.numero ){
+          this.numeropagina = this.numeropagina + 1;
+      }
+    },
+    cambioanterior() {
+      if(this.numeropagina > 1 ){
+          this.numeropagina = this.numeropagina - 1;
+      }
+    },
+    cambioprimera() {
+          this.numeropagina = 1;
+    },
+    cambioultima() {
+          this.numeropagina = this.numero;
+    },
+    pagination(numpag) {
+      this.numeropagina = numpag
+      var x;
+      x = this.tampagina * numpag;
+      numpag = numpag - 1;
+      numpag = numpag * this.tampagina;
+      this.Productos = this.Paginacion.slice(numpag,x);
+    },
+    buscador_pagination(vector) {
+      var numpag,x;
+      numpag = this.numeropagina
+      x = this.tampagina * numpag;
+      numpag = numpag - 1;
+      numpag = numpag * this.tampagina;
+      this.Productos = vector.slice(numpag,x);
     }
-  }
+  },
+  computed:  {
+    buscarProducto() {
+      this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipo) && Producto.provincia.includes(this.ciudad) && Producto.titulo.includes(this.busqueda) );
+      this.buscador_pagination(this.ProductosPaginacion);
+    }
+  },
 }
-
 </script>
