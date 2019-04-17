@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Cuenta de usuario {{getName}}</h1>
+              <h1 class="title-single">Cuenta de usuario de {{getName()}}</h1>
             </div>
           </div>
         </div>
@@ -18,19 +18,19 @@
       <div class="form-group row">
         <div class="form-group col">
           <label for="name">Nombre</label>
-          <input type="text" class="form-control" id="name" v-model="name" :placeholder="getName">
+          <input type="text" class="form-control" id="name" v-model="name" :placeholder="getName()">
         </div>
 
         <div class="form-group col">
           <label for="surname">Apellidos</label>
-          <input type="text" class="form-control" id="surname" v-model="surname" :placeholder="getSurname">
+          <input type="text" class="form-control" id="surname" v-model="surname" :placeholder="getSurname()">
         </div>
 
         <div class="form-group col">
           <label for="birthdate">
             Fecha de nacimiento
           </label>
-          <input type="date" class="form-control" id="birthdate" v-model="birthdate" :placeholder="getBirthdate">
+          <input type="date" class="form-control" id="birthdate" v-model="birthdate" :placeholder="getBirthdate()">
         </div>
       </div>
 
@@ -40,14 +40,14 @@
           <label for="telephone">
             Teléfono
           </label>
-          <input type="telephone" class="form-control" id="telephone" v-model="telephone" :placeholder="getTelephone">
+          <input type="telephone" class="form-control" id="telephone" v-model="telephone" :placeholder="getTelephone()">
         </div>
 
         <div class="form-group col">
           <label for="email">
             Email
           </label>
-          <input type="email" class="form-control" id="email" v-model="email" :placeholder="getEmail">
+          <input type="email" class="form-control" id="email" v-model="email" :placeholder="getEmail()">
         </div>
 
         <div class="form-group col">
@@ -58,7 +58,7 @@
 
       <div class="form-group">
           <label for="paragraph">Descripción personal</label>
-          <textarea type="paragraph" class="form-control" id="paragraph" :placeholder="getParagraph" v-model="paragraph" cols="30" rows="5" ></textarea>
+          <textarea type="paragraph" class="form-control" id="paragraph" :placeholder="getParagraph()" v-model="paragraph" cols="30" rows="5" ></textarea>
       </div>
 
       <div class="form-group" align="center">
@@ -102,9 +102,7 @@ export default {
       genre: '',
     }
   },
-  created(){
-  },
-  computed: {
+  methods: {
     getName() {
       return this.$store.getters.name
     },
@@ -128,10 +126,7 @@ export default {
     },
     getEmail() {
       return this.$store.getters.email
-    }
-  },
-  methods: {
-
+    },
     deleteUser () {
       //this.$router.push({ name: 'DeleteUser'})
       this.$store.dispatch('deleteUser')
