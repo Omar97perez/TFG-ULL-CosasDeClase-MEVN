@@ -29,30 +29,6 @@ describe("buscador_productos.vue", () => {
       expect(wrapper.find('.error').exists()).toBe(false)
     });
 
-    it("Comprobando la introducción de descripcion y que no tenga errores", () => {
-      wrapper.setProps({ ciudad: 'descripcion' })
-      expect(wrapper.vm.ciudad).toBe('descripcion')
-      expect(wrapper.find('.error').exists()).toBe(false)
-    });
-
-    it("Comprobando la introducción de ciudad y que no tenga errores", () => {
-      wrapper.setData({ ciudad: 'Tenerife' })
-      expect(wrapper.vm.ciudad).toBe('Tenerife')
-      expect(wrapper.find('.error').exists()).toBe(false)
-    });
-
-    it("Comprobando la introducción de tipo y que no tenga errores", () => {
-      wrapper.setData({ tipo: 'clases' })
-      expect(wrapper.vm.tipo).toBe('clases')
-      expect(wrapper.find('.error').exists()).toBe(false)
-    });
-
-    it("Comprobando la introducción de busqueda y que no tenga errores", () => {
-      wrapper.setData({ busqueda: 'Matemáticas' })
-      expect(wrapper.vm.busqueda).toBe('Matemáticas')
-      expect(wrapper.find('.error').exists()).toBe(false)
-    });
-
     it("Comprobando la introducción de numero de página y que no tenga errores", () => {
       wrapper.setData({ numero: 0 })
       expect(wrapper.vm.numero).toBe(0)
@@ -68,6 +44,5 @@ describe("buscador_productos.vue", () => {
       expect(wrapper.vm.tampagina).toBe("6")
       expect(wrapper.find('.error').exists()).toBe(false)
     });
-
 
 });
