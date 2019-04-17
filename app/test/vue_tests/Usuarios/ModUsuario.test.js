@@ -1,7 +1,7 @@
 import { mount } from 'vue-test-utils'
-import ModUsuario from "../../../src/app/components/usuario/ModUsuario.vue";
+import ModUsuario from "../../../src/app/components/usuario/Registro.vue";
 
-describe("ModUsuario.vue", () => {
+describe("Registro.vue", () => {
 
   const wrapper = mount(ModUsuario);
 
