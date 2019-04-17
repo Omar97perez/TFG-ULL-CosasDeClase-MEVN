@@ -198,7 +198,7 @@ class Buscador {
         this.$store.dispatch('addToPrev', invId);
       },
       NumPaginas() {
-        this.numero = Math.round(this.ProductosPaginacion.length/this.tampagina);
+        this.numero = Math.ceil(this.ProductosPaginacion.length/this.tampagina);
         return this.numero;
       },
       resetpag() {
