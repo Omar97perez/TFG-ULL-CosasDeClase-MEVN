@@ -124,6 +124,7 @@
         numeropagina: 1,
         tampagina: '6',
         numero: '',
+        tipo:'apuntes',
       }
     },
     created() {
@@ -135,7 +136,7 @@
         fetch('/api/CosasDeClase/Producto/')
           .then(res => res.json())
           .then(data => {
-            this.Paginacion = data.filter(data =>  data.tipo == 'apuntes');
+            this.Paginacion = data.filter(data =>  data.tipo == this.tipo);
             this.Productos = this.Paginacion.slice(0,this.tampagina);
           });
       },
@@ -143,7 +144,7 @@
         this.$store.dispatch('addToPrev', invId);
       },
       NumPaginas() {
-        this.numero = Math.round(this.ProductosPaginacion.length/this.tampagina);
+        this.numero = Math.ceil(this.ProductosPaginacion.length/this.tampagina);
         return this.numero;
       },
       resetpag() {

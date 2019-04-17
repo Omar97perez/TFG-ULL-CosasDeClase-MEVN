@@ -177,7 +177,7 @@ class Buscador {
             ProductosPaginacion: [],
             Paginacion: [],
             numeropagina: 1,
-            tampagina: '9',
+            tampagina: '6',
             numero: '',
       }
     },
@@ -198,7 +198,7 @@ class Buscador {
         this.$store.dispatch('addToPrev', invId);
       },
       NumPaginas() {
-        this.numero = Math.round(this.ProductosPaginacion.length/this.tampagina);
+        this.numero = Math.ceil(this.ProductosPaginacion.length/this.tampagina);
         return this.numero;
       },
       resetpag() {

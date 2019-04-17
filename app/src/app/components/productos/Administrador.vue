@@ -30,24 +30,24 @@
                     <div class="form-group row">
                         <div class="col">
                             <label for="tittle">Anunciante</label>
-                            <input v-model="Producto.anunciante" type="text" class="form-control">
+                            <input v-model="anunciante" type="text" class="form-control">
                         </div>
 
                         <div class="col">
                             <label for="tittle">Titulo del producto</label>
-                            <input v-model="Producto.titulo" type="text" class="form-control">
+                            <input v-model="titulo" type="text" class="form-control">
                         </div>
 
                         <div class="col">
                             <label for="tittle">Fecha</label>
-                            <input v-model="Producto.fecha" type="date" class="form-control" />
+                            <input v-model="fecha" type="date" class="form-control" />
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col">
                           <label for="sel1">Tipo de producto:</label>
-                          <select class="form-control" id="product" name="product" v-model="Producto.tipo" style="height: 40px;">
+                          <select class="form-control" id="product" name="product" v-model="tipo" style="height: 40px;">
                               <option value="0"></option>
                               <option value="clases">Clases Particulares</option>
                               <option value="apuntes">Apuntes</option>
@@ -57,27 +57,27 @@
 
                         <div class="col">
                           <label for="tittle">Provincia</label>
-                          <select class="form-control" id="provin" name="provincia" v-model="Producto.provincia" style="height: 40px;">
+                          <select class="form-control" id="provin" name="provincia" v-model="provincia" style="height: 40px;">
                               <option value="0"></option>
                               <option value="Tenerife">Santa Cruz de Tenerife</option>
                               <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
                           </select>
                         </div>
                     </div>
-                    <div v-if="Producto.tipo === 'clases' || Producto.tipo === 'apuntes'" class="form-group" id="game">
+                    <div v-if="tipo === 'clases' || tipo === 'apuntes'" class="form-group" id="game">
                       <div class="form-group row">
                           <div class="col">
                               <label for="tittle">Localidad</label>
-                              <input v-model="Producto.localidad" type="text" class="form-control">
+                              <input v-model="localidad" type="text" class="form-control">
                           </div>
 
                           <div class="col">
                               <label for="price">Precio</label>
-                              <input v-model="Producto.precio" type="text" class="form-control">
+                              <input v-model="precio" type="text" class="form-control">
                           </div>
                           <div class="col">
                             <label for="sel1">Nivel de las clases:</label>
-                            <select v-model="Producto.nivel" class="form-control" name="" id="" style="height: 40px;">
+                            <select v-model="nivel" class="form-control" name="" id="" style="height: 40px;">
                                 <option value="todos">Todos</option>
                                 <option value="primaria">Primaria</option>
                                 <option value="secundaria">Secundaria</option>
@@ -91,7 +91,7 @@
 
                     <div class="form-group">
                         <label for="desc">Descripción del articulo</label>
-                        <textarea v-model="Producto.descripcion" name="desc" id="desc" cols="30" rows="5" class="form-control"></textarea>
+                        <textarea v-model="descripcion" name="desc" id="desc" cols="30" rows="5" class="form-control"></textarea>
                     </div>
 
 
@@ -251,20 +251,36 @@ export default {
       numero: '',
       busqueda: '',
       SaberFoto:'',
+      anunciante:'',
+      fecha:'',
+      titulo:'',
+      foto:'',
+      descripcion:'',
+      tipo:'',
+      nivel:'',
+      provincia:'',
+      localidad:'',
+      precio:'',
     }
   },
   created() {
-    this.getProductos(this.$store.getters.email);
+    this.getProductos();
     this.NumPaginas();
   },
-  computed: {
-    getEmail() {
-      return this.$store.getters.email
-    },
-  },
+
   methods: {
     sendProducto() {
-      this.Producto.anunciante = this.$store.getters.email;
+      this.Producto.anunciante = this.anunciante;
+      this.Producto.fecha = this.fecha;
+      this.Producto.titulo = this.titulo;
+      this.Producto.foto = this.foto;
+      this.Producto.descripcion = this.descripcion;
+      this.Producto.tipo = this.tipo;
+      this.Producto.nivel = this.nivel;
+      this.Producto.provincia = this.provincia;
+      this.Producto.localidad = this.localidad;
+      this.Producto.precio = this.precio;
+
       this.Producto.foto = document.getElementById('img-preview').src;
       if(this.edit === false) {
         fetch('/api/CosasDeClase/Producto/', {
@@ -300,15 +316,24 @@ export default {
           });
       }
     },
-    getProductos(email) {
-      console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
-      console.log(document.getElementById('img-preview'));
+    getProductos() {
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {
           this.Paginacion = data;
           this.Productos = this.Paginacion.slice(0,this.tampagina);
         });
+
+        this.anunciante = '';
+        this.fecha = '';
+        this.titulo = '';
+        this.foto = '';
+        this.descripcion = '';
+        this.tipo = '';
+        this.nivel = '';
+        this.provincia = '';
+        this.localidad = '';
+        this.precio = '';
     },
     deleteProducto(ProductoId) {
       fetch('/api/CosasDeClase/Producto/' + ProductoId, {
@@ -331,11 +356,21 @@ export default {
           const { _id,anunciante,fecha,titulo,foto,descripcion,tipo,nivel,provincia,localidad,precio,} = data;
           this.Producto = new Producto(anunciante,fecha,titulo,foto,descripcion,tipo,nivel,provincia,localidad,precio,);
           this.ProductoToEdit = _id;
+          this.anunciante = anunciante;
+          this.fecha = fecha;
+          this.titulo = titulo;
+          this.foto = foto;
+          this.descripcion = descripcion;
+          this.tipo = tipo;
+          this.nivel = nivel;
+          this.provincia = provincia;
+          this.localidad = localidad;
+          this.precio = precio;
           this.edit = true;
         });
     },
     NumPaginas() {
-      this.numero = Math.round(this.ProductosPaginacion.length/this.tampagina);
+      this.numero = Math.ceil(this.ProductosPaginacion.length/this.tampagina);
       return this.numero;
     },
     resetpag() {
