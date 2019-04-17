@@ -27,11 +27,13 @@ describe("Login.vue", () => {
 
   it("Comprobando la introducción de email y que no tenga errores", () => {
     wrapper.setData({ email: 'test@test.com' })
+    expect(wrapper.vm.email).toBe('test@test.com')
     expect(wrapper.find('.error').exists()).toBe(false)
   });
 
   it("Comprobando la introducción de contraseña y que no tenga errores", () => {
     wrapper.setData({ password: '1234567' })
+    expect(wrapper.vm.password).toBe('1234567')
     expect(wrapper.find('.error').exists()).toBe(false)
   });
 

@@ -46,32 +46,46 @@ describe("Registro.vue", () => {
   });
 
   it("Comprobando la introducción de email y que no tenga errores", () => {
-    wrapper.setData({ email: 'test@test.com' })
+    wrapper.setProps({ email: 'test@test.com' })
+    expect(wrapper.vm.email).toBe('test@test.com')
     expect(wrapper.find('.error').exists()).toBe(false)
   });
 
   it("Comprobando la introducción de contraseña y que no tenga errores", () => {
-    wrapper.setData({ telephone: '6546546544' })
+    wrapper.setProps({ telephone: '6546546544' })
+    expect(wrapper.vm.telephone).toBe('6546546544')
     expect(wrapper.find('.error').exists()).toBe(false)
   });
 
   it("Comprobando la introducción de contraseña y que no tenga errores", () => {
-    wrapper.setData({ password: '1234567' })
+    wrapper.setProps({ password: '1234567' })
+    expect(wrapper.vm.password).toBe('1234567')
     expect(wrapper.find('.error').exists()).toBe(false)
   });
 
-  it("Comprobando la introducción de contraseña y que no tenga errores", () => {
-    wrapper.setData({ paragraph: 'Descripción test' })
+  it("Comprobando la introducción del párrafo y que no tenga errores", () => {
+    wrapper.setProps({ paragraph: 'Descripción test' })
+    expect(wrapper.vm.paragraph).toBe('Descripción test')
     expect(wrapper.find('.error').exists()).toBe(false)
   });
+
+  it("Comprobando la introducción de la imágen y que no tenga errores", () => {
+    wrapper.setProps({ image: 'Descripcióntest' })
+    expect(wrapper.vm.image).toBe('Descripcióntest')
+    expect(wrapper.find('.error').exists()).toBe(false)
+  });
+
 
   it("Comprobando la introducción de fecha de nacimiento y que no tenga errores", () => {
-    wrapper.setData({ birthdate: new Date("1997-03-25") })
+    wrapper.setProps({ birthdate: new Date("1997-03-25") })
+    expect(wrapper.vm.birthdate).toEqual(new Date("1997-03-25"))
     expect(wrapper.find('.error').exists()).toBe(false)
   });
 
   it("Comprobando la introducción de genero de nacimiento y que no tenga errores", () => {
-    wrapper.setData({ genre: 'otro' })
+    new Date
+    wrapper.setProps({ genre: 'otro' })
+    expect(wrapper.vm.genre).toBe('otro')
     expect(wrapper.find('.error').exists()).toBe(false)
   });
 
@@ -81,4 +95,7 @@ describe("Registro.vue", () => {
     expect(wrapper.find('.error').exists()).toBe(false)
   });
 
+  it("Comprobando la introducción de genero de nacimiento y que no tenga errores", () => {
+    expect(wrapper.vm.genre).toBe('otro')
+  });
 });
