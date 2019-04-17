@@ -4,7 +4,7 @@ import Buscador from "../../../src/app/components/productos/buscador_productos.v
 describe("buscador_productos.vue", () => {
 
     const wrapper = mount(Buscador);
-    
+
     it("Comprobando que hay etiqueta de formulario", () => {
       expect(wrapper.contains('form')).toBe(true)
     });
@@ -15,7 +15,7 @@ describe("buscador_productos.vue", () => {
 
     it("Comprobando que hay etiqueta option  de formulario", () => {
       expect(wrapper.contains('option')).toBe(true)
-  });
+    });
 
     it("Comprobando introduccion de busqueda y que no tenga errores", () => {
       wrapper.setProps({ busqueda: 'Test' })
@@ -34,5 +34,40 @@ describe("buscador_productos.vue", () => {
       expect(wrapper.vm.ciudad).toBe('descripcion')
       expect(wrapper.find('.error').exists()).toBe(false)
     });
+
+    it("Comprobando la introducción de ciudad y que no tenga errores", () => {
+      wrapper.setData({ ciudad: 'Tenerife' })
+      expect(wrapper.vm.ciudad).toBe('Tenerife')
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
+
+    it("Comprobando la introducción de tipo y que no tenga errores", () => {
+      wrapper.setData({ tipo: 'clases' })
+      expect(wrapper.vm.tipo).toBe('clases')
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
+
+    it("Comprobando la introducción de busqueda y que no tenga errores", () => {
+      wrapper.setData({ busqueda: 'Matemáticas' })
+      expect(wrapper.vm.busqueda).toBe('Matemáticas')
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
+
+    it("Comprobando la introducción de numero de página y que no tenga errores", () => {
+      wrapper.setData({ numero: 0 })
+      expect(wrapper.vm.numero).toBe(0)
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
+
+    it("Comprobando el contenido del numeropagina sea 1", () => {
+      expect(wrapper.vm.numeropagina).toBe(1)
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
+
+    it("Comprobando el contenido de tampagina sea 6", () => {
+      expect(wrapper.vm.tampagina).toBe("6")
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
+
 
 });

@@ -177,7 +177,7 @@ class Buscador {
             ProductosPaginacion: [],
             Paginacion: [],
             numeropagina: 1,
-            tampagina: '9',
+            tampagina: '6',
             numero: '',
       }
     },

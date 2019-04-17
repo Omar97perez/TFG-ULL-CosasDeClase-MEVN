@@ -74,4 +74,39 @@ describe("Administrador.vue", () => {
       button.trigger('click')
       expect(wrapper.find('.error').exists()).toBe(false)
     });
+
+    it("Comprobando la introducción de ciudad y que no tenga errores", () => {
+      wrapper.setData({ ciudad: 'Tenerife' })
+      expect(wrapper.vm.ciudad).toBe('Tenerife')
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
+
+    it("Comprobando la introducción de tipo y que no tenga errores", () => {
+      wrapper.setData({ tipo: 'clases' })
+      expect(wrapper.vm.tipo).toBe('clases')
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
+
+    it("Comprobando la introducción de busqueda y que no tenga errores", () => {
+      wrapper.setData({ busqueda: 'Matemáticas' })
+      expect(wrapper.vm.busqueda).toBe('Matemáticas')
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
+
+
+    it("Comprobando la introducción de numero de página y que no tenga errores", () => {
+      wrapper.setData({ numero: 0 })
+      expect(wrapper.vm.numero).toBe(0)
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
+
+    it("Comprobando el contenido del numeropagina sea 1", () => {
+      expect(wrapper.vm.numeropagina).toBe(1)
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
+
+    it("Comprobando el contenido de tampagina sea 6", () => {
+      expect(wrapper.vm.tampagina).toBe("10")
+      expect(wrapper.find('.error').exists()).toBe(false)
+    });
 });
