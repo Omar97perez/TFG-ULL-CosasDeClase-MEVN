@@ -10,8 +10,8 @@ sudo: false
 script:
 - cd app
 - npm install
-- npm test
-- npm jest
+- npm run test
+- npm run jest
 - sonar-scanner
 cache:
   directories:
