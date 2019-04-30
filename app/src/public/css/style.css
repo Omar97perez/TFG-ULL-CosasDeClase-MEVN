@@ -1014,6 +1014,12 @@ a:hover {
   transition: .8s all ease-in-out;
 }
 
+.img-fluid{
+  width:330px;
+  height:330px;
+
+}
+
 .card-overlay {
   position: absolute;
   width: 100%;
