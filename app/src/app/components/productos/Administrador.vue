@@ -411,7 +411,7 @@ export default {
   },
   computed:  {
     buscarProducto() {
-      this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipodato) && Producto.provincia.includes(this.ciudad) && Producto.titulo.includes(this.busqueda) );
+      this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipodato) && Producto.provincia.includes(this.ciudad) && Producto.titulo.toUpperCase().includes(this.busqueda.toUpperCase()) );
       this.buscador_pagination(this.ProductosPaginacion);
     }
   },

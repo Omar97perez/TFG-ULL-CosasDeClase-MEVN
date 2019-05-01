@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Administrador</h1>
+              <h1 class="title-single">Nuevo anuncio</h1>
             </div>
           </div>
         </div>
@@ -320,7 +320,7 @@ export default {
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {
-          this.Paginacion = data.filter(data => data.anunciante == this.anunciante);
+          this.Paginacion = data.filter(data => data.anunciante ==  this.$store.getters.email);
           this.Productos = this.Paginacion.slice(0,this.tampagina);
         });
 
@@ -411,7 +411,7 @@ export default {
   },
   computed:  {
     buscarProducto() {
-      this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipodato) && Producto.provincia.includes(this.ciudad) && Producto.titulo.includes(this.busqueda) );
+      this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipodato) && Producto.provincia.includes(this.ciudad) && Producto.titulo.toUpperCase().includes(this.busqueda.toUpperCase()) );
       this.buscador_pagination(this.ProductosPaginacion);
     }
   },
