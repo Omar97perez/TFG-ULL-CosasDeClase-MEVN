@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Nuevo anuncio</h1>
+              <h1 class="title-single">Administrador</h1>
             </div>
           </div>
         </div>
@@ -47,7 +47,7 @@
                     <div class="form-group row">
                         <div class="col">
                           <label for="sel1">Tipo de producto:</label>
-                          <select class="form-control" id="product" name="product" v-model="tipo" style="height: 40px;">
+                          <select class="form-control" id="provin" name="provincia" v-model="tipo" style="height: 40px;">
                               <option value="0"></option>
                               <option value="clases">Clases Particulares</option>
                               <option value="apuntes">Apuntes</option>
@@ -127,7 +127,14 @@
                       <input type="text" class="form-control form-control-lg form-control-a" placeholder="¿Qué buscas?" v-model="busqueda" name="buscar" value="buscar" v-on:click="resetpag">
                       </div>
                       <div class="col">
-                        <select class="custom-select" id="city" v-model="tipo" value=""  @change="buscarProducto" v-on:click="resetpag">
+                        <select class="custom-select" id="city" v-model="ciudad" value=""  @change="buscarProducto" v-on:click="resetpag">
+                          <option value="" >Todas las ciudades</option>
+                          <option value="Tenerife">Santa Cruz de Tenerife</option>
+                          <option value="Gran Canaria">Las Palmas de Gran Canaria</option>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <select class="custom-select" id="city" v-model="tipodato" value=""  @change="buscarProducto" v-on:click="resetpag">
                           <option value="">Todos</option>
                           <option value="noticias">Noticias</option>
                           <option value="clases">Clases Particulares</option>
@@ -238,13 +245,13 @@ export default {
       ProductosPaginacion: [],
       Paginacion: [],
       ciudad: '',
-      tipo: '',
+      tipodato: '',
       numeropagina: 1,
       tampagina: '10',
       numero: '',
       busqueda: '',
       SaberFoto:'',
-      anunciante: this.$store.getters.email,
+      anunciante:'',
       fecha:'',
       titulo:'',
       foto:'',
@@ -263,7 +270,6 @@ export default {
 
   methods: {
     sendProducto() {
-
       this.Producto.anunciante = this.anunciante;
       this.Producto.fecha = this.fecha;
       this.Producto.titulo = this.titulo;
@@ -314,10 +320,11 @@ export default {
       fetch('/api/CosasDeClase/Producto/')
         .then(res => res.json())
         .then(data => {
-          this.Paginacion = data.filter(data =>  data.anunciante == this.anunciante);
+          this.Paginacion = data.filter(data => data.anunciante == this.anunciante);
           this.Productos = this.Paginacion.slice(0,this.tampagina);
         });
 
+        this.anunciante = '';
         this.fecha = '';
         this.titulo = '';
         this.foto = '';
@@ -349,6 +356,7 @@ export default {
           const { _id,anunciante,fecha,titulo,foto,descripcion,tipo,nivel,provincia,localidad,precio,} = data;
           this.Producto = new Producto(anunciante,fecha,titulo,foto,descripcion,tipo,nivel,provincia,localidad,precio,);
           this.ProductoToEdit = _id;
+          this.anunciante = anunciante;
           this.fecha = fecha;
           this.titulo = titulo;
           this.foto = foto;
@@ -403,7 +411,7 @@ export default {
   },
   computed:  {
     buscarProducto() {
-      this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipo) && Producto.provincia.includes(this.ciudad) && Producto.titulo.includes(this.busqueda) );
+      this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipodato) && Producto.provincia.includes(this.ciudad) && Producto.titulo.includes(this.busqueda) );
       this.buscador_pagination(this.ProductosPaginacion);
     }
   },

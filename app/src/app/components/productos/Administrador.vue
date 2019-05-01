@@ -47,7 +47,7 @@
                     <div class="form-group row">
                         <div class="col">
                           <label for="sel1">Tipo de producto:</label>
-                          <select class="form-control" id="product" name="product" v-model="tipo" style="height: 40px;">
+                          <select class="form-control" id="provin" name="provincia" v-model="tipo" style="height: 40px;">
                               <option value="0"></option>
                               <option value="clases">Clases Particulares</option>
                               <option value="apuntes">Apuntes</option>
@@ -134,7 +134,7 @@
                         </select>
                       </div>
                       <div class="col">
-                        <select class="custom-select" id="city" v-model="tipo" value=""  @change="buscarProducto" v-on:click="resetpag">
+                        <select class="custom-select" id="city" v-model="tipodato" value=""  @change="buscarProducto" v-on:click="resetpag">
                           <option value="">Todos</option>
                           <option value="noticias">Noticias</option>
                           <option value="clases">Clases Particulares</option>
@@ -245,7 +245,7 @@ export default {
       ProductosPaginacion: [],
       Paginacion: [],
       ciudad: '',
-      tipo: '',
+      tipodato: '',
       numeropagina: 1,
       tampagina: '10',
       numero: '',
@@ -411,7 +411,7 @@ export default {
   },
   computed:  {
     buscarProducto() {
-      this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipo) && Producto.provincia.includes(this.ciudad) && Producto.titulo.includes(this.busqueda) );
+      this.ProductosPaginacion = this.Paginacion.filter(Producto => Producto.tipo.includes(this.tipodato) && Producto.provincia.includes(this.ciudad) && Producto.titulo.includes(this.busqueda) );
       this.buscador_pagination(this.ProductosPaginacion);
     }
   },
